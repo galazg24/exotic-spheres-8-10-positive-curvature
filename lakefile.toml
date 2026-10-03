@@ -1,0 +1,23 @@
+name = "ExoticSpheres8And10"
+version = "1.0.0"
+defaultTargets = ["ExoticSpheres8And10"]
+
+[leanOptions]
+pp.unicode.fun = true
+autoImplicit = false
+relaxedAutoImplicit = false
+
+[[require]]
+name = "mathlib"
+scope = "leanprover-community"
+rev = "v4.33.1"
+
+# The formalisation itself.
+[[lean_lib]]
+name = "ExoticSpheres8And10"
+
+# General Riemannian geometry used by the formalisation: Levi-Civita connection, curvature,
+# sectional curvature, Riemannian submersions and O'Neill's formula. See NOTICE.
+[[lean_lib]]
+name = "RiemannianGeometry"
+leanOptions = { maxSynthPendingDepth = 3, autoImplicit = true, relaxedAutoImplicit = false }
