@@ -91,7 +91,8 @@ The following are **proved**, not assumed:
 
 `SECc_of_theoremA` and `SECc_of_theoremB` connect Corollary C to Theorems A and B. Their
 Sperança hypothesis is that **some** smooth star quotient `p : E → Q` has `Rep Q g`, which is
-[Sp, Theorem 1]: the quotient manifold `E/S³_⋆` is diffeomorphic to the exotic sphere. Theorems A
+[Sp, Theorem 1, p. 3182]: the quotient manifold `E/S³_⋆` is the exotic sphere, as a smooth
+manifold (its differentiable structure is identified through plumbings in [Sp, §3]). Theorems A
 and B put the metric on that `Q` itself, so `Rep` is never transferred between manifolds.
 
 ## 2. Item by item
@@ -121,7 +122,7 @@ and B put the metric on that `Q` itself, so `Rep` is never transferred between m
 | `rem:general_bound` | `remark_general_bound_RW` (`Curvature.DHZ`); [DHZ] Prop. 5.1 as `dhz_prop51` | K\* (RW) |
 | `eq:rho8`, `eq:rho10`, `e₈`, `e₁₀` as star representations | `rep8`, `rep10` (`Main.Representations`) | K |
 | `E¹¹`, `E¹³` are star bundles ([Sp]) | hypothesis `B : StarBundle rep8 E` (resp. `rep10`) | I |
-| `thm:speranca` ([Sp, Theorem 1]) | hypothesis of `SECc_of_theoremA`/`B`: some smooth star quotient `p : E → Q` has `Rep Q g` | I |
+| `thm:speranca` ([Sp, Theorem 1, p. 3182]) | hypothesis of `SECc_of_theoremA`/`B`: some smooth star quotient `p : E → Q` has `Rep Q g` | I |
 | `prop:polar`, "consequently `E/S³_⋆ ≅ P_θ/S³_⋆`", as smooth manifolds | `polarModelA`, `polarModelB`, `isSmoothStarQuotient_starQuotMap`, `IsSmoothStarQuotient.diffeomorph` (`StarBundles.SmoothQuotient`) | K |
 | Proof of Theorems A and B: the metric on `E/S³_⋆` | `HasPosCurvMetric.of_diffeomorph` (`Geometry.DiffeoTransport`) | K |
 | Theorems A and B | `theoremA`, `theoremB` | K\* (RW, [Sp]) |
@@ -133,7 +134,7 @@ and B put the metric on that `Q` itself, so `Rep` is never transferred between m
 | Input | Lean hypothesis | Used by |
 |---|---|---|
 | [RW] Theorem A(i), in the form of `prop:gluing` | `hRW : RWGluing … (QuotSpace D)`; in `theoremA`/`B` for every polar model `D` with `D.ρ = ρ` | `hly_general`, `theoremA`, `theoremB`, `remark_general_bound_RW` |
-| [Sp, Theorem 1]: `E¹¹` (resp. `E¹³`) is a star bundle for `ρ₈` (resp. `ρ₁₀`) whose quotient manifold `E/S³_⋆` is diffeomorphic to the exotic 8-sphere (resp. a generator of the order-three subgroup of `Θ₁₀`) | `B : StarBundle rep8 E` (resp. `rep10`); in `SECc_of_theoremA`/`B`, `∃ Q (p : E → Q), IsSmoothStarQuotient B p ∧ Rep Q g`. Read through [Lee, Cor. 21.6, Thms 21.10, 4.29] (section 1) | Theorems A, B; Corollary C |
+| [Sp, Theorem 1, p. 3182]: `E¹¹` (resp. `E¹³`) is a star bundle for `ρ₈` (resp. `ρ₁₀`) whose quotient manifold `E/S³_⋆` is the only exotic 8-sphere (resp. a generator of the order-3 group of homotopy 10-spheres which bound spin manifolds, the order-three subgroup of `Θ₁₀`) | `B : StarBundle rep8 E` (resp. `rep10`); in `SECc_of_theoremA`/`B`, `∃ Q (p : E → Q), IsSmoothStarQuotient B p ∧ Rep Q g`. Read through [Lee, Cor. 21.6, Thms 21.10, 4.29] (section 1) | Theorems A, B; Corollary C |
 | [KM]: `Θ₈ ≅ ℤ/2`, `Θ₁₀ ≅ ℤ/6`; the standard sphere represents `0` | `eΘ : Θ ≃+ ZMod 2` (resp. `ZMod 6`), `hround : Rep (Sph n) 0` | Corollary C |
 | [Hi]: `α` is nonzero and vanishes under positive scalar curvature | `hα : α ≠ 0`, `hHitchin : ∀ x, PSCc Rep x → α x = 0` | Corollary C (dimension 10) |
 | Orientation reversal negates the class | `hneg : Rep M x → Rep M (−x)` | Corollary C (dimension 10) |

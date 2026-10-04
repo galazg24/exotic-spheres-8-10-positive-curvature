@@ -81,12 +81,14 @@ of the theorems that use it, never as an axiom:
 | Input | Reference | Lean form |
 |---|---|---|
 | The gluing theorem for positive curvature | [RW] Theorem A(i) | hypothesis `RWGluing` |
-| `E¹¹`, `E¹³` are special `S³`-`S³` bundles whose quotient manifolds `E/S³_⋆` are diffeomorphic to the exotic 8-sphere, resp. a generator of the order-three subgroup of `Θ₁₀` | [Sp] Theorem 1 | hypothesis `B : StarBundle rep8 E` (resp. `rep10`); in `SECc_of_theoremA`/`B`, the hypothesis that some smooth star quotient `p : E → Q` (`IsSmoothStarQuotient`) has `Rep Q g` |
+| `E¹¹`, `E¹³` are special `S³`-`S³` bundles whose quotient manifolds `E/S³_⋆` are the only exotic 8-sphere, resp. a generator of the order-3 group of homotopy 10-spheres which bound spin manifolds (the order-three subgroup of `Θ₁₀`) | [Sp] Theorem 1 (p. 3182) | hypothesis `B : StarBundle rep8 E` (resp. `rep10`); in `SECc_of_theoremA`/`B`, the hypothesis that some smooth star quotient `p : E → Q` (`IsSmoothStarQuotient`) has `Rep Q g` |
 | `Θ₈ ≅ ℤ/2`, `Θ₁₀ ≅ ℤ/6`; the standard sphere represents `0` | [KM] | interface `RepRel`, hypothesis `hround` |
 | `α : Θ₁₀ → ℤ/2` is nonzero and vanishes on manifolds of positive scalar curvature | [Hi] | hypotheses `hα`, `hHitchin` |
 | Reversing orientation negates the class in `Θ₁₀` | standard | hypothesis `hneg` |
 
-**Reading [Sp] in Lean.** Sperança's Theorem 1 is about the quotient manifold `E/S³_⋆`. Three
+**Reading [Sp] in Lean.** Sperança's Theorem 1 [Sp, p. 3182] is about the quotient manifold
+`E/S³_⋆`: it says that the quotient *is* the exotic sphere, as a smooth manifold, and its
+differentiable structure is identified through plumbings in [Sp, §3]. Three
 standard facts from [Lee], not formalised here, show that this manifold is a smooth star quotient
 in the sense of `IsSmoothStarQuotient`:
 - the action of the compact group `S³` is proper [Lee, Cor. 21.6];
@@ -198,7 +200,7 @@ GitHub runner.
 - **[RW]** P. Reiser and D. J. Wraith, *A generalization of the Perelman gluing theorem and
   applications*, arXiv:2308.06996, 2024.
 - **[Sp]** L. D. Sperança, *Pulling back the Gromoll–Meyer construction and models of exotic
-  spheres*, Proc. Amer. Math. Soc. 144 (2016), 3181–3196.
+  spheres*, Proc. Amer. Math. Soc. 144 (2016), no. 7, 3181–3196, doi:10.1090/proc/12945.
 
 ## Licence and citation
 

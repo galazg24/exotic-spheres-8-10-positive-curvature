@@ -23,6 +23,8 @@ Repair of the smooth identification of `E/S³_⋆`, after the independent audit 
   homeomorphism with the orbit space.
 - `CITATION.cff`: version `1.0.0-rc3`. `date-released` is not set for a release candidate; the
   candidate's freeze date is recorded by its annotated tag.
+- [Sp] is cited from the published version, Proc. Amer. Math. Soc. 144 (2016), Theorem 1 on
+  p. 3182 (doi:10.1090/proc/12945), with its wording for the 10-dimensional class.
 - Citations: the standard quotient-manifold facts used to read Sperança's theorem are cited from
   [Lee] (Cor. 21.6, Thms 21.10, 4.29; Thm 4.31 for the uniqueness proved here).
 - Axiom audit: 785 entries, 785 distinct declarations (11 new).
