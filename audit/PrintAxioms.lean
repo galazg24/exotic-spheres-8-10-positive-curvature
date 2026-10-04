@@ -741,6 +741,18 @@ Every theorem below must depend only on `propext`, `Classical.choice`, `Quot.sou
 #print axioms ExoticSpheres8And10.norm_KY_le
 #print axioms ExoticSpheres8And10.theoremA
 #print axioms ExoticSpheres8And10.theoremB
+-- Smooth bridge: E/S³_⋆ as a smooth manifold; positive curvature transported along diffeomorphisms
+#print axioms ExoticSpheres8And10.isSymm_pullbackForm
+#print axioms ExoticSpheres8And10.isPosDef_pullbackForm
+#print axioms ExoticSpheres8And10.mpullback_symm_apply_self
+#print axioms ExoticSpheres8And10.isContMDiffMetricSection_pullbackForm
+#print axioms ExoticSpheres8And10.HasPosCurvMetric.of_diffeomorph
+#print axioms ExoticSpheres8And10.StarBundle.isSmoothStarQuotient_starQuotMap
+#print axioms ExoticSpheres8And10.StarBundle.IsSmoothStarQuotient.lift_comp
+#print axioms ExoticSpheres8And10.StarBundle.IsSmoothStarQuotient.diffeomorph
+#print axioms ExoticSpheres8And10.StarBundle.IsSmoothStarQuotient.diffeomorph_comp
+#print axioms ExoticSpheres8And10.polarModelA
+#print axioms ExoticSpheres8And10.polarModelB
 #print axioms ExoticSpheres8And10.corollaryC_dim10
 #print axioms ExoticSpheres8And10.corollaryC_dim8
 #print axioms ExoticSpheres8And10.corollaryC_dim10_satisfiable
