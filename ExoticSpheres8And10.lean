@@ -115,6 +115,8 @@ import ExoticSpheres8And10.Curvature.Gluing.RWDatum
 import ExoticSpheres8And10.Curvature.Gluing.RWHypotheses
 import ExoticSpheres8And10.Curvature.HLYGeneral
 import ExoticSpheres8And10.ActionField.Bridge
+import ExoticSpheres8And10.Geometry.DiffeoTransport
+import ExoticSpheres8And10.StarBundles.SmoothQuotient
 import ExoticSpheres8And10.Main.TheoremsAB
 import ExoticSpheres8And10.Main.CorollaryCLogic
 import ExoticSpheres8And10.Curvature.RemarkGeneralBound

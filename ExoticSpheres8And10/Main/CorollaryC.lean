@@ -26,7 +26,12 @@ Inputs that remain, all as named hypotheses:
 - Kervaire–Milnor: `Θ ≃+ ℤ/6` (resp. `ℤ/2`), `Rep`, and `Rep Sⁿ 0`;
 - Hitchin: `PSCc x → α x = 0`, with `α ≠ 0`;
 - orientation reversal is negation: `Rep M x → Rep M (−x)` (an imported input);
-- Sperança: the star quotient represents a generator `g` (`SECc_of_theoremB`, with RW).
+- Sperança's Theorem 1: the quotient manifold `E/S³_⋆` of the special bundle represents `g`. In
+  `SECc_of_theoremA` and `SECc_of_theoremB` this is the hypothesis that **some smooth star
+  quotient** `p : E → Q` (`IsSmoothStarQuotient`) has `Rep Q g`. All smooth star quotients are
+  diffeomorphic to `E/S³_⋆` (`IsSmoothStarQuotient.diffeomorph`), so the hypothesis says no more
+  than Sperança's diffeomorphism. `theoremA`/`theoremB` then put a metric of positive sectional
+  curvature on that `Q` itself, so no transfer of `Rep` between manifolds is needed.
 -/
 
 open RiemannianGeometry
@@ -99,35 +104,35 @@ section FromTheorems
 
 variable {E : Type} [TopologicalSpace E]
 
-/-- **`SEC g` from Theorem B**, given RW and Sperança's identification of the star quotient. -/
+/-- **`SEC g` from Theorem B**, given RW and Sperança's Theorem 1 in the form: some smooth quotient
+`p : E → Q` of `E¹³` by the star action (the quotient manifold `E¹³/S³_⋆`) represents `g`. -/
 theorem SECc_of_theoremB
     [ChartedSpace (ModelProd (EuclideanSpace ℝ (Fin (9 + 1))) (EuclideanSpace ℝ (Fin 3))) E]
     [IsManifold (IP 9) ∞ E] [T2Space E] (B : StarBundle (m := 9) rep10 E)
     (Rep : RepRel (9 + 1) Θ) (g : Θ) :
     letI := rep10.factVs 9
-    (∀ D : PolarData (m := 9) e10, RWGluing (𝓡 (9 + 1)) (QuotSpace D)) →
-    (∀ D : PolarData (m := 9) e10, D.ρ = rep10.ρ →
-      Nonempty (Quotient (EquivSections.starSetoid B) ≃ₜ QuotSpace D) → Rep (QuotSpace D) g) →
+    (∀ D : PolarData (m := 9) e10, D.ρ = rep10.ρ → RWGluing (𝓡 (9 + 1)) (QuotSpace D)) →
+    (∃ (Q : Type) (_ : TopologicalSpace Q) (_ : ChartedSpace (EuclideanSpace ℝ (Fin (9 + 1))) Q)
+      (_ : IsManifold (𝓡 (9 + 1)) ∞ Q) (p : E → Q), B.IsSmoothStarQuotient (m := 9) p ∧ Rep Q g) →
     SECc Rep g := by
   letI := rep10.factVs 9
-  intro hRW hSp
-  obtain ⟨D, hD, hq, hpos⟩ := theoremB B
-  exact ⟨QuotSpace D, inferInstance, inferInstance, inferInstance, hSp D hD hq, hpos (hRW D)⟩
+  rintro hRW ⟨Q, i1, i2, i3, p, hp, hR⟩
+  exact ⟨Q, i1, i2, i3, hR, theoremB B p hp hRW⟩
 
-/-- **`SEC g` from Theorem A**, given RW and Sperança's identification of the star quotient. -/
+/-- **`SEC g` from Theorem A**, given RW and Sperança's Theorem 1 in the form: some smooth quotient
+`p : E → Q` of `E¹¹` by the star action (the quotient manifold `E¹¹/S³_⋆`) represents `g`. -/
 theorem SECc_of_theoremA
     [ChartedSpace (ModelProd (EuclideanSpace ℝ (Fin (7 + 1))) (EuclideanSpace ℝ (Fin 3))) E]
     [IsManifold (IP 7) ∞ E] [T2Space E] (B : StarBundle (m := 7) rep8 E)
     (Rep : RepRel (7 + 1) Θ) (g : Θ) :
     letI := rep8.factVs 7
-    (∀ D : PolarData (m := 7) e8, RWGluing (𝓡 (7 + 1)) (QuotSpace D)) →
-    (∀ D : PolarData (m := 7) e8, D.ρ = rep8.ρ →
-      Nonempty (Quotient (EquivSections.starSetoid B) ≃ₜ QuotSpace D) → Rep (QuotSpace D) g) →
+    (∀ D : PolarData (m := 7) e8, D.ρ = rep8.ρ → RWGluing (𝓡 (7 + 1)) (QuotSpace D)) →
+    (∃ (Q : Type) (_ : TopologicalSpace Q) (_ : ChartedSpace (EuclideanSpace ℝ (Fin (7 + 1))) Q)
+      (_ : IsManifold (𝓡 (7 + 1)) ∞ Q) (p : E → Q), B.IsSmoothStarQuotient (m := 7) p ∧ Rep Q g) →
     SECc Rep g := by
   letI := rep8.factVs 7
-  intro hRW hSp
-  obtain ⟨D, hD, hq, hpos⟩ := theoremA B
-  exact ⟨QuotSpace D, inferInstance, inferInstance, inferInstance, hSp D hD hq, hpos (hRW D)⟩
+  rintro hRW ⟨Q, i1, i2, i3, p, hp, hR⟩
+  exact ⟨Q, i1, i2, i3, hR, theoremA B p hp hRW⟩
 
 end FromTheorems
 
