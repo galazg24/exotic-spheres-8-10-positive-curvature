@@ -2,8 +2,8 @@ cff-version: 1.2.0
 message: "If you use this formalisation, please cite it as below, together with the accompanying paper."
 title: "Positive sectional curvature on exotic spheres in dimensions 8 and 10: a Lean formalisation"
 type: software
-version: "1.0.0-rc1"
-date-released: "2026-10-03"
+version: "1.0.0-rc3"
+date-released: "2026-10-04"
 license: Apache-2.0
 repository-code: "https://github.com/galazg24/exotic-spheres-8-10-positive-curvature"
 authors:
