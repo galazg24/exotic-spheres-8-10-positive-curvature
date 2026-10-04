@@ -18,7 +18,13 @@ Repair of the smooth identification of `E/S³_⋆`, after the independent audit 
   model homeomorphic to the orbit space, which was stronger than the published result.
 - The RW hypothesis of `SECc_of_theoremA`/`B` is restricted to polar models with the given
   representation.
-- `CITATION.cff`: version `1.0.0-rc3`.
+- `remark_general_bound` and `remark_general_bound_RW` ([GG] `rem:general_bound`) likewise record
+  that their polar model is a smooth star quotient of `E`. They previously recorded only a
+  homeomorphism with the orbit space.
+- `CITATION.cff`: version `1.0.0-rc3`. `date-released` is not set for a release candidate; the
+  candidate's freeze date is recorded by its annotated tag.
+- Citations: the standard quotient-manifold facts used to read Sperança's theorem are cited from
+  [Lee] (Cor. 21.6, Thms 21.10, 4.29; Thm 4.31 for the uniqueness proved here).
 - Axiom audit: 785 entries, 785 distinct declarations (11 new).
 
 ## v1.0.0-rc2-audit-source (2026-10-04)

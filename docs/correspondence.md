@@ -53,10 +53,14 @@ How to read the objects in this statement:
     spheres are homeomorphic to the standard sphere.
 - **`IsSmoothStarQuotient B p`** (`StarBundles.SmoothQuotient`): `p : E → Q` is smooth and
   surjective onto an `n`-manifold (`n = 8, 10`), its fibres are the star orbits, and `f : Q → N` is smooth iff
-  `f ∘ p` is. The quotient manifold `E/S³_⋆` of the free smooth action satisfies this: its
-  projection is a surjective submersion (Lee, *Introduction to Smooth Manifolds*, 2nd ed.,
-  Thm 21.10), and smoothness descends along surjective submersions (ibid., Thm 4.29). Any two
-  smooth star quotients are diffeomorphic, so the notion picks out `E/S³_⋆` up to diffeomorphism.
+  `f ∘ p` is. The quotient manifold `E/S³_⋆` of the free smooth action satisfies this. The
+  action of the compact group `S³` is proper [Lee, Cor. 21.6], so `E/S³_⋆` has a unique smooth
+  structure for which the projection is a smooth submersion [Lee, Thm 21.10]. Smoothness
+  descends along surjective smooth submersions [Lee, Thm 4.29]. These three facts are not
+  formalised, and are used only to read the Sperança input. Any two smooth star quotients are
+  diffeomorphic (`IsSmoothStarQuotient.diffeomorph`, the counterpart of [Lee, Thm 4.31], proved
+  here without assuming that the projection is a submersion). So the notion picks out
+  `E/S³_⋆` up to diffeomorphism.
 - **`HasPosCurvMetric I M`** means: there is a smooth (`C^∞`) Riemannian metric on `M`
   (symmetric, positive definite, a smooth section) whose sectional curvature is positive on
   every 2-plane. Sectional curvature is `sectionalCurvatureAt` of `RiemannianGeometry`, which is
@@ -129,7 +133,7 @@ and B put the metric on that `Q` itself, so `Rep` is never transferred between m
 | Input | Lean hypothesis | Used by |
 |---|---|---|
 | [RW] Theorem A(i), in the form of `prop:gluing` | `hRW : RWGluing … (QuotSpace D)`; in `theoremA`/`B` for every polar model `D` with `D.ρ = ρ` | `hly_general`, `theoremA`, `theoremB`, `remark_general_bound_RW` |
-| [Sp, Theorem 1]: `E¹¹` (resp. `E¹³`) is a star bundle for `ρ₈` (resp. `ρ₁₀`) whose quotient manifold `E/S³_⋆` is diffeomorphic to the exotic 8-sphere (resp. a generator of the order-three subgroup of `Θ₁₀`) | `B : StarBundle rep8 E` (resp. `rep10`); in `SECc_of_theoremA`/`B`, `∃ Q (p : E → Q), IsSmoothStarQuotient B p ∧ Rep Q g` | Theorems A, B; Corollary C |
+| [Sp, Theorem 1]: `E¹¹` (resp. `E¹³`) is a star bundle for `ρ₈` (resp. `ρ₁₀`) whose quotient manifold `E/S³_⋆` is diffeomorphic to the exotic 8-sphere (resp. a generator of the order-three subgroup of `Θ₁₀`) | `B : StarBundle rep8 E` (resp. `rep10`); in `SECc_of_theoremA`/`B`, `∃ Q (p : E → Q), IsSmoothStarQuotient B p ∧ Rep Q g`. Read through [Lee, Cor. 21.6, Thms 21.10, 4.29] (section 1) | Theorems A, B; Corollary C |
 | [KM]: `Θ₈ ≅ ℤ/2`, `Θ₁₀ ≅ ℤ/6`; the standard sphere represents `0` | `eΘ : Θ ≃+ ZMod 2` (resp. `ZMod 6`), `hround : Rep (Sph n) 0` | Corollary C |
 | [Hi]: `α` is nonzero and vanishes under positive scalar curvature | `hα : α ≠ 0`, `hHitchin : ∀ x, PSCc Rep x → α x = 0` | Corollary C (dimension 10) |
 | Orientation reversal negates the class | `hneg : Rep M x → Rep M (−x)` | Corollary C (dimension 10) |

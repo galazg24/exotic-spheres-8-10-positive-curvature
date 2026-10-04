@@ -21,8 +21,10 @@ The remark's own content is kernel-checked:
 * `sigmaV_eq_J`: `σ_{ρ,θ}(x) = ρ(β(x))x = J_β(x)`, with `σ` the attaching map of
   `lem:attaching` (`polarX_κS`);
 * **`remark_general_bound`**: for every star bundle and every representation, with no bound on
-  `K`, `E/S³_⋆ ≃ₜ QuotSpace D` for a polar datum `D = polarOf β`. Given the cited input,
-  `QuotSpace D` carries a smooth metric of positive sectional curvature.
+  `K`, the polar model `QuotSpace D`, for a polar datum `D = polarOf β`, is a smooth quotient
+  of `E` by the star action (`IsSmoothStarQuotient`), so it is the smooth manifold `E/S³_⋆` up to
+  diffeomorphism. Given the cited input, `QuotSpace D` carries a smooth metric of positive
+  sectional curvature.
 
 The cited input is **[DHZ] Prop. 5.1 combined with RW**. It enters as the named hypothesis
 `DHZGluing R`: for every smooth conjugation-equivariant `β`, the manifold glued along `J_β`
@@ -114,14 +116,14 @@ variable {m : ℕ} {W : Type} [NormedAddCommGroup W] [InnerProductSpace ℝ W]
 
 /-- **[GG] Remark `rem:general_bound`.** For every star bundle `E`, with an arbitrary
 representation and no bound on `K`:
-- `E/S³_⋆ ≃ₜ QuotSpace D` for a polar datum `D` whose attaching map is `J_β`, `β = θ⁻¹`
-  smooth and conjugation-equivariant;
+- the polar model `QuotSpace D` is a smooth quotient of `E` by the star action, for a polar
+  datum `D` whose attaching map is `J_β`, `β = θ⁻¹` smooth and conjugation-equivariant;
 - given [DHZ] Prop. 5.1 + RW (`DHZGluing`), `QuotSpace D` carries a smooth metric with
   `sec > 0`. -/
 theorem remark_general_bound (B : StarBundle (m := m) R E) :
     letI := R.factVs m
     ∃ D : PolarData (m := m) e, D.ρ = R.ρ ∧
-      Nonempty (Quotient (EquivSections.starSetoid B) ≃ₜ QuotSpace D) ∧
+      (∃ p : E → QuotSpace D, B.IsSmoothStarQuotient p) ∧
       (∃ (β : Metric.sphere (0 : Vs e) 1 → S3) (hβs : ContMDiff (𝓡 m) (𝓡 3) ∞ β)
         (hβe : ∀ (q : S3) (y y' : Metric.sphere (0 : Vs e) 1),
           ((y' : Vs e) : W) = R.ρ q ((y : Vs e) : W) → β y' = q * β y * q⁻¹),
@@ -129,9 +131,11 @@ theorem remark_general_bound (B : StarBundle (m := m) R E) :
         ∀ y, ((D.sigmaV y : Vs e) : W) = R.ρ (β y) ((y : Vs e) : W)) ∧
       (DHZGluing (m := m) R → HasPosCurvMetric (𝓡 (m + 1)) (QuotSpace D)) := by
   letI := R.factVs m
-  obtain ⟨D, hD, -, -, -, -, ⟨hq⟩⟩ := B.prop_polar
+  obtain ⟨D, hD, hp⟩ : ∃ D : PolarData (m := m) e, D.ρ = R.ρ ∧
+      ∃ p : E → QuotSpace D, B.IsSmoothStarQuotient p :=
+    ⟨B.equivSections.polarData, rfl, B.starQuotMap, B.isSmoothStarQuotient_starQuotMap⟩
   obtain ⟨hβs, hβe, hpol⟩ := polarOf_inv R D hD
-  refine ⟨D, hD, ⟨hq.trans D.orbitSpaceHomeo⟩,
+  refine ⟨D, hD, hp,
     ⟨fun y => (D.θ y)⁻¹, hβs, hβe, hpol, fun y => ?_⟩, fun hDHZ => ?_⟩
   · rw [← sigmaV_eq_J R _ hβs hβe y, hpol]
   · have h := hDHZ (fun y => (D.θ y)⁻¹) hβs hβe

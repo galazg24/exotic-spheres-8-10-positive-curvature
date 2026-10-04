@@ -95,18 +95,21 @@ variable {m : ℕ} {W : Type} [NormedAddCommGroup W] [InnerProductSpace ℝ W]
   [IsManifold (IP m) ∞ E] [T2Space E]
 
 /-- **[GG] `rem:general_bound`, with Reiser–Wraith as the only input.** For every star bundle,
-with any representation and no bound on `K`, `E/S³_⋆ ≃ₜ QuotSpace D`, and `QuotSpace D`
+with any representation and no bound on `K`, the polar model `QuotSpace D` is a smooth quotient
+of `E` by the star action (`IsSmoothStarQuotient`), and `QuotSpace D`
 carries a smooth metric of positive sectional curvature, given RW. -/
 theorem remark_general_bound_RW (B : StarBundle (m := m) R E) :
     letI := R.factVs m
     ∃ D : PolarData (m := m) e, D.ρ = R.ρ ∧
-      Nonempty (Quotient (EquivSections.starSetoid B) ≃ₜ QuotSpace D) ∧
+      (∃ p : E → QuotSpace D, B.IsSmoothStarQuotient p) ∧
       Nonempty (RWData (𝓡 (m + 1)) (QuotSpace D)) ∧
       (RWGluing (𝓡 (m + 1)) (QuotSpace D) → HasPosCurvMetric (𝓡 (m + 1)) (QuotSpace D)) := by
   letI := R.factVs m
-  obtain ⟨D, hD, -, -, -, -, ⟨hq⟩⟩ := B.prop_polar
+  obtain ⟨D, hD, hp⟩ : ∃ D : PolarData (m := m) e, D.ρ = R.ρ ∧
+      ∃ p : E → QuotSpace D, B.IsSmoothStarQuotient p :=
+    ⟨B.equivSections.polarData, rfl, B.starQuotMap, B.isSmoothStarQuotient_starQuotMap⟩
   obtain ⟨L, hL, hK⟩ := exists_K_bound D
-  exact ⟨D, hD, ⟨hq.trans D.orbitSpaceHomeo⟩, exists_rwData_L D L hL hK,
+  exact ⟨D, hD, hp, exists_rwData_L D L hL hK,
     fun hRW => hly_general_L D L hL hK hRW⟩
 
 /-- **Non-vacuity**: the remark applies to a star bundle for `ρ₈`. -/

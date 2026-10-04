@@ -11,6 +11,8 @@ elements of order three in `Θ₁₀ ≅ ℤ/6`, admit Riemannian metrics of str
 sectional curvature. Every argument specific to [GG] is formalised and checked by Lean's kernel.
 Five previously published results used by [GG] are not formalised; instead they enter the
 relevant Lean theorems as explicit, named hypotheses (see [What is assumed](#what-is-assumed)).
+Reading one of them, Sperança's, in that form also uses standard facts about quotient manifolds
+from [Lee], which are not formalised either.
 
 - Library: `ExoticSpheres8And10` (about 37,000 lines, 2,800 declarations), together with
   `RiemannianGeometry` (about 15,000 lines: Levi-Civita connection, curvature, Riemannian
@@ -84,11 +86,20 @@ of the theorems that use it, never as an axiom:
 | `α : Θ₁₀ → ℤ/2` is nonzero and vanishes on manifolds of positive scalar curvature | [Hi] | hypotheses `hα`, `hHitchin` |
 | Reversing orientation negates the class in `Θ₁₀` | standard | hypothesis `hneg` |
 
-Stating [Sp] for a smooth star quotient uses only standard facts about quotient manifolds. The
-projection of the free smooth action of `S³_⋆` is a surjective submersion, and smoothness
-descends along surjective submersions [Lee, Thms 21.10 and 4.29]. So Sperança's quotient
-manifold is a smooth star quotient. All smooth star quotients of `E` are diffeomorphic to one
-another, and this is proved here (`IsSmoothStarQuotient.diffeomorph`).
+**Reading [Sp] in Lean.** Sperança's Theorem 1 is about the quotient manifold `E/S³_⋆`. Three
+standard facts from [Lee], not formalised here, show that this manifold is a smooth star quotient
+in the sense of `IsSmoothStarQuotient`:
+- the action of the compact group `S³` is proper [Lee, Cor. 21.6];
+- the orbit space of a free, proper smooth action has a unique smooth structure for which the
+  projection is a smooth submersion [Lee, Thm 21.10, Quotient Manifold Theorem];
+- a map out of the target of a surjective smooth submersion is smooth iff its composite with the
+  submersion is [Lee, Thm 4.29, Characteristic Property of Surjective Smooth Submersions].
+
+These facts are used only to read the Sperança input. No Lean theorem assumes them. The
+uniqueness of smooth quotients (the counterpart of [Lee, Thm 4.31]) is proved here, for smooth
+star quotients, without assuming that the projection is a submersion
+(`IsSmoothStarQuotient.diffeomorph`). So is the transport of the metric along diffeomorphisms
+(`HasPosCurvMetric.of_diffeomorph`).
 
 The rest of [GG] is proved here. That includes the smooth identification of the polar model with
 `E/S³_⋆` and the transport of the metric along diffeomorphisms, and [HLY] Proposition 3.1 in the

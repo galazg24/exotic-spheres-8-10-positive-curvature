@@ -15,16 +15,19 @@ with a map `p : E → Q` such that
 * smoothness descends along `p`: a map `f : Q → N` to a smooth manifold is smooth iff `f ∘ p` is.
 
 The quotient manifold `E/S³_⋆` of the free smooth action of `S³_⋆` (the manifold in Sperança's
-Theorem 1) is a smooth star quotient: its projection is a surjective submersion (the quotient
-manifold theorem, e.g. J. M. Lee, *Introduction to Smooth Manifolds*, 2nd ed., Thm 21.10), and
-smoothness descends along surjective submersions (ibid., Thm 4.29).
+Theorem 1) is a smooth star quotient. In J. M. Lee, *Introduction to Smooth Manifolds*, 2nd ed.:
+the action of the compact group `S³` is proper (Cor. 21.6); so `E/S³_⋆` has a unique smooth
+structure for which the projection is a smooth submersion (Thm 21.10, Quotient Manifold
+Theorem); and smoothness descends along a surjective smooth submersion (Thm 4.29). These facts
+are not formalised; they are used only to read Sperança's theorem in this form.
 
 * **`isSmoothStarQuotient_starQuotMap`**: the polar model `QuotSpace D` of `prop:polar`, with
   `starQuotMap : E → QuotSpace D`, is a smooth star quotient.
 * **`IsSmoothStarQuotient.diffeomorph`**: any two smooth star quotients are diffeomorphic, by a
-  diffeomorphism commuting with the projections (`IsSmoothStarQuotient.diffeomorph_comp`). So
-  the notion determines the smooth manifold `E/S³_⋆` up to diffeomorphism, and the polar model
-  is that manifold.
+  diffeomorphism commuting with the projections (`IsSmoothStarQuotient.diffeomorph_comp`); the
+  counterpart of Lee's Thm 4.31 (Uniqueness of Smooth Quotients), proved here without assuming
+  that the projections are submersions. So the notion determines the smooth manifold `E/S³_⋆` up
+  to diffeomorphism, and the polar model is that manifold.
 
 A homeomorphism `E/S³_⋆ ≃ₜ QuotSpace D` alone would not identify the smooth structures: exotic
 spheres are homeomorphic to the standard sphere.
