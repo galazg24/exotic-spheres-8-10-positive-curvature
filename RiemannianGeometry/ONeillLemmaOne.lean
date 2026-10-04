@@ -1,8 +1,8 @@
 /-
 Copyright (c) 2026 Fernando Galaz-García. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Fernando Galaz-García (Department of Mathematical Sciences, Durham University),
-Claude Opus 5 (Anthropic), which wrote the Lean under Fernando Galaz-García's supervision
+Authors: Fernando Galaz-García
+Developed with extensive assistance from Claude (Anthropic), used through Claude Code.
 -/
 import RiemannianGeometry.ONeillLemmaTwo
 
@@ -38,7 +38,7 @@ p. 460:
 
 ## Scope: basic fields, not arbitrary horizontal fields
 
-As in `Foundations.ONeillLemmaTwo`, everything is proved for `horizontalLiftField I J f Y`, which
+As in `RiemannianGeometry.ONeillLemmaTwo`, everything is proved for `horizontalLiftField I J f Y`, which
 is **exactly** O'Neill's class of basic fields and not a weakening of it
 (`eq_horizontalLiftField`). No tensoriality reduction from horizontal to basic is available in
 this development, and none is used.
@@ -53,7 +53,7 @@ below with no annotation, no `letI`, and no reshaping; in particular
 `IsMDiffMetric E' (tangentMetric J B)`, `isSymm_tangentMetric` and
 `isNondegenerate_tangentMetric` all resolve on `B` from the section variables alone, and both
 `Bundle.RiemannianBundle` instances coexist without the fibrewise `InnerProductSpace` ambiguity
-that Rule 1 of `Foundations.HorizontalSpace` guards against.
+that Rule 1 of `RiemannianGeometry.HorizontalSpace` guards against.
 
 ## The proof of Lemma 1(3), and where nondegeneracy is applied
 
@@ -106,7 +106,7 @@ with the same hypotheses and the same `omit` list. It **should be deleted** and 
 `ONeillLemmaTwo` consumes it internally, the general form has to be available upstream: the two
 D1 lemmas use only `horizontalLiftField_mem`, `mfderiv_horizontalLiftField` and
 `inner_eq_tangentMetric`, so they belong in the `Base` section of
-`Foundations/HorizontalLift.lean`, ahead of `ONeillTensors`. With them there, the replacement
+`RiemannianGeometry/HorizontalLift.lean`, ahead of `ONeillTensors`. With them there, the replacement
 proof term for the diagonal statement is
 
     tangentMetric_horizontalLiftField hsub hriem
@@ -117,14 +117,14 @@ statement is identical.
 
 ## Instance notes
 
-Rule 1 of `Foundations.HorizontalSpace` is respected: no fibrewise `InnerProductSpace` or
+Rule 1 of `RiemannianGeometry.HorizontalSpace` is respected: no fibrewise `InnerProductSpace` or
 `NormedAddCommGroup` on a tangent space is bound to a local name, no instance is declared, and
 every fibre-valued variable is typed with the `TangentSpace` synonym. `CompleteSpace E`,
 `CompleteSpace E'` and `SeparatingDual ℝ E'`, which `leviCivita` and the bracket lemmas need, are
 found by search from `FiniteDimensional ℝ E`, `FiniteDimensional ℝ E'` and the real base field.
 
 Everything metric-valued is written with `tangentMetric`, never `inner ℝ`, following
-`Foundations.ONeillTensors`. The single crossing point is inside
+`RiemannianGeometry.ONeillTensors`. The single crossing point is inside
 `tangentMetric_horizontalLiftField_apply`, where `IsRiemannianSubmersionAtPoint` — phrased with
 `inner ℝ` — is consumed, and it is crossed by `inner_eq_tangentMetric`.
 -/

@@ -1,15 +1,15 @@
 /-
 Copyright (c) 2026 Fernando Galaz-García. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Fernando Galaz-García (Department of Mathematical Sciences, Durham University),
-Claude Opus 5.5 (Anthropic), which wrote the Lean under Fernando Galaz-García's supervision
+Authors: Fernando Galaz-García
+Developed with extensive assistance from Claude (Anthropic), used through Claude Code.
 -/
 import ExoticSpheres8And10.ActionField.Chains
 import ExoticSpheres8And10.Curvature.Southern.Gauge
 
 /-! # A3, completed: `Dσ_y = ρ(θ(y)⁻¹)(Id − K_yβ_y)` and the orientation of `σ`
 
-[D] `lem:attaching`, proof: "Differentiating equivariance and the definition of `σ` gives
+[GG] `lem:attaching`, proof: "Differentiating equivariance and the definition of `σ` gives
 `β_yK_y = Id − Ad_{θ(y)}`, `Dσ_y = ρ(θ(y)⁻¹)(Id − K_yβ_y)` [...] `det(Id − K_yβ_y) = det
 Ad_{θ(y)} = 1`. The first factor preserves the ambient orientation and sends the normal `y` to
 `σ(y)`, so `σ` preserves the standard sphere orientation."

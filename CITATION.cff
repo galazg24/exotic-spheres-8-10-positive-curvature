@@ -9,7 +9,7 @@ repository-code: "https://github.com/galazg24/exotic-spheres-8-10-positive-curva
 authors:
   - family-names: "Galaz-García"
     given-names: "Fernando"
-    affiliation: "Department of Mathematical Sciences, Durham University"
+    affiliation: "Durham University"
     orcid: "https://orcid.org/0000-0003-3428-5190"
 keywords:
   - Lean 4
@@ -26,4 +26,4 @@ preferred-citation:
       given-names: "Fernando"
       orcid: "https://orcid.org/0000-0003-3428-5190"
   year: 2026
-  # url: "https://arxiv.org/abs/XXXX.XXXXX"
+  url: "https://arxiv.org/abs/2609.38126"

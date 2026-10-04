@@ -1,14 +1,14 @@
 /-
 Copyright (c) 2026 Fernando Galaz-García. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Fernando Galaz-García (Department of Mathematical Sciences, Durham University),
-Claude Opus 5.5 (Anthropic), which wrote the Lean under Fernando Galaz-García's supervision
+Authors: Fernando Galaz-García
+Developed with extensive assistance from Claude (Anthropic), used through Claude Code.
 -/
 import Mathlib
 
-/-! # A8. Boundary eigenvalue bound ([D] §4.4 "Boundary compatibility")
+/-! # A8. Boundary eigenvalue bound ([GG] §4.4 "Boundary compatibility")
 
-[D]: "If `b_j ∈ [0,4]` are the eigenvalues of `K_y K_y^*`, the eigenvalues of the shape sum
+[GG]: "If `b_j ∈ [0,4]` are the eigenvalues of `K_y K_y^*`, the eigenvalues of the shape sum
 relative to `h` are `r_a²/(r_a²+F_a² b_j) (μ_N − μ_S) ≥ c_B := r_a²/(r_a²+4F_a²) (μ_N − μ_S) > 0`"
 and "`|Y|_h² = |X|² + |U|² ≤ (1 + 4F_a²/r_a²)|X|²`".
 

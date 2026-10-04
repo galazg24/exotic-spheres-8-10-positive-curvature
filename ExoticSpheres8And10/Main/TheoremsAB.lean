@@ -1,12 +1,12 @@
 /-
 Copyright (c) 2026 Fernando Galaz-García. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Fernando Galaz-García (Department of Mathematical Sciences, Durham University),
-Claude Opus 5.5 (Anthropic), which wrote the Lean under Fernando Galaz-García's supervision
+Authors: Fernando Galaz-García
+Developed with extensive assistance from Claude (Anthropic), used through Claude Code.
 -/
 import ExoticSpheres8And10.ActionField.Bridge
 
-/-! # [D] Theorems A and B, modulo the imported inputs
+/-! # [GG] Theorems A and B, modulo the imported inputs
 
 **`theoremA`** (`n = 8`, `ρ₈`). Let `E → S⁸` be a star bundle for `ρ₈`; by Sperança, `E¹¹`
 is one. Then there is a polar datum `D` with:
@@ -39,7 +39,7 @@ local notation "S3" => Metric.sphere (0 : Quaternion ℝ) 1
 
 variable {E : Type} [TopologicalSpace E]
 
-/-- **[D] Theorem A, Lean form.** -/
+/-- **[GG] Theorem A, Lean form.** -/
 theorem theoremA
     [ChartedSpace (ModelProd (EuclideanSpace ℝ (Fin (7 + 1))) (EuclideanSpace ℝ (Fin 3))) E]
     [IsManifold (IP 7) ∞ E] [T2Space E] (B : StarBundle (m := 7) rep8 E) :
@@ -53,7 +53,7 @@ theorem theoremA
   refine norm_KY_le D (Kf := Kf ℝ) (fun ξ hξ y => ?_) (fun y hy ξ => lem_K ℝ y hy ξ)
   rw [hD]; exact hasDerivAt_actionField ℝ hξ y
 
-/-- **[D] Theorem B, Lean form** (`n = 10`, `ρ₁₀`). -/
+/-- **[GG] Theorem B, Lean form** (`n = 10`, `ρ₁₀`). -/
 theorem theoremB
     [ChartedSpace (ModelProd (EuclideanSpace ℝ (Fin (9 + 1))) (EuclideanSpace ℝ (Fin 3))) E]
     [IsManifold (IP 9) ∞ E] [T2Space E] (B : StarBundle (m := 9) rep10 E) :

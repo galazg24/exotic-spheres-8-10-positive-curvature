@@ -1,8 +1,8 @@
 /-
 Copyright (c) 2026 Fernando Galaz-García. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Fernando Galaz-García (Department of Mathematical Sciences, Durham University),
-Claude Opus 5 (Anthropic), which wrote the Lean under Fernando Galaz-García's supervision
+Authors: Fernando Galaz-García
+Developed with extensive assistance from Claude (Anthropic), used through Claude Code.
 -/
 import RiemannianGeometry.LeviCivita
 import RiemannianGeometry.HomBundleFrame
@@ -202,7 +202,7 @@ theorem eq_mfderivAdjoint
 /-! ### Regularity of the adjoint
 
 Nothing here differentiates anything: only the fibrewise composition, inversion and application
-lemmas of `Foundations.HomBundleComp`, `Foundations.HomBundleInverse`, `Foundations.HomBundleFrame`
+lemmas of `RiemannianGeometry.HomBundleComp`, `RiemannianGeometry.HomBundleInverse`, `RiemannianGeometry.HomBundleFrame`
 and Mathlib's `clm_bundle_apply` family are used. The single derivative loss is the one already
 incurred by `contMDiffAt_mfderiv_inCoordinates`. -/
 
@@ -210,7 +210,7 @@ omit [CompleteSpace E] [FiniteDimensional ℝ E] [IsManifold I ∞ M] [CompleteS
   [FiniteDimensional ℝ E'] [IsManifold J ∞ B] in
 /-- Auxiliary: a section of the trivial line bundle along a base map is smooth exactly when the
 underlying scalar function is. (The identity-base-map direction is
-`Foundations.contMDiffAt_trivial_section`.) -/
+`RiemannianGeometry.contMDiffAt_trivial_section`.) -/
 theorem contMDiffAt_scalar_of_trivialSection {n : ℕ∞ω} {c : M → B} {F : M → ℝ} {p : M}
     (h : ContMDiffAt I (J.prod 𝓘(ℝ, ℝ)) n
       (fun z ↦ TotalSpace.mk' ℝ (E := Bundle.Trivial B ℝ) (c z) (F z)) p) :
@@ -222,7 +222,7 @@ omit [CompleteSpace E] [CompleteSpace E'] [FiniteDimensional ℝ E'] in
 /-- **The coadjoint applied to a `C^m` field along `f` is a `C^m` section of `T*M`.**
 
 `z ↦ gB (f z) (W z) ∘L df_z` is a `C^m` section of `Hom(TM, ℝ)`. Proved by the frame test of
-`Foundations.HomBundleFrame`: on the local frame induced by `trivializationAt E (TangentSpace I) p`
+`RiemannianGeometry.HomBundleFrame`: on the local frame induced by `trivializationAt E (TangentSpace I) p`
 its values are the scalars `gB (f z) (W z) (df_z (s_i z))`, which are `C^m` by
 `ContMDiffAt.clm_bundle_apply₂` over the base map `f`. -/
 theorem contMDiffAt_mfderivCoadjoint {m : ℕ∞} {u : Set M} {p : M}

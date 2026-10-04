@@ -1,8 +1,8 @@
 /-
 Copyright (c) 2026 Fernando Galaz-García. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Fernando Galaz-García (Department of Mathematical Sciences, Durham University),
-Claude Opus 5 (Anthropic), which wrote the Lean under Fernando Galaz-García's supervision
+Authors: Fernando Galaz-García
+Developed with extensive assistance from Claude (Anthropic), used through Claude Code.
 -/
 import RiemannianGeometry.HorizontalLift
 import RiemannianGeometry.LeviCivita
@@ -68,7 +68,7 @@ typechecks and is wrong.
 
 `leviCivita` takes its metric as data. Taking that data to be `tangentMetric I M`, the metric
 underlying the ambient `Bundle.RiemannianBundle`, is what makes the horizontal layer of
-`Foundations.HorizontalSpace` and the connection speak about the *same* metric — without it
+`RiemannianGeometry.HorizontalSpace` and the connection speak about the *same* metric — without it
 `𝓗` and `∇` would be unrelated. `inner_eq_tangentMetric` is `rfl`, so the inner-product spelling of
 the horizontal layer and the metric-as-data spelling of the connection are interchangeable, and
 both appear below.

@@ -1,16 +1,16 @@
 # Positive sectional curvature on exotic spheres in dimensions 8 and 10: a Lean formalisation
 
 This repository contains a formalisation, in [Lean 4](https://lean-lang.org) and
-[Mathlib](https://github.com/leanprover-community/mathlib4), of the new arguments of
+[Mathlib](https://github.com/leanprover-community/mathlib4), of the new arguments in
 
-> **[D]** F. Galaz-García, *Positive sectional curvature on the exotic 8-sphere and order-three
-> homotopy 10-spheres*, arXiv:XXXX.XXXXX (2026).
+> **[GG]** F. Galaz-García, *Positive sectional curvature on the exotic 8-sphere and order-three
+> homotopy 10-spheres*, arXiv:2609.38126 [math.DG] (2026).
 
-[D] proves that the exotic smooth 8-sphere, and both oriented homotopy 10-spheres representing
+[GG] proves that the exotic smooth 8-sphere, and both oriented homotopy 10-spheres representing
 elements of order three in `Θ₁₀ ≅ ℤ/6`, admit Riemannian metrics of strictly positive
-sectional curvature. Every step of that proof is checked by Lean's kernel, except five published
-results that [D] cites. Those five enter the Lean statements as explicit, named hypotheses
-(see [What is assumed](#what-is-assumed)).
+sectional curvature. Every argument specific to [GG] is formalised and checked by Lean's kernel.
+Five previously published results used by [GG] are not formalised; instead they enter the
+relevant Lean theorems as explicit, named hypotheses (see [What is assumed](#what-is-assumed)).
 
 - Library: `ExoticSpheres8And10` (about 37,000 lines, 2,800 declarations), together with
   `RiemannianGeometry` (about 15,000 lines: Levi-Civita connection, curvature, Riemannian
@@ -21,7 +21,7 @@ results that [D] cites. Those five enter the Lean statements as explicit, named 
 
 ## Main results
 
-| [D] | Lean declaration | Module |
+| [GG] | Lean declaration | Module |
 |---|---|---|
 | Theorem A (exotic 8-sphere) | `ExoticSpheres8And10.theoremA` | `Main.TheoremsAB` |
 | Theorem B (order-three homotopy 10-spheres) | `ExoticSpheres8And10.theoremB` | `Main.TheoremsAB` |
@@ -33,8 +33,8 @@ results that [D] cites. Those five enter the Lean statements as explicit, named 
 | `fact:prop31` ([HLY] Prop. 3.1) | `hly_prop31_global_intrinsic` | `Curvature.Prop31.Bundle.Intrinsic` |
 | `rem:general_bound` | `remark_general_bound_RW` | `Curvature.DHZ` |
 
-`docs/correspondence.md` lists every numbered item of [D], the declarations that prove it, and
-every place where the Lean statement differs from the wording of [D], with the reason each
+`docs/correspondence.md` lists every numbered item of [GG], the declarations that prove it, and
+every place where the Lean statement differs from the wording of [GG], with the reason each
 difference is harmless.
 
 For example, Theorem A reads:
@@ -59,8 +59,12 @@ sense of `sectionalCurvatureAt` from `RiemannianGeometry`. Sperança's theorem, 
 ## What is assumed
 
 Lean's kernel checks every proof. The only axioms used are Lean's three standard ones,
-`propext`, `Classical.choice` and `Quot.sound`. This is verified for 775 declarations by
-`audit/PrintAxioms.lean`, and the library contains no `sorry`, `admit` or `native_decide`.
+`propext`, `Classical.choice` and `Quot.sound`. `audit/PrintAxioms.lean` audits Theorems A and
+B, both geometric statements comprising Corollary C, and the principal results of every
+formalisation target (`docs/targets.md`) and every section of [GG], for 774 declarations in
+all. `#print axioms` reports every axiom in a declaration's full dependency closure, Mathlib
+included, so the audit covers everything on which these results depend. The library contains no
+`sorry`, `admit` or `native_decide`.
 
 The following published results are **not** formalised. Each enters as an explicit hypothesis
 of the theorems that use it, never as an axiom:
@@ -73,7 +77,7 @@ of the theorems that use it, never as an axiom:
 | `α : Θ₁₀ → ℤ/2` is nonzero and vanishes on manifolds of positive scalar curvature | [Hi] | hypotheses `hα`, `hHitchin` |
 | Reversing orientation negates the class in `Θ₁₀` | standard | hypothesis `hneg` |
 
-The rest of [D] is proved here, including [HLY] Proposition 3.1 in the generality [D] states
+The rest of [GG] is proved here, including [HLY] Proposition 3.1 in the generality [GG] states
 it. That covers principal `S³`-bundles with connection over compact bases with boundary, with
 frame-independent curvature norms; non-vacuity is shown on two explicit models. It also
 includes [DHZ] Proposition 5.1, the positive scalar curvature of positively curved metrics,
@@ -91,8 +95,8 @@ lake build                # build the library
 sh scripts/check.sh       # build, lexical scan, and axiom audit
 ```
 
-On a desktop workstation, `lake build` takes about 12 minutes once Mathlib is cached; it needs
-about 8 GB of memory.
+On the development workstation, `lake build` takes about 12 minutes once Mathlib is cached;
+it needs about 8 GB of memory.
 `scripts/check.sh` exits with status 0 only if:
 - the build succeeds;
 - the lexical scan finds no `sorry`, `admit`, `native_decide`, `implemented_by` or new axiom;
@@ -117,12 +121,12 @@ ExoticSpheres8And10/
 RiemannianGeometry/  Levi-Civita connection, curvature, sectional curvature, O'Neill's formula
 audit/               axiom audit
 scripts/             check scripts
-docs/                correspondence with [D], formalisation targets, project dashboard
+docs/                correspondence with [GG], formalisation targets, project dashboard
 ```
 
 ## Documentation
 
-- `docs/correspondence.md`: every numbered item of [D], the Lean declarations, its status, and
+- `docs/correspondence.md`: every numbered item of [GG], the Lean declarations, its status, and
   the statement-fidelity notes.
 - `docs/targets.md`: the formalisation targets A1–A9, B1–B3, D1–D2, referred to by these
   labels in docstrings.
@@ -132,21 +136,29 @@ docs/                correspondence with [D], formalisation targets, project das
 
 ## How this formalisation was produced
 
-The formalisation was written by Claude (Anthropic), an AI system, working in Claude Code
-under the direction and supervision of the author of [D]. The author set the targets, made
-every mathematical and scope decision, and reviewed the statement correspondence. Every proof
-is checked by Lean's kernel. The trust base is Lean, Mathlib, and the imported inputs listed
-above. An independent audit of the statements precedes the v1.0.0 release.
+The formalisation was developed by Fernando Galaz-García (Durham University) with extensive
+assistance from Claude (Anthropic), used through Claude Code. Galaz-García determined the
+mathematical architecture and formalisation targets, made the mathematical and scope decisions,
+adjudicated proof routes and failures, and reviewed the correspondence between the Lean
+statements and [GG]. Claude was used extensively to draft, revise and check Lean code under this
+direction.
 
-Development ran on Tláloc, a small private cluster of desktop workstations (its nodes are the
-tlaloques), which allowed many builds in parallel; the dashboard's Compute tab records those
-jobs. Checking the result needs none of this: `scripts/check.sh` runs on a single ordinary
-machine, and the CI workflow runs it on a standard GitHub runner.
+Every accepted proof is checked by Lean's kernel. The trusted computing base is Lean's kernel.
+Mathlib supplies definitions and previously formalised results, all checked by the kernel. The
+only mathematical inputs not formalised in this repository are the explicit published
+hypotheses listed above. An independent cross-vendor audit of the statements will precede the
+v1.0.0 release.
+
+Development and large-scale checking ran on Tláloc, a private research cluster of desktop
+workstations, allowing multiple builds and audits to run in parallel; the dashboard's Compute
+tab records this history. Reproducing the formalisation requires none of this infrastructure:
+`scripts/check.sh` runs on a single ordinary machine, and the CI workflow runs it on a standard
+GitHub runner.
 
 ## References
 
-- **[D]** F. Galaz-García, *Positive sectional curvature on the exotic 8-sphere and order-three
-  homotopy 10-spheres*, arXiv:XXXX.XXXXX, 2026.
+- **[GG]** F. Galaz-García, *Positive sectional curvature on the exotic 8-sphere and
+  order-three homotopy 10-spheres*, arXiv:2609.38126 [math.DG], 2026.
 - **[DHZ]** S. Deng, Z. Hu and H. Zhang, *Positive sectional curvature and non-isometric circle
   actions on a family of eleven-spheres*, arXiv:2609.32680, 2026.
 - **[HLY]** Y.-H. He, Z. Liu and S.-T. Yau, *Positive sectional curvature on all smooth
@@ -163,5 +175,5 @@ machine, and the CI workflow runs it on a standard GitHub runner.
 
 ## Licence and citation
 
-Apache License 2.0; see `LICENSE` and `NOTICE`. If you use this formalisation, please cite [D]
+Apache License 2.0; see `LICENSE` and `NOTICE`. If you use this formalisation, please cite [GG]
 and the Zenodo record of this repository (`CITATION.cff`).

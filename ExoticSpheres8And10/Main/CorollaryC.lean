@@ -1,13 +1,13 @@
 /-
 Copyright (c) 2026 Fernando Galaz-García. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Fernando Galaz-García (Department of Mathematical Sciences, Durham University),
-Claude Opus 5.5 (Anthropic), which wrote the Lean under Fernando Galaz-García's supervision
+Authors: Fernando Galaz-García
+Developed with extensive assistance from Claude (Anthropic), used through Claude Code.
 -/
 import ExoticSpheres8And10.Main.CorollaryCLogic
 import ExoticSpheres8And10.Main.RoundSphere
 
-/-! # [D] Corollary C with geometric `SEC` and `PSC`
+/-! # [GG] Corollary C with geometric `SEC` and `PSC`
 
 `S5_CorollaryC` states the deduction for two abstract predicates `SEC`, `PSC` on `Θ`. Here they
 are **defined geometrically**, from a representation relation `Rep : RepRel n Θ`. `Rep M x`
@@ -78,7 +78,7 @@ theorem SECc_neg [Neg Θ] (Rep : RepRel n Θ)
   rintro ⟨M, i1, i2, i3, hR, hM⟩
   exact ⟨M, i1, i2, i3, hneg M x hR, hM⟩
 
-/-- **[D] Corollary C, dimension 10, with geometric `SEC`, `PSC`.** -/
+/-- **[GG] Corollary C, dimension 10, with geometric `SEC`, `PSC`.** -/
 theorem corollaryC_dim10_geom [AddCommGroup Θ] (Rep : RepRel (9 + 1) Θ) (eΘ : Θ ≃+ ZMod 6)
     (α : Θ →+ ZMod 2) (hα : α ≠ 0) (hHitchin : ∀ x, PSCc Rep x → α x = 0)
     (hround : Rep (Sph (9 + 1)) 0)
@@ -89,7 +89,7 @@ theorem corollaryC_dim10_geom [AddCommGroup Θ] (Rep : RepRel (9 + 1) Θ) (eΘ :
   corollaryC_dim10 eΘ α hα (PSCc Rep) (SECc Rep) (SECc_PSCc (by norm_num) Rep) hHitchin
     (SECc_zero Rep hround) g hg hg0 hSg (SECc_neg Rep hneg)
 
-/-- **[D] Corollary C, dimension 8, with geometric `SEC`.** -/
+/-- **[GG] Corollary C, dimension 8, with geometric `SEC`.** -/
 theorem corollaryC_dim8_geom [AddCommGroup Θ] (Rep : RepRel (7 + 1) Θ) (eΘ : Θ ≃+ ZMod 2)
     (hround : Rep (Sph (7 + 1)) 0) (g : Θ) (hg0 : g ≠ 0) (hSg : SECc Rep g) :
     ∀ x, SECc Rep x :=

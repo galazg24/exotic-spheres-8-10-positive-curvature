@@ -1,21 +1,21 @@
 /-
 Copyright (c) 2026 Fernando Galaz-García. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Fernando Galaz-García (Department of Mathematical Sciences, Durham University),
-Claude Opus 5.5 (Anthropic), which wrote the Lean under Fernando Galaz-García's supervision
+Authors: Fernando Galaz-García
+Developed with extensive assistance from Claude (Anthropic), used through Claude Code.
 -/
 import ExoticSpheres8And10.Curvature.Northern.Centre
 import ExoticSpheres8And10.Curvature.Northern.Submersion
 
 /-! # §4: the northern cap `D_N = P_N / S³_⋆` has positive sectional curvature
 
-[D]'s fibre radius on `V × S³` is `r̃(Y) = r(G_δ(|Y|))`, where `s = G_δ(|Y|)` inverts `|Y| = F(s)`.
+[GG]'s fibre radius on `V × S³` is `r̃(Y) = r(G_δ(|Y|))`, where `s = G_δ(|Y|)` inverts `|Y| = F(s)`.
 
 * `rD`, with `contDiff_rD` (constant near the centre, since `r' = dη(s/δ)` vanishes for
   `s ≤ δ/4`), `rD_pos`, `rD_invariant`, and `rD_ray` (`r̃(F(t) y) = r(t)`).
 * `north_hup`: positivity upstairs on horizontal planes at `(Y, 1)` for every `|Y| ≤ F_a`
   (`north_up_pos` off the centre, `north_centre_pos` at it).
-* **`northern_quotient_pos`**: for [D]'s parameters and a star action with `‖K_e‖ ≤ 2` on unit
+* **`northern_quotient_pos`**: for [GG]'s parameters and a star action with `‖K_e‖ ≤ 2` on unit
   vectors, the quotient metric `g_B` on `V` has **positive sectional curvature at every point
   of the closed ball `|Y| ≤ F_a`**, which is the northern cap `D_N`.
 -/
@@ -66,7 +66,7 @@ section Radius
 
 variable {V : Type} [NormedAddCommGroup V] [InnerProductSpace ℝ V] [FiniteDimensional ℝ V]
 
-/-- **[D]'s fibre radius on `V × S³`**: `r̃(Y) = r(G_δ(|Y|))`. -/
+/-- **[GG]'s fibre radius on `V × S³`**: `r̃(Y) = r(G_δ(|Y|))`. -/
 def rD (ra d δ Fa : ℝ) (Y : V) : ℝ := rprof ra d δ (Gδ δ Fa) (Gδ δ ‖Y‖)
 
 theorem rD_eventually_const {ra d δ Fa : ℝ} (hδ : 0 < δ) :
@@ -162,7 +162,7 @@ theorem north_hup (Cη : ℝ) (hC0 : 0 ≤ Cη) (hC : ∀ x, |deriv etaCut x| �
       (by rw [hFe]; exact hu') (by rw [hFe]; exact hv') hli
 
 include hρ in
-/-- **[D] §4: the northern cap has positive sectional curvature.** For [D]'s parameters, and a
+/-- **[GG] §4: the northern cap has positive sectional curvature.** For [GG]'s parameters, and a
 smooth star representation whose infinitesimal action has norm `≤ 2` on unit vectors (lem:K), the
 quotient metric `g_B` of `(V × S³, G_N)` by the star action has positive sectional curvature at
 every `Y` with `|Y| ≤ F_a`. -/
@@ -203,7 +203,7 @@ local notation "S3" => Metric.sphere (0 : Quaternion ℝ) 1
 
 local notation "E3" => EuclideanSpace ℝ (Fin 3)
 
-/-- **Non-vacuity of `northern_quotient_pos`.** All its hypotheses hold simultaneously: [D]'s
+/-- **Non-vacuity of `northern_quotient_pos`.** All its hypotheses hold simultaneously: [GG]'s
 parameters (`northern_filling_hyps_satisfiable`, with `A0 = Fa = 1`, `a = π/2`) and the trivial
 star representation on `V = ℝ²`, whose infinitesimal action vanishes. -/
 theorem northern_quotient_hyps_satisfiable :

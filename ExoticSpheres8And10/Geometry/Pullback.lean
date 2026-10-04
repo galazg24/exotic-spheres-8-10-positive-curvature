@@ -1,8 +1,8 @@
 /-
 Copyright (c) 2026 Fernando Galaz-García. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Fernando Galaz-García (Department of Mathematical Sciences, Durham University),
-Claude Opus 5.5 (Anthropic), which wrote the Lean under Fernando Galaz-García's supervision
+Authors: Fernando Galaz-García
+Developed with extensive assistance from Claude (Anthropic), used through Claude Code.
 -/
 import RiemannianGeometry.HomBundleForms
 import RiemannianGeometry.MLieBracketDerivation
@@ -12,7 +12,7 @@ import Mathlib
 
 A field of bilinear forms `x ↦ c(x) · q(df_x ·, df_x ·)`, with `c : M → ℝ` and `f : M → F`
 smooth and `q` a constant form on a vector space `F`, is a smooth metric section. So is any
-finite sum of such terms. Every metric of [D] §4 is of this kind in suitable coordinates.
+finite sum of such terms. Every metric of [GG] §4 is of this kind in suitable coordinates.
 
 * `pullTerm c q f`: the term; `pullTerm_apply`;
 * `contMDiffAt_pullTerm_apply`: its pairing with `C^m` fields is `C^m`;

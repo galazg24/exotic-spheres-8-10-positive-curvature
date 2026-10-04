@@ -1,14 +1,14 @@
 /-
 Copyright (c) 2026 Fernando Galaz-García. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Fernando Galaz-García (Department of Mathematical Sciences, Durham University),
-Claude Opus 5.5 (Anthropic), which wrote the Lean under Fernando Galaz-García's supervision
+Authors: Fernando Galaz-García
+Developed with extensive assistance from Claude (Anthropic), used through Claude Code.
 -/
 import ExoticSpheres8And10.StarBundles.Step2
 
 /-! # §3: stereographic coordinates on `U_N`
 
-[D] Step 3 parametrises `U_N` by `exp_{o_N} : B_π(0) ⊂ V → U_N` and transports along
+[GG] Step 3 parametrises `U_N` by `exp_{o_N} : B_π(0) ⊂ V → U_N` and transports along
 `τ ↦ exp_{o_N}(τ v)`. We use instead the inverse stereographic projection from `o_S = −e`,
 `φ(v) = ((1 − ‖v‖²)e + 2v)/(1 + ‖v‖²)`, a `ρ`-equivariant diffeomorphism `V ≅ U_N` sending
 `0 ↦ o_N` and each ray `τ ↦ τv` onto a meridian (reparametrised). Horizontal lifts are invariant

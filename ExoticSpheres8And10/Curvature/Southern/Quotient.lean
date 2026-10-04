@@ -1,8 +1,8 @@
 /-
 Copyright (c) 2026 Fernando Galaz-García. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Fernando Galaz-García (Department of Mathematical Sciences, Durham University),
-Claude Opus 5.5 (Anthropic), which wrote the Lean under Fernando Galaz-García's supervision
+Authors: Fernando Galaz-García
+Developed with extensive assistance from Claude (Anthropic), used through Claude Code.
 -/
 import ExoticSpheres8And10.Curvature.StarQuotientMetric
 import ExoticSpheres8And10.Curvature.Southern.Cap
@@ -10,7 +10,7 @@ import ExoticSpheres8And10.Curvature.Southern.Cap
 /-! # §4, the southern filling: the quotient disk `D_S` has positive curvature
 
 The connection metric `GH` on `V × S³` is star-invariant when:
-- the potential is equivariant, `A(ρ(q)y)(ρ(q)a) = q A(y)(a) q⁻¹` ([D]: `ρ(q)^*A = qAq⁻¹`);
+- the potential is equivariant, `A(ρ(q)y)(ρ(q)a) = q A(y)(a) q⁻¹` ([GG]: `ρ(q)^*A = qAq⁻¹`);
 - the radius is `ρ`-invariant.
 
 Its slice form at `(Y, 1)` is `GsH Y`. So the generic star quotient (`S4_StarQuot`) applies, and
@@ -19,7 +19,7 @@ O'Neill carries `southern_cap_pos` down to the quotient metric on `V ≅ D_S` (v
 
 * `GH_slice`, `GsH_symm`, `GsH_pos`, `contDiff_GsH`: the slice form;
 * `GH_starN`: star-invariance of `GH`;
-* **`southern_quotient_pos`**: [D]'s `sec_{g_S} > 0` on the southern cap.
+* **`southern_quotient_pos`**: [GG]'s `sec_{g_S} > 0` on the southern cap.
 -/
 
 open RiemannianGeometry Bundle
@@ -136,12 +136,12 @@ theorem rSy_ρ (ε A0 : ℝ) (q : S3) (Y : V) : rSy ε A0 (ρV q Y) = rSy ε A0 
   simp [rSy, φS, LinearIsometryEquiv.norm_map]
 
 include hρ in
-/-- **[D] §4: the southern quotient disk has positive curvature.** Take:
+/-- **[GG] §4: the southern quotient disk has positive curvature.** Take:
 - a smooth orthogonal star representation `ρ` on `V`;
 - a smooth, imaginary, star-equivariant connection potential `A` on the southern chart;
 - the cap `−cos t ≥ c₀ > 0`.
 
-Then [D]'s parameter order `Λ ≥ Λ₀`, `A₀c₀ ≥ Λ`, `0 < ε < ε_S` makes the quotient metric `g_S`
+Then [GG]'s parameter order `Λ ≥ Λ₀`, `A₀c₀ ≥ Λ`, `0 < ε < ε_S` makes the quotient metric `g_S`
 of `(V × S³, G_S)` by the star action have positive `RiemannianGeometry` sectional curvature on every plane at
 every point of the cap. -/
 theorem southern_quotient_pos (hA : ContDiff ℝ ∞ A) (hAim : ∀ x v, (A x v).re = 0)

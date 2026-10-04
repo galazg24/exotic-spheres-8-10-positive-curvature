@@ -1,8 +1,8 @@
 /-
 Copyright (c) 2026 Fernando Galaz-García. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Fernando Galaz-García (Department of Mathematical Sciences, Durham University),
-Claude Opus 5.5 (Anthropic), which wrote the Lean under Fernando Galaz-García's supervision
+Authors: Fernando Galaz-García
+Developed with extensive assistance from Claude (Anthropic), used through Claude Code.
 -/
 import ExoticSpheres8And10.Curvature.Northern.ProfilesExistence
 import ExoticSpheres8And10.Curvature.Northern.ProfilesCentre
@@ -10,11 +10,11 @@ import ExoticSpheres8And10.Curvature.Boundary.ShapeSum
 
 /-! # §4: the remaining finite-dimensional steps of the two fillings
 
-§4 of [D] adds several explicit computations to the text formalised in A4–A8. This
+§4 of [GG] adds several explicit computations to the text formalised in A4–A8. This
 file formalises those that are finite-dimensional algebra or one-variable calculus:
 
 * `starHorizontal_iff`: the star-horizontal distribution is the graph `U = TX`,
-  `T = −(F/r)K_y^*` ([D] "The star-horizontal distribution");
+  `T = −(F/r)K_y^*` ([GG] "The star-horizontal distribution");
 * `starGram_ge`, `starVector_injective`: the Gram matrix `F²K^*K + r² ≥ r²`, so the star orbits
   are nonsingular even where `K_y` drops rank;
 * `maurerCartan`, `curvature_chi`: `dϑ + ϑ∧ϑ = 0` for `ϑ = θ⁻¹dθ`, and
@@ -132,7 +132,7 @@ theorem maurerCartan {θ : E → ℍ[ℝ]} {x : E} (hθ : ContDiffAt ℝ 2 θ x)
   rw [hsymm v w]
   noncomm_ring
 
-/-- **The curvature of `A_N = χϑ`** ([D] southern filling):
+/-- **The curvature of `A_N = χϑ`** ([GG] southern filling):
 `Ω_N = dA_N + A_N∧A_N = dχ∧ϑ + χ(χ−1) ϑ∧ϑ`. -/
 theorem curvature_chi {θ : E → ℍ[ℝ]} {χ : E → ℝ} {x : E} (hθ : ContDiffAt ℝ 2 θ x)
     (hx : θ x ≠ 0) (hχ : DifferentiableAt ℝ χ x) (v w : E) :

@@ -1,8 +1,8 @@
 /-
 Copyright (c) 2026 Fernando Galaz-García. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Fernando Galaz-García (Department of Mathematical Sciences, Durham University),
-Claude Opus 5 (Anthropic), which wrote the Lean under Fernando Galaz-García's supervision
+Authors: Fernando Galaz-García
+Developed with extensive assistance from Claude (Anthropic), used through Claude Code.
 -/
 import RiemannianGeometry.HorizontalLift
 
@@ -10,14 +10,14 @@ import RiemannianGeometry.HorizontalLift
 # Vertical vector fields and the Lie bracket
 
 A vector field `V` on the total space of a submersion `f : M → B` is **vertical** when
-`V z ∈ ker (df_z)` for every `z` (`IsVerticalField` of `Foundations.HorizontalLift`). Unwinding
+`V z ∈ ker (df_z)` for every `z` (`IsVerticalField` of `RiemannianGeometry.HorizontalLift`). Unwinding
 `verticalSpace` shows that this says exactly that `V` is `f`-**related to the zero vector field**
 on `B`. O'Neill uses precisely this observation once, in the proof of his Lemma 2 — "But `[V, X]`
 `= ∇_V X - ∇_X V` is vertical (since `V` is `π`-related to the zero vector field)", with `X`
 *basic* — and it is the whole content of this file.
 
 Because `[0, 0] = 0` and `[0, Y] = 0` on the base, bracket naturality for `f`-related fields
-(`mfderiv_mlieBracket_of_related` of `Foundations.RelatedVectorFields`) gives at once:
+(`mfderiv_mlieBracket_of_related` of `RiemannianGeometry.RelatedVectorFields`) gives at once:
 
 * the bracket of two vertical fields is vertical;
 * the bracket of a vertical field with a **basic** field — a horizontal lift `Yᴴ` — is vertical.
@@ -66,14 +66,14 @@ recording.
 * For two vertical fields, **no submersion hypothesis of any kind is used** — not
   `IsSubmersionAtPoint`, not `IsRiemannianSubmersionAtPoint`, not even at `p`, and no metric on
   the base. The vertical space is `ker (df)` whatever `df` does, `[0, 0] = 0` needs nothing, and
-  bracket naturality is proved in `Foundations.RelatedVectorFields` with no hypothesis on `f`
+  bracket naturality is proved in `RiemannianGeometry.RelatedVectorFields` with no hypothesis on `f`
   beyond regularity. The statement is therefore about an arbitrary `C^n` map.
 * For a vertical field against a horizontal lift, `IsSubmersionAtPoint` and
   `IsRiemannianSubmersionAtPoint` are needed in the **eventual** form `∀ᶠ z in 𝓝 p, …`, and not
   merely at `p`: they are used only through `mfderiv_horizontalLiftField`, but
   `mfderiv_mlieBracket_of_related` consumes relatedness on a whole neighbourhood, a bracket being
   a first-order object in the fields. This matches the form the hypotheses already take in
-  `Foundations.HorizontalLift`.
+  `RiemannianGeometry.HorizontalLift`.
 
 In both cases `f` itself must be `C^n` at `p`, and the fields `C^n` near `p`; verticality alone
 never suffices, because `mlieBracket` differentiates its arguments.
@@ -100,7 +100,7 @@ nothing to reconcile.
 Nothing here differentiates anything: every statement is `mfderiv_mlieBracket_of_related` fed with
 `mem_verticalSpace_iff` and, for the mixed bracket, `mfderiv_horizontalLiftField`. The order `n`
 is kept variable under the hypotheses `minSmoothness ℝ 2 ≤ n` and `(n : ℕ∞ω) ≠ ∞` inherited from
-that theorem, exactly as in `Foundations.HorizontalLift`; the `IsManifold` premises at orders `1`
+that theorem, exactly as in `RiemannianGeometry.HorizontalLift`; the `IsManifold` premises at orders `1`
 and `n + 1`, and `CompleteSpace E`, `CompleteSpace E'`, `SeparatingDual ℝ E'`, are found by
 instance search from the ambient block. The regularity of `Yᴴ` is taken as a hypothesis rather
 than rederived from `contMDiffAt_horizontalLiftField`, so that a caller who already has it is not

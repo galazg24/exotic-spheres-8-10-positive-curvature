@@ -1,8 +1,8 @@
 /-
 Copyright (c) 2026 Fernando Galaz-García. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Fernando Galaz-García (Department of Mathematical Sciences, Durham University),
-Claude Opus 5.5 (Anthropic), which wrote the Lean under Fernando Galaz-García's supervision
+Authors: Fernando Galaz-García
+Developed with extensive assistance from Claude (Anthropic), used through Claude Code.
 -/
 import ExoticSpheres8And10.Curvature.Gluing.ChartS3
 import ExoticSpheres8And10.Geometry.Germ
@@ -12,17 +12,17 @@ import ExoticSpheres8And10.Curvature.Northern.QuotientSubmersion
 
 /-! # §4: polar coordinates on the northern piece, as a local isometry
 
-For a unit vector `e ∈ V`, `s₀ > 0` and [D]'s radial profile `F = Fprof δ`, the map
+For a unit vector `e ∈ V`, `s₀ > 0` and [GG]'s radial profile `F = Fprof δ`, the map
 
   `Φ̂(s, x, z) = (F(φ(s)) σ_e(x), σ3(z)) : ℝ × e^⊥ × ℝ³ → V × S³`,
 
-with `φ = reparam s₀`, is a **local isometry from `Gh` to [D]'s northern metric `G_N`**. Here
+with `φ = reparam s₀`, is a **local isometry from `Gh` to [GG]'s northern metric `G_N`**. Here
 
   `Gh = φ'(s)² ds² + F(φ(s))² HR(x) + R(φ(s))² HR(z)`,
 
 and `r̃(F(t) y) = R(t)` on unit vectors.
 
-* `hpull_Φh`: `Gh = Φ̂^* G_N`. The identity `F'²(1 + F²ψ(F²)) = 1`, from [D]'s ODE
+* `hpull_Φh`: `Gh = Φ̂^* G_N`. The identity `F'²(1 + F²ψ(F²)) = 1`, from [GG]'s ODE
   `F' = e^{−F²/2δ²}`, turns `|dY|² + ψ(|Y|²)⟪Y,dY⟫²` into `ds² + F²HR`.
 * `isInvertible_mfderiv_Φh`: `dΦ̂` is invertible everywhere.
 * `Gh_eventuallyEq`: near `s = s₀`, `Gh` is `S4_NorthLocal`'s metric
@@ -213,7 +213,7 @@ theorem hasDerivAt_Fh (t : ℝ) :
     HasDerivAt (Fh δ s₀) (Real.exp (-(Fh δ s₀ t) ^ 2 / (2 * δ ^ 2)) * reparamDeriv s₀ t) t :=
   (hasDerivAt_Fprof δ (reparam s₀ t)).comp t (hasDerivAt_reparam t)
 
-/-- **`Gh` is the pullback of [D]'s northern metric along `Φ̂`.** -/
+/-- **`Gh` is the pullback of [GG]'s northern metric along `Φ̂`.** -/
 theorem hpull_Φh (hδ : δ ≠ 0) {rt : V → ℝ} (hs : 0 < s₀) (he : ‖e‖ = 1)
     (hRt : ∀ t, 0 < t → ∀ y : V, ‖y‖ = 1 → rt (Fprof δ t • y) = R t) (p : Mc e)
     (a b : TangentSpace 𝓘(ℝ, Mc e) p) :

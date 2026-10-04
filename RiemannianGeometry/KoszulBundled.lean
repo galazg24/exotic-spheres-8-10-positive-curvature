@@ -1,8 +1,8 @@
 /-
 Copyright (c) 2026 Fernando Galaz-García. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Fernando Galaz-García (Department of Mathematical Sciences, Durham University),
-Claude Opus 5 (Anthropic), which wrote the Lean under Fernando Galaz-García's supervision
+Authors: Fernando Galaz-García
+Developed with extensive assistance from Claude (Anthropic), used through Claude Code.
 -/
 import RiemannianGeometry.KoszulRegularity
 import RiemannianGeometry.HomBundleFrame
@@ -40,7 +40,7 @@ the tensoriality data to be available globally before smoothness could be discus
 
 ## How the smoothness is proved
 
-The frame test of `Foundations.HomBundleFrame` — a hom-section is `C^n` once its values on the local
+The frame test of `RiemannianGeometry.HomBundleFrame` — a hom-section is `C^n` once its values on the local
 frame of a trivialisation are — applied **twice**: once in the inner slot, with target the trivial
 line bundle, and once in the outer slot, with target `Hom(TM, ℝ)`. That reduces everything to the
 scalars `y ↦ κ (s i) Y y (s j)`, which are `C^m` by `contMDiffAt_koszulRHS`. Two small steps are
@@ -54,7 +54,7 @@ scalar to a section of the trivial line bundle is a step rather than a coercion.
 `cov σ x v` is `(∇_v σ)(x)`: the **direction is the last argument**. The metric is supplied as data
 `g : Π x, T_xM →L[ℝ] T_xM →L[ℝ] ℝ`, so everything here covers pseudo-Riemannian metrics; only
 symmetry is used, never positive-definiteness. `[IsManifold I ∞ M]` is the manifold hypothesis, and
-it suffices only because of the two instances in `Foundations.ManifoldOrder`.
+it suffices only because of the two instances in `RiemannianGeometry.ManifoldOrder`.
 -/
 
 noncomputable section
@@ -175,7 +175,7 @@ omit [CompleteSpace E] [FiniteDimensional ℝ E] in
 /-- **Differentiability of the pairing, from differentiability of the metric section.**
 
 `y ↦ g y (U y) (W y)` is differentiable at `y` as soon as `g`, `U` and `W` are. Note this cannot be
-obtained from the `contMDiff*_pairing` lemmas of `Foundations.KoszulRegularity`: those need `C^n`
+obtained from the `contMDiff*_pairing` lemmas of `RiemannianGeometry.KoszulRegularity`: those need `C^n`
 sections with `n ≥ 1`, while `TensorialAt`'s fields supply sections that are only
 `MDifferentiableAt`, and differentiability cannot be upgraded. The route is
 `MDifferentiableAt.clm_bundle_apply₂` with the target read as the trivial line bundle. -/

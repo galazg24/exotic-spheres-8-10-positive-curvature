@@ -1,8 +1,8 @@
 /-
 Copyright (c) 2026 Fernando Galaz-García. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Fernando Galaz-García (Department of Mathematical Sciences, Durham University),
-Claude Opus 5 (Anthropic), which wrote the Lean under Fernando Galaz-García's supervision
+Authors: Fernando Galaz-García
+Developed with extensive assistance from Claude (Anthropic), used through Claude Code.
 -/
 import RiemannianGeometry.SectionalCurvature
 import RiemannianGeometry.ONeillCorollaryOne
@@ -10,7 +10,7 @@ import RiemannianGeometry.ONeillCorollaryOne
 /-!
 # Riemannian submersions are curvature nondecreasing on horizontal planes
 
-`Foundations.ONeillCorollaryOne` proves O'Neill's *formula*
+`RiemannianGeometry.ONeillCorollaryOne` proves O'Neill's *formula*
 
     K_M(Xᴴ p, Yᴴ p) = K_B(X (f p), Y (f p)) − 3 ⟪A_{Xᴴ}Yᴴ, A_{Xᴴ}Yᴴ⟫ / ‖Xᴴ p ∧ Yᴴ p‖².
 
@@ -247,7 +247,7 @@ This is O'Neill's parenthesis. "Curvature-increasing" would be false — a Riema
 integrable horizontal distribution is a local product and the curvatures agree — and "more
 precisely, nondecreasing" is the correction. The iff says exactly where the two cases divide, and
 `A_{Xᴴ}Yᴴ = ½𝓥[Xᴴ, Yᴴ]` — Lemma 2, formalised as
-`Foundations.oneillA_horizontalLiftField_eq_two_inv_smul_verticalProjection_mlieBracket` —
+`RiemannianGeometry.oneillA_horizontalLiftField_eq_two_inv_smul_verticalProjection_mlieBracket` —
 identifies the dividing condition as integrability of the horizontal distribution along the pair.
 
 Both directions come out of `sectionalCurvatureAt_horizontalLiftField`: the quotient

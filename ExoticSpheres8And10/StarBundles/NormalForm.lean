@@ -1,14 +1,14 @@
 /-
 Copyright (c) 2026 Fernando Galaz-García. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Fernando Galaz-García (Department of Mathematical Sciences, Durham University),
-Claude Opus 5.5 (Anthropic), which wrote the Lean under Fernando Galaz-García's supervision
+Authors: Fernando Galaz-García
+Developed with extensive assistance from Claude (Anthropic), used through Claude Code.
 -/
 import ExoticSpheres8And10.StarBundles.Sections
 
 /-! # §3, `prop:polar` from equivariant sections: the normal form `P_θ ≅ E`
 
-Given equivariant sections (`EquivSections`, the output of [D]'s Steps 1–4), this file builds:
+Given equivariant sections (`EquivSections`, the output of [GG]'s Steps 1–4), this file builds:
 
 * `θ = g|_{S(V)}`, smooth and conjugation-equivariant (`thetaS`, `polarData`);
 * `Φ : P_θ → E`, `Φ[(ζ, u)]_N = s'_N(ζ) u`, `Φ[(z', u)]_S = s'_S(Rz') u`;
@@ -326,7 +326,7 @@ theorem contMDiff_Ψ : ContMDiff (IP m) (IP m) ∞ S.Ψ := by
   · exact S.contMDiffAt_Ψ_S p (by rw [h]; exact (ne_neg_self_e R.e_norm).symm)
   · exact S.contMDiffAt_Ψ_N p h
 
-/-- **[D] `prop:polar`, the isomorphism `Φ : P_θ ≅ E`** as a `C^∞` diffeomorphism. -/
+/-- **[GG] `prop:polar`, the isomorphism `Φ : P_θ ≅ E`** as a `C^∞` diffeomorphism. -/
 def normalFormDiffeo : Diffeomorph (IP m) (IP m) (PolarBundle S.polarData) E ∞ where
   toFun := S.Φ
   invFun := S.Ψ
@@ -348,7 +348,7 @@ theorem Ψ_star (q : S3) (p : E) : S.Ψ (B.star q p) = q • S.Ψ p := by
   conv_lhs => rw [← S.Φ_Ψ p, ← S.Φ_star]
   exact S.Ψ_Φ _
 
-/-- **[D] `prop:polar`, "consequently"**: `E/S³_⋆ ≃ₜ P_θ/S³_⋆`. -/
+/-- **[GG] `prop:polar`, "consequently"**: `E/S³_⋆ ≃ₜ P_θ/S³_⋆`. -/
 def starQuotientHomeo : Quotient (starSetoid B) ≃ₜ (S.polarData).OrbitSpace where
   toFun := Quotient.lift (fun p => Quotient.mk _ (S.Ψ p)) fun p p' hpp => by
     obtain ⟨q, h⟩ := hpp

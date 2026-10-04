@@ -1,8 +1,8 @@
 /-
 Copyright (c) 2026 Fernando Galaz-García. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Fernando Galaz-García (Department of Mathematical Sciences, Durham University),
-Claude Opus 5.5 (Anthropic), which wrote the Lean under Fernando Galaz-García's supervision
+Authors: Fernando Galaz-García
+Developed with extensive assistance from Claude (Anthropic), used through Claude Code.
 -/
 import ExoticSpheres8And10.Curvature.HLYGeneral
 import ExoticSpheres8And10.Main.Representations
@@ -10,7 +10,7 @@ import ExoticSpheres8And10.Main.Representations
 /-! # §5 ↔ §4: `lem:K` gives the hypothesis `‖K_y‖ ≤ 2` of `hly_general`
 
 `hly_general` assumes `‖KY ρ y‖ ≤ 2`, where `KY ρ y = dρ₁(·)y` on `T₁S³ = ℝ³` in Mathlib's
-chart at `1`. §5 proves [D]'s `‖K_y ξ‖ ≤ 2‖ξ‖` with `K_y ξ = d/dτ|₀ ρ(e^{τξ})y` and
+chart at `1`. §5 proves [GG]'s `‖K_y ξ‖ ≤ 2‖ξ‖` with `K_y ξ = d/dτ|₀ ρ(e^{τξ})y` and
 `ξ ∈ Im ℍ`. They agree:
 * `Dq_apply`: the chart identification `T₁S³ → ℍ` is the isometry `ι3` onto `Im ℍ`;
 * `KY_eq_of_hasDerivAt`: `KY y b = K_y(ι3 b)`, by comparing the two derivatives of

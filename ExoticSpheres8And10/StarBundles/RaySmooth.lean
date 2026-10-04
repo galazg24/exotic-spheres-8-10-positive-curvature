@@ -1,14 +1,14 @@
 /-
 Copyright (c) 2026 Fernando Galaz-García. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Fernando Galaz-García (Department of Mathematical Sciences, Durham University),
-Claude Opus 5.5 (Anthropic), which wrote the Lean under Fernando Galaz-García's supervision
+Authors: Fernando Galaz-García
+Developed with extensive assistance from Claude (Anthropic), used through Claude Code.
 -/
 import ExoticSpheres8And10.StarBundles.RayLift
 
 /-! # §3, Step 3: smooth dependence of ray transport on the direction
 
-[D] Step 3: "Parallel transport depends smoothly on `v`. Hence `s_N` is a smooth section."
+[GG] Step 3: "Parallel transport depends smoothly on `v`. Hence `s_N` is a smooth section."
 
 * `exists_cutoff`, `contDiff_cutoff_smul`: smooth cutoffs (infrastructure);
 * `pieceCoeff`: the chart-`j` transport equation on the `k`-th piece of the ray, rescaled to
@@ -224,7 +224,7 @@ theorem proj_rayEnd (p₀ : E) (hp₀ : B.proj p₀ = R.phiN 0) (v : V) :
   have := (B.exists_lift v p₀ hp₀).choose_spec.1.1 1 ⟨zero_le_one, le_rfl⟩
   rw [one_smul] at this; exact this
 
-/-- **[D] Step 3: transport depends smoothly on the direction.** -/
+/-- **[GG] Step 3: transport depends smoothly on the direction.** -/
 theorem contMDiffAt_rayEnd (p₀ : E) (hp₀ : B.proj p₀ = R.phiN 0) (v₀ : V) :
     ContMDiffAt 𝓘(ℝ, V) (IP m) ∞ (B.rayEnd p₀ hp₀) v₀ := by
   obtain ⟨N, r, j, hr, hpieces⟩ := B.exists_pieces v₀

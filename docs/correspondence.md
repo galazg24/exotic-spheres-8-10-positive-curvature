@@ -1,9 +1,9 @@
-# Correspondence between [D] and the Lean formalisation
+# Correspondence between [GG] and the Lean formalisation
 
-This document is for readers who want to check that the Lean statements say what [D] says.
-For each numbered item of [D] it lists:
+This document is for readers who want to check that the Lean statements say what [GG] says.
+For each numbered item of [GG] it lists:
 - the Lean declarations that prove it, and its status;
-- every place where the Lean statement differs from the wording of [D], with the reason the
+- every place where the Lean statement differs from the wording of [GG], with the reason the
   difference is harmless.
 
 Module names are relative to `ExoticSpheres8And10`. Declaration names are in the namespace
@@ -27,7 +27,7 @@ Module names are relative to `ExoticSpheres8And10`. Declaration names are in the
 2. **Positive curvature.** `RWGluing (QuotSpace D) → HasPosCurvMetric (QuotSpace D)`.
 
 How to read the objects in this statement:
-- **`StarBundle ρ E`** is [D]'s special `S³`-`S³` bundle (`def:starbundle`). It consists of a
+- **`StarBundle ρ E`** is [GG]'s special `S³`-`S³` bundle (`def:starbundle`). It consists of a
   smooth projection `E → Sⁿ`, a smooth free right `S³`-action, transitive on fibres with local
   trivialisations, and a smooth free star action commuting with it and covering `ρ`. Sperança's
   theorem [Sp] says that the exotic 8-sphere (resp. the order-three homotopy 10-spheres) is the
@@ -45,7 +45,7 @@ How to read the objects in this statement:
   every 2-plane. Sectional curvature is `sectionalCurvatureAt` of `RiemannianGeometry`, which is
   defined from the Levi-Civita connection by the Koszul formula.
 - **`RWGluing`** (`Geometry.SFF.LevelSets`) is the instance of the Reiser–Wraith gluing theorem
-  [RW, Theorem A(i)] that [D] uses (`prop:gluing`). Suppose `M` is compact and is cut by a
+  [RW, Theorem A(i)] that [GG] uses (`prop:gluing`). Suppose `M` is compact and is cut by a
   regular level set `Σ = {f = c}` into `M_N = {f ≤ c}` and `M_S = {f ≥ c}`. Suppose each piece
   carries a smooth metric of positive sectional curvature, the two induced metrics on `Σ` agree,
   and the second fundamental forms satisfy `B_N + B_S ≥ 0`. Then `M` admits a smooth metric of
@@ -72,7 +72,7 @@ The following are **proved**, not assumed:
 
 ## 2. Item by item
 
-| [D] | Lean | Status |
+| [GG] | Lean | Status |
 |---|---|---|
 | Def. special `S³`-`S³` bundle, `def:starbundle` | `StarBundle`, `StarRep` (`StarBundles.StarBundle`) | K (definitions) |
 | `def:polar`, `eq:equiv`, `eq:transition`, `eq:staraction`; the star action is well defined, smooth at the poles, free, and commutes with the principal action | `PolarData`, `PolarBundle`, `polarBundle_isStarBundle` (`PolarBundles.*`) | K |
@@ -121,9 +121,9 @@ hypotheses are the data of the statement: the manifold, the bundle, the represen
 1. **Southern chart.** Lean writes `U_S × S³` as `U_N × S³` through the reflection `R` of `V`.
    `R` is an isometry commuting with `ρ` and fixing `S(V)`, and it sends `t` to `π − t`. The
    transition becomes `(ζ, u) ↦ (Rζ, θ(x)u)`. This changes coordinates on the `S` chart, not the
-   object. The southern disk coordinate is exactly [D]'s `ζ_S = (π − t)x` (`diskN_neg`,
+   object. The southern disk coordinate is exactly [GG]'s `ζ_S = (π − t)x` (`diskN_neg`,
    `DS_eq`).
-2. **Dimension.** `n = m + 1 ≥ 1`. [D] assumes `n ≥ 3`, which is never needed, so the Lean
+2. **Dimension.** `n = m + 1 ≥ 1`. [GG] assumes `n ≥ 3`, which is never needed, so the Lean
    statements are more general.
 3. **"Principal bundle", "star bundle".** Mathlib has no smooth principal bundles. Lean lists
    the defining properties instead: smooth free actions, transitivity on fibres, equivariant
@@ -137,47 +137,47 @@ hypotheses are the data of the statement: the manifold, the bundle, the represen
    `D_α = ψ_α(𝔻)`, where `ψ_α` is a diffeomorphism from an open ball onto an open subset of
    `X`; and `j_α : 𝔻 → X` is smooth (as a map of a manifold with boundary), has invertible
    differential everywhere, is a closed embedding, and has image `D_α`. `D_α` has no smooth
-   structure of its own in [D], so this is the standard meaning.
-6. **`lem:attaching` (3).** [D]'s "smooth disk gluing" `D_N ∪_σ D_S` uses a product collar. Lean
+   structure of its own in [GG], so this is the standard meaning.
+6. **`lem:attaching` (3).** [GG]'s "smooth disk gluing" `D_N ∪_σ D_S` uses a product collar. Lean
    defines this gluing (`DiskGluingModel`), proves it is unique up to diffeomorphism for any
    collar width (`diskGluing_unique`), and proves `X ≃ₘ D_N ∪_σ D_S` (`lem_attaching_3`).
 
 ### §3: `prop:polar`
 1. **Connections** are represented by `Im ℍ`-valued potentials in local trivialisations,
    satisfying the gauge law, which Mathlib lacks for principal bundles. Horizontal lifts solve
-   `u' = −A(c')u` in every chart. [D] uses one global connection; Lean builds the invariant
+   `u' = −A(c')u` in every chart. [GG] uses one global connection; Lean builds the invariant
    connection over each cap separately. Steps 3–4 use the connection only over each cap.
-2. **Averaging.** Lean averages `L_{q⁻¹}^*ω₀` against left-invariant Haar measure, where [D]
+2. **Averaging.** Lean averages `L_{q⁻¹}^*ω₀` against left-invariant Haar measure, where [GG]
    averages `L_q^*ω₀` against right-invariant measure. On the compact group `S³` these agree.
 3. **Coordinates on `U_N`.** Lean uses stereographic coordinates
    `φ(v) = ((1−|v|²)e + 2v)/(1+|v|²)` rather than `exp_{o_N}`. Rays of `φ` are reparametrised
    meridians, and horizontal lifts do not depend on the parametrisation.
 4. **Step 2** is proved by a different argument: every injective continuous endomorphism of
-   `S³` is inner (`injContEndoInner_S3`). This does not need [D]'s dimension argument for
+   `S³` is inner (`injContEndoInner_S3`). This does not need [GG]'s dimension argument for
    `dφ₁`, and it needs no external reference.
 5. **Step 6** is proved by a different route. Lean modifies the two equivariant sections so that
-   `s'_N = s'_S · θ(x)` holds exactly, with `θ = (s_S⁻¹s_N)|_{S(V)}`. This gives [D]'s conclusion
+   `s'_N = s'_S · θ(x)` holds exactly, with `θ = (s_S⁻¹s_N)|_{S(V)}`. This gives [GG]'s conclusion
    (`θ` constant along meridians and conjugation-equivariant) without parallel transport for a
    single connection.
 
 ### §4: curvature
 1. **One choice of parameters.** Lean fixes `cos a = −3/5` (`F_a = 4/5`) and
-   `δ = min(1, 1/(128 A₀ F_a (1 + C_η)))`. [D] allows a range. These satisfy every constraint
-   that [D]'s proof uses. [D]'s condition `δ ≤ F_a/2` is used in [D] only to get `η = 1` near
+   `δ = min(1, 1/(128 A₀ F_a (1 + C_η)))`. [GG] allows a range. These satisfy every constraint
+   that [GG]'s proof uses. [GG]'s condition `δ ≤ F_a/2` is used in [GG] only to get `η = 1` near
    `ℓ_N`, and Lean checks that consequence directly. One choice suffices for an existence
    statement.
 2. **The northern disk** is identified with `{t ≤ a}` by the scaled stereographic chart
-   `ψ_N = ψ₁/5` rather than [D]'s `t = (a/ℓ_N)s`. Any diffeomorphism does for an existence
+   `ψ_N = ψ₁/5` rather than [GG]'s `t = (a/ℓ_N)s`. Any diffeomorphism does for an existence
    statement.
 3. **`lem:K`** is proved in a stronger form: for every `y` in the closed unit ball and every
    `ξ ∈ ℍ`. For `ρ₁₀` it does not need `x ∈ Im ℍ`.
-4. **`B_N + B_S`.** The gluing input needs `≥ 0`, and that is what `hly_general` uses. [D]'s
+4. **`B_N + B_S`.** The gluing input needs `≥ 0`, and that is what `hly_general` uses. [GG]'s
    strict bound `≥ c_B h` with `c_B > 0` is also proved (`bdry_model_compat`). Lean's constant
-   has the same shape as [D]'s, with Lean's own normalisation of the two base terms.
+   has the same shape as [GG]'s, with Lean's own normalisation of the two base terms.
 5. **[HLY] Proposition 3.1** (`hly_prop31_global_intrinsic`).
-   - **`eq:Lambda`.** Lean assumes `Λ ≥ 16·4·M₀² + 64·4²κ⁻¹(M₁+1)²`; [D] has an extra `+4`.
-     Every `Λ` satisfying [D]'s condition satisfies Lean's, so the Lean theorem is stronger.
-   - **Norm convention.** [D] writes `|Ω|² = Σ_{i<j,a}(Ω_{ij}^a)²`. Lean's `curvNormSq` sums over
+   - **`eq:Lambda`.** Lean assumes `Λ ≥ 16·4·M₀² + 64·4²κ⁻¹(M₁+1)²`; [GG] has an extra `+4`.
+     Every `Λ` satisfying [GG]'s condition satisfies Lean's, so the Lean theorem is stronger.
+   - **Norm convention.** [GG] writes `|Ω|² = Σ_{i<j,a}(Ω_{ij}^a)²`. Lean's `curvNormSq` sums over
      all `i, j`, which is twice that, so `|Ω| ≤ M₀` reads `curvNormSq ≤ 2M₀²`. The same holds for
      `DΩ`.
    - **Intrinsic norms.** `curvNormSq` and `dcurvNormSq` are computed in an orthonormal frame
@@ -185,12 +185,12 @@ hypotheses are the data of the statement: the manifold, the bundle, the represen
      `dcurvNormSq_eq`, `Curvature.Prop31.Bundle.Invariance*`).
    - **The Hessian.** `hessAt` is proved to be a tensor (`hessAt_eq`).
    - **Generality.** The base is any compact manifold with corners, so boundary is allowed, as
-     [D] requires.
+     [GG] requires.
    - **Non-vacuity.** Two models:
      - `[−1, 1] × S³` with the flat connection;
      - the closed round cap of `S²` × `S³`, with a connection whose curvature is nonzero at every
        point.
-6. **[DHZ] Proposition 5.1** (`dhz_prop51`). Lean keeps [D]'s northern profile instead of
+6. **[DHZ] Proposition 5.1** (`dhz_prop51`). Lean keeps [GG]'s northern profile instead of
    [DHZ]'s; the proposition asserts existence, so the choice is immaterial. It proves
    `B_N + J_β^*B_S ≥ 0`, which is what the gluing theorem needs. `n ≥ 3` is not needed.
 

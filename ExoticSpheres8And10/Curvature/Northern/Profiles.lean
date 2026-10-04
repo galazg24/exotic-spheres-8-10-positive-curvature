@@ -1,14 +1,14 @@
 /-
 Copyright (c) 2026 Fernando Galaz-García. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Fernando Galaz-García (Department of Mathematical Sciences, Durham University),
-Claude Opus 5.5 (Anthropic), which wrote the Lean under Fernando Galaz-García's supervision
+Authors: Fernando Galaz-García
+Developed with extensive assistance from Claude (Anthropic), used through Claude Code.
 -/
 import Mathlib
 
-/-! # A7. The northern profile inequalities ([D] §4.3, "Choice of profiles")
+/-! # A7. The northern profile inequalities ([GG] §4.3, "Choice of profiles")
 
-(a) [D]: "For `x > 0` the power series for `sinh` gives
+(a) [GG]: "For `x > 0` the power series for `sinh` gives
 `2 sinh(x²/2)/x³ ≥ 1/x + x³/24 ≥ 4/(3·8^{1/4}) > 1/2`,
 the minimum of the middle expression occurring at `x⁴ = 8`."
 -/
@@ -80,7 +80,7 @@ theorem sinh_profile_min_attained : 1 / c8 + c8 ^ 3 / 24 = 4 / (3 * c8) := by
 
 /-! ## A7(b) — the angular chain
 
-[D]: "Substitution `x = F/δ` yields `(1−F'²)/F² > FF'/(2δ³) > 32A₀F_aFF' ≥ 8FF'r'/r³`." -/
+[GG]: "Substitution `x = F/δ` yields `(1−F'²)/F² > FF'/(2δ³) > 32A₀F_aFF' ≥ 8FF'r'/r³`." -/
 
 /-- Step one of the angular chain: `(1−F'²)/F² > FF'/(2δ³)` for `F' = exp(−F²/(2δ²))`. -/
 theorem angular_step (F δ : ℝ) (hF : 0 < F) (hδ : 0 < δ) :
@@ -145,7 +145,7 @@ theorem angular_chain (F Fp δ A0 Fa Ceta d r rp : ℝ) (hF : 0 < F) (hδ : 0 < 
 
 /-! ## A7(c) — the radial chain
 
-[D]: "On the support of `r''` one has `s ≤ δ/2` and `F ≤ s`, hence `−F''/F ≥ e^{−1/4}δ^{−2}`,
+[GG]: "On the support of `r''` one has `s ≤ δ/2` and `F ≤ s`, hence `−F''/F ≥ e^{−1/4}δ^{−2}`,
 `4F²r''/r³ ≤ 4A₀F_aC_ηδ ≤ C_η/(32(1+C_η)) δ^{−2}`. This proves the strict radial inequality." -/
 
 /-- **A7(c).** The radial chain: `−F''/F > 4F²r''/r³` where `F'' = −(F/δ²)F'²`. -/
@@ -191,7 +191,7 @@ theorem radial_chain (F Fp Fpp s δ A0 Fa Ceta d r rpp : ℝ) (hF : 0 < F) (hδ 
 
 /-! ## A7(d) — the bound on `d/r³`
 
-[D]: "`d/r³ ≤ 8q_s/r_a² = 4A₀F_a e^{−εA₀|cos a|} ≤ 4A₀F_a`", with `r_a/2 ≤ r`, `d = r_a q_s`,
+[GG]: "`d/r³ ≤ 8q_s/r_a² = 4A₀F_a e^{−εA₀|cos a|} ≤ 4A₀F_a`", with `r_a/2 ≤ r`, `d = r_a q_s`,
 `q_s = ½εA₀F_a` and `r_a² = ε e^{εA₀|cos a|}` (`eq:bdata`). -/
 
 /-- **A7(d).** -/

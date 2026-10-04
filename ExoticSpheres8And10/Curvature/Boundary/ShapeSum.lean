@@ -1,14 +1,14 @@
 /-
 Copyright (c) 2026 Fernando Galaz-García. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Fernando Galaz-García (Department of Mathematical Sciences, Durham University),
-Claude Opus 5.5 (Anthropic), which wrote the Lean under Fernando Galaz-García's supervision
+Authors: Fernando Galaz-García
+Developed with extensive assistance from Claude (Anthropic), used through Claude Code.
 -/
 import ExoticSpheres8And10.Curvature.Boundary.Eigenvalues
 
 /-! # A8, completed: the shape sum, its eigenvalues relative to `h`, and `eq:compat`
 
-[D] §4.4 "Boundary compatibility": "For the common lift `X+U` of `Y`, these forms are
+[GG] §4.4 "Boundary compatibility": "For the common lift `X+U` of `Y`, these forms are
 `B_N(Y,Y) = μ_N|X|² + q_s|U|²`, `(σ^*B_S)(Y,Y) = −μ_S|X|² − q_s|U|²`. The fibre contributions
 therefore cancel: `(B_N + σ^*B_S)(Y,Y) = (μ_N − μ_S)|X|²`. Here `X ≠ 0` for every nonzero
 boundary vector `Y`, by the graph description. Moreover `|Y|_h² = |X|² + |U|² ≤ (1+4F_a²/r_a²)|X|²`.
@@ -44,7 +44,7 @@ theorem adjoint_graphT_comp (K : Vv →L[ℝ] H) (c : ℝ) :
   simp [ContinuousLinearMap.adjoint_adjoint, map_smul, smul_smul, sq]
 
 /-- **The eigenvalues `b_j` of `KK^*` lie in `[0, ‖K‖²]`**, so in `[0, 4]` under `‖K‖ ≤ 2`
-([D] `lem:K`: "Hence the eigenvalues `b_j` of `K_yK_y^*` satisfy `0 ≤ b_j ≤ 4`"). -/
+([GG] `lem:K`: "Hence the eigenvalues `b_j` of `K_yK_y^*` satisfy `0 ≤ b_j ≤ 4`"). -/
 theorem eigen_KKstar_mem (K : Vv →L[ℝ] H) (hK : ‖K‖ ≤ 2) {v : H} (hv : v ≠ 0) {b : ℝ}
     (hb : K (ContinuousLinearMap.adjoint K v) = b • v) : 0 ≤ b ∧ b ≤ 4 := by
   have hvv : 0 < ‖v‖ ^ 2 := by positivity

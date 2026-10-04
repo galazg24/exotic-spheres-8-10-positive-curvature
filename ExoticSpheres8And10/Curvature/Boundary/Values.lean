@@ -1,15 +1,15 @@
 /-
 Copyright (c) 2026 Fernando Galaz-García. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Fernando Galaz-García (Department of Mathematical Sciences, Durham University),
-Claude Opus 5.5 (Anthropic), which wrote the Lean under Fernando Galaz-García's supervision
+Authors: Fernando Galaz-García
+Developed with extensive assistance from Claude (Anthropic), used through Claude Code.
 -/
 import ExoticSpheres8And10.Curvature.Boundary.Matching
 import ExoticSpheres8And10.Curvature.Northern.Cap
 
-/-! # §4.4: the boundary values for [D]'s two fillings
+/-! # §4.4: the boundary values for [GG]'s two fillings
 
-* `βN`, `Gs_eq_GsW`, `gB_eq_SQ`: [D]'s northern metric is the warped product `GW (βN δ) r̃`, and
+* `βN`, `Gs_eq_GsW`, `gB_eq_SQ`: [GG]'s northern metric is the warped product `GW (βN δ) r̃`, and
   the northern quotient metric of `S4_NorthSub` is the generic `SQ.gB`.
 * `fderiv_radial`: for `n(y) = μ(|y|²)·y`, `Dn(c) = μ(|y|²)·c` when `c ⊥ y`.
 -/
@@ -34,7 +34,7 @@ section North
 
 variable {V : Type} [NormedAddCommGroup V] [InnerProductSpace ℝ V] [FiniteDimensional ℝ V]
 
-/-- [D]'s northern base metric `|dY|² + ψ(|Y|²)⟪Y, dY⟫²`. -/
+/-- [GG]'s northern base metric `|dY|² + ψ(|Y|²)⟪Y, dY⟫²`. -/
 def βN (δ : ℝ) (Y : V) : V →L[ℝ] V →L[ℝ] ℝ :=
   ipL V + ψδ δ (‖Y‖ ^ 2) • bil mulL (innerSL ℝ Y)
 
@@ -380,7 +380,7 @@ theorem fderiv_normSq_ne {Y : Vs e} (hY : Y ≠ 0) : fderiv ℝ (fun y : Vs e =>
   simp only [fderiv_normSq_apply, ContinuousLinearMap.zero_apply, real_inner_self_eq_norm_sq] at this
   exact hY (norm_eq_zero.1 (by nlinarith [norm_nonneg Y]))
 
-/-- The boundary parameters of [D] in terms of `ρ₀ = |y₀|`: the tangential scale of the chart
+/-- The boundary parameters of [GG] in terms of `ρ₀ = |y₀|`: the tangential scale of the chart
 transition is `λ = ρ₀/F_a = 1 + ρ₀²/4`. -/
 theorem norm_bdry {ρ0 Fa : ℝ} (hρ0 : 0 < ρ0) (hFa : Fa = 4 * ρ0 / (4 + ρ0 ^ 2)) {Y : Vs e}
     (hY : ‖Y‖ = Fa) : ‖(1 + ρ0 ^ 2 / 4) • Y‖ = ρ0 := by

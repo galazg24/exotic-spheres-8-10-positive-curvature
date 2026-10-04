@@ -1,17 +1,17 @@
 /-
 Copyright (c) 2026 Fernando Galaz-García. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Fernando Galaz-García (Department of Mathematical Sciences, Durham University),
-Claude Opus 5.5 (Anthropic), which wrote the Lean under Fernando Galaz-García's supervision
+Authors: Fernando Galaz-García
+Developed with extensive assistance from Claude (Anthropic), used through Claude Code.
 -/
 import ExoticSpheres8And10.Curvature.Boundary.Values
 import ExoticSpheres8And10.ActionField.Bridge
 import ExoticSpheres8And10.Curvature.DHZ
 
-/-! # [D] `eq:compat`: the strict bound `B_N + σ^*B_S ≥ c_B h` with `c_B > 0`
+/-! # [GG] `eq:compat`: the strict bound `B_N + σ^*B_S ≥ c_B h` with `c_B > 0`
 
 `bdry_model_sff` proves `B_N + B_S ≥ 0` on the boundary (model charts), and that is what the
-gluing needs. [D] states more:
+gluing needs. [GG] states more:
 
   `B_N + σ^*B_S ≥ c_B h`, with `c_B = (r_a²/(r_a² + 4F_a²)) (μ_N − μ_S) > 0`.
 
@@ -28,7 +28,7 @@ Here the same argument is run in Lean's model charts:
 Therefore **`B_N + B_S ≥ c_B h` with `c_B = μ_N r_a²/(r_a² + L²) > 0`**, for any bound
 `‖K_Y‖ ≤ L` (`bdry_model_sff_cB`). With `L = ‖dρ‖F_a` it is uniform on the boundary sphere
 (`bdry_model_compat`). For `‖K_y‖ ≤ 2` on the unit sphere this is `L = 2F_a`, and
-`c_B = μ_N r_a²/(r_a² + 4F_a²)`, [D]'s constant. In Lean's normalisation the southern base term
+`c_B = μ_N r_a²/(r_a² + 4F_a²)`, [GG]'s constant. In Lean's normalisation the southern base term
 is a nonnegative extra.
 -/
 
@@ -106,7 +106,7 @@ theorem gB_le_base {ra d δ Fa LK : ℝ} (hra0 : 0 < ra) (hw0N : ∀ Y : Vs e, r
   nlinarith
 
 include hρ in
-/-- **[D] `eq:compat` in the model charts, with a strictly positive constant**:
+/-- **[GG] `eq:compat` in the model charts, with a strictly positive constant**:
 `B_N + B_S ≥ c_B h(c, c)` with `c_B = μ_N r_a²/(r_a² + L²)` for any bound `‖K_Y‖ ≤ L`. -/
 theorem bdry_model_sff_cB {ε A0 ra qs d δ ρ0 Fa LK : ℝ} (hε : 0 < ε) (hδ : 0 < δ) (hρ0 : 0 < ρ0)
     (hρ02 : ρ0 ≤ 2) (hFa : Fa = 4 * ρ0 / (4 + ρ0 ^ 2))
@@ -178,7 +178,7 @@ theorem bdry_model_sff_cB {ε A0 ra qs d δ ρ0 Fa LK : ℝ} (hε : 0 < ε) (hδ
     _ = _ := by linear_combination -(key ⟪Zh.2, Zh.2⟫)
 
 include hρ in
-/-- **[D] `eq:compat`, uniform on the boundary sphere**: one constant `c_B > 0` works for every
+/-- **[GG] `eq:compat`, uniform on the boundary sphere**: one constant `c_B > 0` works for every
 boundary point `Y` (`‖Y‖ = F_a`) and tangent vector `c`. -/
 theorem bdry_model_compat {ε A0 ra qs d δ ρ0 Fa : ℝ} (hε : 0 < ε) (hδ : 0 < δ) (hρ0 : 0 < ρ0)
     (hρ02 : ρ0 ≤ 2) (hFa : Fa = 4 * ρ0 / (4 + ρ0 ^ 2))

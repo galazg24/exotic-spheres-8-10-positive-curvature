@@ -1,21 +1,21 @@
 /-
 Copyright (c) 2026 Fernando Galaz-García. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Fernando Galaz-García (Department of Mathematical Sciences, Durham University),
-Claude Opus 5.5 (Anthropic), which wrote the Lean under Fernando Galaz-García's supervision
+Authors: Fernando Galaz-García
+Developed with extensive assistance from Claude (Anthropic), used through Claude Code.
 -/
 import Mathlib
 
-/-! # A2. Attaching-map algebra ([D] `lem:attaching`(2))
+/-! # A2. Attaching-map algebra ([GG] `lem:attaching`(2))
 
-Abstract setting: a group `G` acting on `X` (in [D], `G = S³` acting on `S^{n-1}` through
+Abstract setting: a group `G` acting on `X` (in [GG], `G = S³` acting on `S^{n-1}` through
 `ρ`), and a map `θ : X → G` that is equivariant for conjugation, `θ (g • x) = g θ(x) g⁻¹`
-([D] `eq:equiv`).
+([GG] `eq:equiv`).
 
-We define `σ y = θ(y)⁻¹ • y` ([D] `eq:sigma`) and `σ̂ y = θ(y) • y`, and prove:
+We define `σ y = θ(y)⁻¹ • y` ([GG] `eq:sigma`) and `σ̂ y = θ(y) • y`, and prove:
 * `θ ∘ σ = θ` and `θ ∘ σ̂ = θ`;
 * `σ̂ ∘ σ = id` and `σ ∘ σ̂ = id`, packaged as an `Equiv`;
-* the boundary computation: if `u_S = θ(x) u_N` ([D] `eq:transition`), `y_N = u_N⁻¹ • x`
+* the boundary computation: if `u_S = θ(x) u_N` ([GG] `eq:transition`), `y_N = u_N⁻¹ • x`
   and `y_S = u_S⁻¹ • x`, then `y_S = σ y_N`.
 -/
 
@@ -25,11 +25,11 @@ section Attaching
 
 variable {G X : Type*} [Group G] [MulAction G X]
 
-/-- `θ` is equivariant for the conjugation action of `G` on itself ([D] `eq:equiv`). -/
+/-- `θ` is equivariant for the conjugation action of `G` on itself ([GG] `eq:equiv`). -/
 def IsConjEquivariant (θ : X → G) : Prop :=
   ∀ (g : G) (x : X), θ (g • x) = g * θ x * g⁻¹
 
-/-- The attaching map `σ(y) = ρ(θ(y))⁻¹ y` of [D] `eq:sigma`. -/
+/-- The attaching map `σ(y) = ρ(θ(y))⁻¹ y` of [GG] `eq:sigma`. -/
 def attachSigma (θ : X → G) (y : X) : X := (θ y)⁻¹ • y
 
 /-- The claimed inverse `σ̂(y) = ρ(θ(y)) y`. -/
@@ -57,7 +57,7 @@ theorem attachSigma_attachSigmaHat (hθ : IsConjEquivariant θ) (y : X) :
     attachSigma θ (attachSigmaHat θ y) = y := by
   rw [attachSigma, theta_attachSigmaHat hθ, attachSigmaHat, inv_smul_smul]
 
-/-- `σ` as a bijection of `X`, with inverse `σ̂` ([D] `lem:attaching`(2), last sentence,
+/-- `σ` as a bijection of `X`, with inverse `σ̂` ([GG] `lem:attaching`(2), last sentence,
 bijectivity part; smoothness is not formalised). -/
 def attachSigmaEquiv (hθ : IsConjEquivariant θ) : X ≃ X where
   toFun := attachSigma θ
@@ -71,7 +71,7 @@ def attachSigmaEquiv (hθ : IsConjEquivariant θ) : X ≃ X where
 @[simp] theorem attachSigmaEquiv_symm_apply (hθ : IsConjEquivariant θ) (y : X) :
     (attachSigmaEquiv hθ).symm y = attachSigmaHat θ y := rfl
 
-/-- **Boundary computation** ([D] `lem:attaching`(2), proof). On the common boundary the
+/-- **Boundary computation** ([GG] `lem:attaching`(2), proof). On the common boundary the
 transition is `u_S = θ(x) u_N`; the boundary markings are `y_N = u_N⁻¹ • x` and
 `y_S = u_S⁻¹ • x`. Then `y_S = σ(y_N)`. -/
 theorem attaching_boundary (hθ : IsConjEquivariant θ) (x yN yS : X) (uN uS : G)

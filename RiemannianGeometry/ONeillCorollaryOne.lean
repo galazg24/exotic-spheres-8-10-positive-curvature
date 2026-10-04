@@ -1,8 +1,8 @@
 /-
 Copyright (c) 2026 Fernando Galaz-García. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Fernando Galaz-García (Department of Mathematical Sciences, Durham University),
-Claude Opus 5 (Anthropic), which wrote the Lean under Fernando Galaz-García's supervision
+Authors: Fernando Galaz-García
+Developed with extensive assistance from Claude (Anthropic), used through Claude Code.
 -/
 import RiemannianGeometry.ONeillBaseCurvature
 import RiemannianGeometry.ONeillHorizontalCurvatureScalar
@@ -16,9 +16,9 @@ a separate theorem so that the arithmetic is auditable at every stage.
 
 ## 1. `{4}` itself
 
-`Foundations.ONeillHorizontalCurvatureScalar` proves the scalar dual Gauss equation with
+`RiemannianGeometry.ONeillHorizontalCurvatureScalar` proves the scalar dual Gauss equation with
 `oneillHorizontalCurvature` — the *total-space* object `R^H` — on the right, and
-`Foundations.ONeillBaseCurvature` identifies `⟪R^H(X,Y)Z, Uᴴ⟫` with the curvature of `B`. Composing
+`RiemannianGeometry.ONeillBaseCurvature` identifies `⟪R^H(X,Y)Z, Uᴴ⟫` with the curvature of `B`. Composing
 them gives O'Neill's braced `{4}` with the base curvature where the source puts it:
 
     ⟪R(Xᴴ,Yᴴ)Zᴴ, Uᴴ⟫ = ⟪R*(X,Y)Z, U⟫(f p)
@@ -180,7 +180,7 @@ omit [FiniteDimensional ℝ E] in
 
     ⟨R_{XY}Z, H⟩ = ⟨R*_{XY}Z, H⟩ − 2⟨A_XY, A_ZH⟩ + ⟨A_YZ, A_XH⟩ + ⟨A_ZX, A_YH⟩
 
-and his `R` is **minus** `Foundations.riemannCurvatureAt` (§7a). Multiplying through by `−1` and
+and his `R` is **minus** `RiemannianGeometry.riemannCurvatureAt` (§7a). Multiplying through by `−1` and
 substituting the vector identity `A_ZX = −A_XZ` — supplied here as the argument `-aXZ` in the
 `A_ZX` slot rather than assumed — this lemma says that the resulting right-hand side is exactly the
 one `tangentMetric_curvature_horizontalLiftField_base` carries. Only two facts are used:
@@ -282,7 +282,7 @@ Two of `{4}`'s five differentiability hypotheses disappear under the substitutio
 `MDiffAt (T% (oneillA I J f Xᴴ Xᴴ)) p` because that section is `0`, and
 `MDiffAt (T% (oneillA I J f Yᴴ Xᴴ)) p` because that section is `−(oneillA I J f Xᴴ Yᴴ)`. The three
 that remain — `hAXY`, `hHYX`, `hHXX` — are not removable at metrics `C²`; see
-`Foundations.ONeillHorizontalCurvatureScalar` §1.
+`RiemannianGeometry.ONeillHorizontalCurvatureScalar` §1.
 -/
 theorem tangentMetric_curvature_horizontalLiftField_self {n : ℕ∞}
     (hn : minSmoothness ℝ 2 ≤ n) (hn' : (n : ℕ∞ω) ≠ ∞)
@@ -329,7 +329,7 @@ omit [FiniteDimensional ℝ E] [IsManifold I ∞ M] in
 /-- **The tangent metric is positive definite.**
 
 The `pos` field of `Bundle.RiemannianMetric`, repackaged as the project's `IsPosDef`. This is the
-one hypothesis of `sectionalCurvatureAt` that `Foundations.ONeillTensors` did not already supply
+one hypothesis of `sectionalCurvatureAt` that `RiemannianGeometry.ONeillTensors` did not already supply
 alongside `isSymm_tangentMetric` and `isNondegenerate_tangentMetric`, because nothing before the
 sectional layer needed it: `riemannCurvatureAt` and `riemannTensorAt` are pseudo-Riemannian. -/
 theorem isPosDef_tangentMetric : IsPosDef (tangentMetric I M) :=
@@ -402,7 +402,7 @@ denominator:
       = Rm_B(X (f p), Y (f p), Y (f p), X (f p)) − 3 ⟪A_{Xᴴ}Yᴴ, A_{Xᴴ}Yᴴ⟫.
 
 **The sign step, which is where an error would be invisible.**
-`Foundations.sectionalCurvatureAt` has numerator `Rm(u,v,v,u) = g (R(u,v) v) u`, whereas
+`RiemannianGeometry.sectionalCurvatureAt` has numerator `Rm(u,v,v,u) = g (R(u,v) v) u`, whereas
 `tangentMetric_curvature_horizontalLiftField_self` computes `g (R(u,v) u) v`, i.e. `Rm(u,v,u,v)`.
 Last-pair antisymmetry `riemannTensorAt_swap_right` relates them, and it is applied **on both
 manifolds**:

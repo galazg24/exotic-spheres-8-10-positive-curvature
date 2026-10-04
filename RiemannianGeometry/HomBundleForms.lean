@@ -1,8 +1,8 @@
 /-
 Copyright (c) 2026 Fernando Galaz-García. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Fernando Galaz-García (Department of Mathematical Sciences, Durham University),
-Claude Opus 5 (Anthropic), which wrote the Lean under Fernando Galaz-García's supervision
+Authors: Fernando Galaz-García
+Developed with extensive assistance from Claude (Anthropic), used through Claude Code.
 -/
 import RiemannianGeometry.KoszulBundled
 
@@ -32,7 +32,7 @@ A field `K` of bilinear forms on the tangent spaces is a `C^m` section of `Hom(T
 `x` as soon as `y ↦ K y (s_i y) (s_j y)` is `C^m` at `x` for the local frame `s` induced by an atlas
 trivialisation `e` whose base set contains `x` and a basis `b` of the model fibre.
 
-`Foundations.contMDiffAt_hom_hom_of_eq_koszulRHS_frame` is this argument specialised to the Koszul
+`RiemannianGeometry.contMDiffAt_hom_hom_of_eq_koszulRHS_frame` is this argument specialised to the Koszul
 right-hand side; the two frame tests and the trivial-line-bundle step are the same, and only the
 supply of the scalars differs. -/
 theorem contMDiffAt_hom_hom_of_contMDiffAt_frame {m : ℕ∞} {x : M}

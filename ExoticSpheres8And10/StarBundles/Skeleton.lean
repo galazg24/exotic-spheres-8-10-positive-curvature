@@ -1,12 +1,12 @@
 /-
 Copyright (c) 2026 Fernando Galaz-García. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Fernando Galaz-García (Department of Mathematical Sciences, Durham University),
-Claude Opus 5.5 (Anthropic), which wrote the Lean under Fernando Galaz-García's supervision
+Authors: Fernando Galaz-García
+Developed with extensive assistance from Claude (Anthropic), used through Claude Code.
 -/
 import Mathlib
 
-/-! # The logical skeleton of [D] `prop:polar`
+/-! # The logical skeleton of [GG] `prop:polar`
 
 * **B1** (Step 2, group theory). A group `H` acts on the right on `P`, freely on the orbit of a
   point `p₀` (the fibre `P₀ = p₀ · H`); a group `S` acts on the left, commuting with it, and
@@ -85,7 +85,7 @@ section B1model
 variable {G P : Type*} [Group G] [MulAction G P] [MulAction Gᵐᵒᵖ P] [SMulCommClass G Gᵐᵒᵖ P]
 
 /-- **B1(iii).** If `φ(q) = c q c⁻¹` for all `q`, then `s₀ = p₀ · c` satisfies
-`q ⋆ s₀ = s₀ · q` ([D] `eq:model`). -/
+`q ⋆ s₀ = s₀ · q` ([GG] `eq:model`). -/
 theorem model_point (p₀ : P) (φ : G → G) (hφ : ∀ q : G, q • p₀ = ract p₀ (φ q)) (c : G)
     (hc : ∀ q, φ q = c * q * c⁻¹) (q : G) :
     q • ract p₀ c = ract (ract p₀ c) q := by
@@ -159,7 +159,7 @@ section B2
 variable {G P Z : Type*} [Group G] [MulAction G P] [MulAction Gᵐᵒᵖ P] [SMulCommClass G Gᵐᵒᵖ P]
   [MulAction G Z]
 
-/-- **B2.** Equivariance of `θ` from equivariance of the two sections ([D] Step 6, last display).
+/-- **B2.** Equivariance of `θ` from equivariance of the two sections ([GG] Step 6, last display).
 `hfree`: the principal right action is free. -/
 theorem theta_equivariant (sN sS : Z → P) (θ : Z → G)
     (hN : ∀ (q : G) ζ, sN (q • ζ) = ract (q • sN ζ) q⁻¹)
@@ -208,7 +208,7 @@ theorem lifts_differ_by_constant (L : HorizontalLifts G P B π ract' Curves I)
   L.unique c hc ℓ₁ _ h₁ (L.ract_lift c hc ℓ₂ h₂ g) t₀ ht₀ hg
 
 /-- **B3(ii).** Hence `θ`, defined by `s_N = s_S · θ` with a free right action, is constant
-along each curve whose `s_N`- and `s_S`-images are horizontal lifts ([D] Step 6). -/
+along each curve whose `s_N`- and `s_S`-images are horizontal lifts ([GG] Step 6). -/
 theorem theta_const_along (L : HorizontalLifts G P B π ract' Curves I)
     (hfree : ∀ (p : P) (g g' : G), ract' p g = ract' p g' → g = g')
     (sN sS : B → P) (θ : B → G) (hθ : ∀ ζ, sN ζ = ract' (sS ζ) (θ ζ))

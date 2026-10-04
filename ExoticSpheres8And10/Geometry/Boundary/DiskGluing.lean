@@ -1,14 +1,14 @@
 /-
 Copyright (c) 2026 Fernando Galaz-García. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Fernando Galaz-García (Department of Mathematical Sciences, Durham University),
-Claude Opus 5.5 (Anthropic), which wrote the Lean under Fernando Galaz-García's supervision
+Authors: Fernando Galaz-García
+Developed with extensive assistance from Claude (Anthropic), used through Claude Code.
 -/
 import Mathlib
 
 /-! # Smooth disk gluing `𝔻(a) ∪_σ 𝔻(b)` with product collars, and its uniqueness
 
-[D] (proof of `lem:attaching` (3)): "the induced identification on a product collar of the
+[GG] (proof of `lem:attaching` (3)): "the induced identification on a product collar of the
 common boundary is constant in the collar direction and has angular part `σ`. Thus the quotient
 is the smooth disk gluing `D_N ∪_σ D_S`."
 

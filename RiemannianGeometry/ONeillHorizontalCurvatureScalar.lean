@@ -1,8 +1,8 @@
 /-
 Copyright (c) 2026 Fernando Galaz-García. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Fernando Galaz-García (Department of Mathematical Sciences, Durham University),
-Claude Opus 5 (Anthropic), which wrote the Lean under Fernando Galaz-García's supervision
+Authors: Fernando Galaz-García
+Developed with extensive assistance from Claude (Anthropic), used through Claude Code.
 -/
 import RiemannianGeometry.ONeillHorizontalCurvature
 import RiemannianGeometry.ONeillTensoriality
@@ -14,7 +14,7 @@ Two things are done here, both at **metrics `C²`**.
 
 ## 1. The undischarged hypothesis of `ONeillHorizontalCurvature` is removed
 
-`Foundations.ONeillHorizontalCurvature` proves the vector relation of O'Neill's p. 464 — his
+`RiemannianGeometry.ONeillHorizontalCurvature` proves the vector relation of O'Neill's p. 464 — his
 *parenthesised* equation `(4)`, an intermediate step, not the braced `{4}` of his Theorem 2 — but
 carries one hypothesis its module docstring records as not dischargeable at `C²`:
 

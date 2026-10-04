@@ -1,14 +1,14 @@
 /-
 Copyright (c) 2026 Fernando Galaz-García. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Fernando Galaz-García (Department of Mathematical Sciences, Durham University),
-Claude Opus 5.5 (Anthropic), which wrote the Lean under Fernando Galaz-García's supervision
+Authors: Fernando Galaz-García
+Developed with extensive assistance from Claude (Anthropic), used through Claude Code.
 -/
 import ExoticSpheres8And10.Curvature.Southern.Gauge
 
-/-! # A1, completed: `K_y ξ` is the derivative of the orbit ([D] §5.2, `lem:K`)
+/-! # A1, completed: `K_y ξ` is the derivative of the orbit ([GG] §5.2, `lem:K`)
 
-[D]: "For `y ∈ S^{n-1}` let `K_y : Im ℍ → T_yS^{n−1}` be the infinitesimal action,
+[GG]: "For `y ∈ S^{n-1}` let `K_y : Im ℍ → T_yS^{n−1}` be the infinitesimal action,
 `K_y ξ = d/dτ|₀ ρ(e^{τξ})y`." and, in the proof of `lem:K`, "At `y = (x,w)`,
 `K_yξ = (ξx, 2ξ × Im w)`" for `ρ₈(q)(λ,x,w) = (λ, qx, qwq⁻¹)`, and "At `y = (p,w,x)`,
 `K_yξ = (0, ξw, 2ξ × x)`" for `ρ₁₀(q)(p,w,x) = (p, qw, qxq⁻¹)`.
@@ -55,14 +55,14 @@ theorem exp_curve (ξ : ℍ[ℝ]) :
       add_neg_cancel, zero_smul, exp_zero]
   exact left_ne_zero_of_mul_eq_one h
 
-/-- **[D]'s `K_yξ` for `ρ₈`, literally.** `d/dτ|₀ ρ₈(e^{τξ})(λ,x,w) = (0, ξx, ξw − wξ)`. -/
+/-- **[GG]'s `K_yξ` for `ρ₈`, literally.** `d/dτ|₀ ρ₈(e^{τξ})(λ,x,w) = (0, ξx, ξw − wξ)`. -/
 theorem K8_eq (ξ : ℍ[ℝ]) (lam : ℝ) (x w : ℍ[ℝ]) :
     HasDerivAt (fun τ : ℝ => (lam, exp (τ • ξ) * x, exp (τ • ξ) * w * (exp (τ • ξ))⁻¹))
       ((0 : ℝ), ξ * x, ξ * w - w * ξ) 0 := by
   obtain ⟨-, hd, -⟩ := exp_curve ξ
   exact orbit8_velocity _ ξ (by simp) hd lam x w
 
-/-- **[D]'s `K_yξ` for `ρ₁₀`, literally.** `d/dτ|₀ ρ₁₀(e^{τξ})(p,w,x) = (0, ξw, ξx − xξ)`. -/
+/-- **[GG]'s `K_yξ` for `ρ₁₀`, literally.** `d/dτ|₀ ρ₁₀(e^{τξ})(p,w,x) = (0, ξw, ξx − xξ)`. -/
 theorem K10_eq (ξ p w x : ℍ[ℝ]) :
     HasDerivAt (fun τ : ℝ => (p, exp (τ • ξ) * w, exp (τ • ξ) * x * (exp (τ • ξ))⁻¹))
       ((0 : ℍ[ℝ]), ξ * w, ξ * x - x * ξ) 0 := by

@@ -1,8 +1,8 @@
 /-
 Copyright (c) 2026 Fernando Galaz-García. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Fernando Galaz-García (Department of Mathematical Sciences, Durham University),
-Claude Opus 5 (Anthropic), which wrote the Lean under Fernando Galaz-García's supervision
+Authors: Fernando Galaz-García
+Developed with extensive assistance from Claude (Anthropic), used through Claude Code.
 -/
 import RiemannianGeometry.ONeillLemmaTwo
 
@@ -14,7 +14,7 @@ asserts on p. 460 — without proof — that
 
     T_D F = 𝓗∇_{𝓥D}(𝓥F) + 𝓥∇_{𝓥D}(𝓗F),    A_D F = 𝓥∇_{𝓗D}(𝓗F) + 𝓗∇_{𝓗D}(𝓥F)
 
-are `(1,2)`-tensors. `Foundations.ONeillTensors` proves the *direction*-slot half
+are `(1,2)`-tensors. `RiemannianGeometry.ONeillTensors` proves the *direction*-slot half
 (`oneillA_congr_direction`, `oneillA_add_direction`, `oneillA_smul_direction` and their `T`
 analogues), where the direction enters only as the argument of a continuous linear map precomposed
 with a projection. This file proves the *field*-slot half, and draws the consequence O'Neill
@@ -38,7 +38,7 @@ the Leibniz correction alive.
 ## Main results
 
 * `verticalProjection_horizontalProjection`, `horizontalProjection_verticalProjection` — the two
-  composition identities `𝓥 ∘ 𝓗 = 0` and `𝓗 ∘ 𝓥 = 0`, which `Foundations.HorizontalSpace` has
+  composition identities `𝓥 ∘ 𝓗 = 0` and `𝓗 ∘ 𝓥 = 0`, which `RiemannianGeometry.HorizontalSpace` has
   only in the membership form. These are the load-bearing algebraic facts of the file.
 * `oneillA_add_field`, `oneillA_smul_field`, `oneillT_add_field`, `oneillT_smul_field` —
   **field-slot additivity and homogeneity**: the two clauses of O'Neill's tensoriality assertion in
@@ -52,7 +52,7 @@ the Leibniz correction alive.
 
 ## The route to order zero: skew-symmetry, not a local frame
 
-`Foundations.CurvaturePointwise.curvature_eq_of_eq_at` reaches the analogous order-zero statement
+`RiemannianGeometry.CurvaturePointwise.curvature_eq_of_eq_at` reaches the analogous order-zero statement
 for the curvature operator through a **local-frame expansion**: additivity plus homogeneity plus
 germ locality plus `Trivialization.localFrameCoeff_congr`. That machinery is *not* used here, and
 is not needed.
@@ -124,7 +124,7 @@ already takes its base-field hypothesis eventually, and
   `f ∈ C³` and both metrics in `C²`.
 
 **No metric hypothesis anywhere in this file exceeds `C²`.** The `C³` is on the submersion `f`,
-never on `gM` or `gB`, and it is inherited unchanged from `Foundations.ONeillLemmaTwo` rather than
+never on `gM` or `gB`, and it is inherited unchanged from `RiemannianGeometry.ONeillLemmaTwo` rather than
 introduced here.
 -/
 
@@ -147,7 +147,7 @@ variable
 
 /-! ## The two composition identities
 
-`Foundations.HorizontalSpace` supplies `𝓗𝓗 = 𝓗`, `𝓥𝓥 = 𝓥` and the membership characterisations,
+`RiemannianGeometry.HorizontalSpace` supplies `𝓗𝓗 = 𝓗`, `𝓥𝓥 = 𝓥` and the membership characterisations,
 but not the mixed compositions. Both are one line from `horizontalProjection_eq_sub`, and both are
 what kills the Leibniz correction below. -/
 
@@ -312,7 +312,7 @@ omit [FiniteDimensional ℝ E'] [IsManifold J ∞ B] in
 Proved from skew-symmetry (`tangentMetric_oneillA_skew`, O'Neill's property 1′) and nondegeneracy,
 not from a local-frame expansion: for `w ∈ T_pM` and any test field `G` with `G p = w`,
 `⟪A_D F p, w⟫ = −⟪A_D G p, F p⟫`, whose right-hand side sees `F` only at `p`. See the module
-docstring for the comparison with `Foundations.CurvaturePointwise.curvature_eq_of_eq_at`, which has
+docstring for the comparison with `RiemannianGeometry.CurvaturePointwise.curvature_eq_of_eq_at`, which has
 no skew-symmetry available and must go through a frame.
 
 -/
@@ -415,7 +415,7 @@ theorem exists_mdiffAt_parts_eq {m : ℕ∞} {u : Set M} (hu : IsOpen u) (hpu : 
       (FiberBundle.contMDiffAt_extend I E v)).mdifferentiableAt hm⟩
 
 omit [FiniteDimensional ℝ E'] in
-/-- `exists_mdiffAt_parts_eq` in the hypothesis shape of `Foundations.ONeillLemmaTwo`: `f` of class
+/-- `exists_mdiffAt_parts_eq` in the hypothesis shape of `RiemannianGeometry.ONeillLemmaTwo`: `f` of class
 `C^(n+1)` globally, both metrics `C^n` as sections, submersion and isometry conditions at every
 point. This is the form the reduction below consumes. -/
 theorem exists_mdiffAt_parts_eq_of_isContMDiffMetricSection {n : ℕ∞} (hn0 : (n : ℕ∞ω) ≠ 0)

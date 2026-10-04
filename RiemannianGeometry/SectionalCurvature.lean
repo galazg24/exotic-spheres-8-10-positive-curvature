@@ -1,8 +1,8 @@
 /-
 Copyright (c) 2026 Fernando Galaz-García. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Fernando Galaz-García (Department of Mathematical Sciences, Durham University),
-Claude Opus 5 (Anthropic), which wrote the Lean under Fernando Galaz-García's supervision
+Authors: Fernando Galaz-García
+Developed with extensive assistance from Claude (Anthropic), used through Claude Code.
 -/
 import RiemannianGeometry.RiemannTensor
 import Mathlib.LinearAlgebra.LinearIndependent.Lemmas
@@ -27,14 +27,14 @@ nonzero, so positivity enters here and nowhere earlier.
 
 ## The sign convention
 
-With `Rm(u,v,w,z) = g (R(u,v) w) z` (see `Foundations.RiemannTensor`), the numerator is
+With `Rm(u,v,w,z) = g (R(u,v) w) z` (see `RiemannianGeometry.RiemannTensor`), the numerator is
 
   `Rm(u, v, v, u) = g (R(u,v) v) u`
 
 and **not** `Rm(u,v,u,v)`. Getting this backwards flips the sign of every sectional curvature, so it
 is worth stating the check: for the round sphere with the standard connection this convention gives
 positive sectional curvature, because `R(u,v)v` points along `u`. The two conventions differ by the
-last-pair antisymmetry `Rm(u,v,v,u) = −Rm(u,v,u,v)` of `Foundations.CurvatureMetric`.
+last-pair antisymmetry `Rm(u,v,v,u) = −Rm(u,v,u,v)` of `RiemannianGeometry.CurvatureMetric`.
 -/
 
 noncomputable section

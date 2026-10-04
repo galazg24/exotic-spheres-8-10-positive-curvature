@@ -1,8 +1,8 @@
 /-
 Copyright (c) 2026 Fernando Galaz-García. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Fernando Galaz-García (Department of Mathematical Sciences, Durham University),
-Claude Opus 5 (Anthropic), which wrote the Lean under Fernando Galaz-García's supervision
+Authors: Fernando Galaz-García
+Developed with extensive assistance from Claude (Anthropic), used through Claude Code.
 -/
 import RiemannianGeometry.Curvature
 import RiemannianGeometry.CurvaturePointwise
@@ -47,7 +47,7 @@ Write `f := g(Z,W)`. Metric compatibility is a *proposition*, so it may be appli
 likes at no cost in regularity, and it is applied three times: along `X` and along `Y` (after an
 eventual identity of functions near `x`), and along `[X,Y]`. The only differentiation performed is
 of the **scalar** `f`, twice, and the two second derivatives are related by the manifold derivation
-identity `X(Yf) − Y(Xf) = [X,Y]f` of `Foundations.MLieBracketDerivation`. Substituting the three
+identity `X(Yf) − Y(Xf) = [X,Y]f` of `RiemannianGeometry.MLieBracketDerivation`. Substituting the three
 expansions, the two cross terms `g(∇_Y Z, ∇_X W)` and `g(∇_X Z, ∇_Y W)` appear once in each of
 `X(Yf)` and `Y(Xf)` and cancel in the difference, leaving exactly
 `g(R(X,Y)Z, W) + g(Z, R(X,Y)W) = 0`.
@@ -106,7 +106,7 @@ variable {𝕜 : Type*} [NontriviallyNormedField 𝕜]
 
 /-! ## Differentiability of the pairing, for a general bundle `V`
 
-`Foundations.KoszulBundled.mdiffAt_pairing` is the same statement for the tangent bundle; the
+`RiemannianGeometry.KoszulBundled.mdiffAt_pairing` is the same statement for the tangent bundle; the
 proof is verbatim the same three lines through `MDifferentiableAt.clm_bundle_apply₂`. -/
 
 omit [CompleteSpace E] [∀ x, IsTopologicalAddGroup (V x)] [∀ x, ContinuousSMul 𝕜 (V x)] in
@@ -129,7 +129,7 @@ variable (F) in
 /-- **Compatibility of a connection on `V` with a fibre metric given as data.**
 
 `X g(σ, τ) = g(∇_X σ, τ) + g(σ, ∇_X τ)` whenever `σ` and `τ` are differentiable at the point.
-This mirrors `Foundations.IsCompatibleWith` (which is the tangent-bundle, real case), and it is
+This mirrors `RiemannianGeometry.IsCompatibleWith` (which is the tangent-bundle, real case), and it is
 Mathlib's `IsMetricCompatible.mvfderiv_inner_eq` with the metric supplied explicitly.  No
 hypothesis on the direction `X` is needed, exactly as in Mathlib's version; in particular the
 direction may be instantiated to `mlieBracket I X Y`. -/

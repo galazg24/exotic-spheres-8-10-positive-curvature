@@ -662,7 +662,7 @@ Every theorem below must depend only on `propext`, `Classical.choice`, `Quot.sou
 #print axioms ExoticSpheres8And10.GH_starN
 #print axioms ExoticSpheres8And10.southern_quotient_pos
 #print axioms ExoticSpheres8And10.southern_quotient_hyps_satisfiable
--- [D]'s southern potential from the polar data
+-- [GG]'s southern potential from the polar data
 #print axioms ExoticSpheres8And10.PolarData.contMDiff_ρVs
 #print axioms ExoticSpheres8And10.PolarData.contDiffAt_θh
 #print axioms ExoticSpheres8And10.PolarData.θh_ρ
@@ -754,7 +754,6 @@ Every theorem below must depend only on `propext`, `Classical.choice`, `Quot.sou
 #print axioms ExoticSpheres8And10.northern_filling_pos_L
 #print axioms ExoticSpheres8And10.exists_rwData_L
 #print axioms ExoticSpheres8And10.hly_general_L
-#print axioms ExoticSpheres8And10.hly_general
 #print axioms ExoticSpheres8And10.norm_KY_le_dρ
 #print axioms ExoticSpheres8And10.exists_K_bound
 #print axioms ExoticSpheres8And10.dhz_prop51

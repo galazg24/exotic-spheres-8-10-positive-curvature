@@ -1,15 +1,15 @@
 /-
 Copyright (c) 2026 Fernando Galaz-García. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Fernando Galaz-García (Department of Mathematical Sciences, Durham University),
-Claude Opus 5.5 (Anthropic), which wrote the Lean under Fernando Galaz-García's supervision
+Authors: Fernando Galaz-García
+Developed with extensive assistance from Claude (Anthropic), used through Claude Code.
 -/
 import ExoticSpheres8And10.Curvature.Northern.ProfilesExistence
 
 /-! # Infrastructure: a reparametrisation of `ℝ` onto `(0, ∞)` that is the identity near `s₀`
 
 For `s₀ > 0`, `reparam s₀ : ℝ → ℝ` is smooth, positive, has positive derivative everywhere, and
-is the identity on `[s₀/2, ∞)`. Composing [D]'s northern profiles with it gives a polar chart
+is the identity on `[s₀/2, ∞)`. Composing [GG]'s northern profiles with it gives a polar chart
 that is a local diffeomorphism **everywhere** (its radius never vanishes) and agrees with the
 true polar chart near `s₀`.
 

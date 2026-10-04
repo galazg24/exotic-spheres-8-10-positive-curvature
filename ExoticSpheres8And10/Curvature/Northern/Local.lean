@@ -1,27 +1,27 @@
 /-
 Copyright (c) 2026 Fernando Galaz-García. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Fernando Galaz-García (Department of Mathematical Sciences, Durham University),
-Claude Opus 5.5 (Anthropic), which wrote the Lean under Fernando Galaz-García's supervision
+Authors: Fernando Galaz-García
+Developed with extensive assistance from Claude (Anthropic), used through Claude Code.
 -/
 import ExoticSpheres8And10.Curvature.Northern.Filling
 import ExoticSpheres8And10.Curvature.Northern.ProfilesCentre
 import ExoticSpheres8And10.Curvature.Northern.ProfilesGeneralBound
 
-/-! # §4: the northern curvature for [D]'s actual metric, at every point of the coordinate patch
+/-! # §4: the northern curvature for [GG]'s actual metric, at every point of the coordinate patch
 
-`S4_NorthD` realised [D]'s profiles by their 2-jets and took round fibres in normal coordinates.
+`S4_NorthD` realised [GG]'s profiles by their 2-jets and took round fibres in normal coordinates.
 This file removes both simplifications.
 
-* `blend`: a smooth, everywhere-positive function equal to [D]'s `F = Fprof δ` (resp.
+* `blend`: a smooth, everywhere-positive function equal to [GG]'s `F = Fprof δ` (resp.
   `r = rprof`) on the whole half-line `[s₀/2, ∞)`, obtained with a smooth cutoff. The metric
-  below therefore **is** [D]'s northern metric on the open set `{s > s₀/2}`, not merely one with
+  below therefore **is** [GG]'s northern metric on the open set `{s > s₀/2}`, not merely one with
   the same 2-jet.
 * `riemannTensorAt_wG_conformal`, `sectionalCurvatureAt_wG_pos_conformal`: the star-horizontal
   formula at points where the fibre metrics are conformal to the inner product. This holds at
   every point of the round metric `HR`.
-* `northern_sectionalCurvature_pos_all`: **for [D]'s parameters, at every point `(s, x, y)` with
-  `s ∈ (0, ℓ_N]` and any fibre coordinates `x`, `y`, `RiemannianGeometry`'s sectional curvature of [D]'s northern
+* `northern_sectionalCurvature_pos_all`: **for [GG]'s parameters, at every point `(s, x, y)` with
+  `s ∈ (0, ℓ_N]` and any fibre coordinates `x`, `y`, `RiemannianGeometry`'s sectional curvature of [GG]'s northern
   metric is positive on every star-horizontal plane.**
 -/
 
@@ -201,18 +201,18 @@ theorem sectionalCurvatureAt_wG_pos_conformal (hF : ContDiff ℝ ∞ F) (hr : Co
 
 end Conformal
 
-/-! ### [D]'s northern metric at every point -/
+/-! ### [GG]'s northern metric at every point -/
 
 section NorthAll
 
 variable {H Vv : Type} [NormedAddCommGroup H] [InnerProductSpace ℝ H] [FiniteDimensional ℝ H]
   [NormedAddCommGroup Vv] [InnerProductSpace ℝ Vv] [FiniteDimensional ℝ Vv]
 
-/-- **[D] §4, northern filling, for [D]'s actual metric.** For the parameters of
+/-- **[GG] §4, northern filling, for [GG]'s actual metric.** For the parameters of
 `northern_filling_pos`, at every `s ∈ (0, ℓ_N]` and every point `(s, x, y)` of the fibre
 coordinates, the metric `ds² + F̃(s)² H_round(x) + r̃(s)² H_round(y)` has **positive `RiemannianGeometry` sectional
 curvature on every star-horizontal plane**, for every `K` with `‖K‖ ≤ 2`. Here `F̃ = F` and
-`r̃ = r` on `[s/2, ∞)`, [D]'s profiles themselves, extended smoothly and positively below `s/2`.
+`r̃ = r` on `[s/2, ∞)`, [GG]'s profiles themselves, extended smoothly and positively below `s/2`.
 The plane is spanned by the scaled star-horizontal vectors `(λ, X, TX)`, `(μ, Y, TY)`,
 `T = −(F/r)K^*`. -/
 theorem northern_sectionalCurvature_pos_all (Cη : ℝ) (hC0 : 0 ≤ Cη)

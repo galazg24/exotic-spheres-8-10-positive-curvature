@@ -1,14 +1,14 @@
 /-
 Copyright (c) 2026 Fernando Galaz-García. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Fernando Galaz-García (Department of Mathematical Sciences, Durham University),
-Claude Opus 5.5 (Anthropic), which wrote the Lean under Fernando Galaz-García's supervision
+Authors: Fernando Galaz-García
+Developed with extensive assistance from Claude (Anthropic), used through Claude Code.
 -/
 import ExoticSpheres8And10.Curvature.Northern.Submersion
 
 /-! # §4: the quotient by the star action, for any star-invariant metric
 
-`S4_NorthSub` and `S4_NorthRiem` were written for [D]'s northern metric `G_N`. This file repeats
+`S4_NorthSub` and `S4_NorthRiem` were written for [GG]'s northern metric `G_N`. This file repeats
 their horizontal-lift construction and the O'Neill descent, for **any** metric `G` on `V × S³`.
 The metric need only:
 - have a smooth, symmetric, positive-definite slice form `Gs Y` at `(Y, 1)`;

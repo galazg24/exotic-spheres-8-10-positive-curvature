@@ -1,14 +1,14 @@
 /-
 Copyright (c) 2026 Fernando Galaz-García. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Fernando Galaz-García (Department of Mathematical Sciences, Durham University),
-Claude Opus 5.5 (Anthropic), which wrote the Lean under Fernando Galaz-García's supervision
+Authors: Fernando Galaz-García
+Developed with extensive assistance from Claude (Anthropic), used through Claude Code.
 -/
 import ExoticSpheres8And10.Curvature.Boundary.Gauge
 
 /-! # §4.4: near the boundary, the southern quotient metric is the product-connection quotient
 
-Where `χ = 0`: `τ^*g_A = g_0` pointwise (**`gB_τ`**). Here `g_A` is the star quotient of [D]'s
+Where `χ = 0`: `τ^*g_A = g_0` pointwise (**`gB_τ`**). Here `g_A` is the star quotient of [GG]'s
 southern metric `G_S = GH(A_S, r)`, and `g_0` that of the product-connection metric
 `GW(ψR⟪,⟫, r)`.
 

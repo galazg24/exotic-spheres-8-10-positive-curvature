@@ -1,8 +1,8 @@
 /-
 Copyright (c) 2026 Fernando Galaz-García. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Fernando Galaz-García (Department of Mathematical Sciences, Durham University),
-Claude Opus 5.5 (Anthropic), which wrote the Lean under Fernando Galaz-García's supervision
+Authors: Fernando Galaz-García
+Developed with extensive assistance from Claude (Anthropic), used through Claude Code.
 -/
 import ExoticSpheres8And10.Curvature.Prop31.Bundle.InvarianceDOmega
 import ExoticSpheres8And10.Curvature.Prop31.Bundle.ModelInterval
@@ -13,7 +13,7 @@ Using the invariance results of `PB_Invariance` and `PB_InvarianceD`:
 * `curvNormSq C g y` and `dcurvNormSq C g y` are `Σ(Ω_{ij}^a)²` and `Σ((D_kΩ)_{ij}^a)²` at
   `y`. They are computed in a chosen orthonormal frame and trivialisation near `π y`, and they
   equal the value in **every** orthonormal frame and every trivialisation (`curvNormSq_eq`,
-  `dcurvNormSq_eq`). These are [D]'s `2|Ω|²` and `2|DΩ|²`, since [D] sums over `i < j`.
+  `dcurvNormSq_eq`). These are [GG]'s `2|Ω|²` and `2|DΩ|²`, since [GG] sums over `i < j`.
 * `hessAt g φ b v w` is the Hessian at a point. It equals `hessF g φ X Y b` for every pair of
   fields differentiable at `b` with values `v`, `w` (`hessAt_eq`).
 * **`hly_prop31_global_intrinsic`** is `hly_prop31_global` with the pointwise hypotheses
@@ -179,7 +179,7 @@ variable {E : Type} [NormedAddCommGroup E] [NormedSpace ℝ E] [CompleteSpace E]
   [IsManifold (I.prod (𝓡 3)) ∞ P]
 
 /-- **[HLY] Prop. 3.1, global form, with intrinsic pointwise hypotheses.**
-* `curvNormSq ≤ 2M₀²` is [D]'s `|Ω| ≤ M₀`, and `dcurvNormSq ≤ 2M₁²` is `|DΩ| ≤ M₁`. Both
+* `curvNormSq ≤ 2M₀²` is [GG]'s `|Ω| ≤ M₀`, and `dcurvNormSq ≤ 2M₁²` is `|DΩ| ≤ M₁`. Both
   quantities are frame- and trivialisation-independent (`curvNormSq_eq`, `dcurvNormSq_eq`).
 * `hessAt` is the Hessian at a point (`hessAt_eq`).
 

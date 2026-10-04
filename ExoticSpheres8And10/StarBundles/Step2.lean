@@ -1,18 +1,18 @@
 /-
 Copyright (c) 2026 Fernando Galaz-García. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Fernando Galaz-García (Department of Mathematical Sciences, Durham University),
-Claude Opus 5.5 (Anthropic), which wrote the Lean under Fernando Galaz-García's supervision
+Authors: Fernando Galaz-García
+Developed with extensive assistance from Claude (Anthropic), used through Claude Code.
 -/
 import ExoticSpheres8And10.StarBundles.NormalForm
 import ExoticSpheres8And10.StarBundles.InnerEndomorphisms
 
 /-! # §3, Step 2: normalising the star action over the poles
 
-[D] `prop:polar`, Step 2: over a fixed point `ζ₀` of `ρ` (the poles `o_N = e`, `o_S = −e`) there
+[GG] `prop:polar`, Step 2: over a fixed point `ζ₀` of `ρ` (the poles `o_N = e`, `o_S = −e`) there
 is `s₀ ∈ E_{ζ₀}` with `q ⋆ s₀ = s₀ q` (`eq:model`).
 
-Proof as in [D]: `φ(q) = p₀⁻¹(q ⋆ p₀)` is a continuous injective homomorphism `S³ → S³`, hence
+Proof as in [GG]: `φ(q) = p₀⁻¹(q ⋆ p₀)` is a continuous injective homomorphism `S³ → S³`, hence
 inner (`injContEndoInner_S3`, B1, proved without Lie theory), `φ(q) = cqc⁻¹`, and `s₀ = p₀c`.
 -/
 
@@ -70,7 +70,7 @@ theorem phiHomE_continuous (p₀ : E) (hfix) : Continuous (B.phiHomE p₀ hfix) 
     contMDiffOn_const hs.contMDiffOn fun q _ => hfix q
   exact (contMDiffOn_univ.1 this).continuous
 
-/-- **[D] `prop:polar`, Step 2** (`eq:model`): over a `ρ`-fixed point there is `s₀` with
+/-- **[GG] `prop:polar`, Step 2** (`eq:model`): over a `ρ`-fixed point there is `s₀` with
 `q ⋆ s₀ = s₀ q` for all `q`. -/
 theorem exists_model_point (ζ₀ : Sn) (hfix : ∀ q, R.ρS q ζ₀ = ζ₀) :
     ∃ s₀ : E, B.proj s₀ = ζ₀ ∧ ∀ q, B.star q s₀ = B.ract s₀ q := by

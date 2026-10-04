@@ -1,8 +1,8 @@
 /-
 Copyright (c) 2026 Fernando Galaz-García. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Fernando Galaz-García (Department of Mathematical Sciences, Durham University),
-Claude Opus 5.5 (Anthropic), which wrote the Lean under Fernando Galaz-García's supervision
+Authors: Fernando Galaz-García
+Developed with extensive assistance from Claude (Anthropic), used through Claude Code.
 -/
 import ExoticSpheres8And10.Geometry.PullbackMetric
 import ExoticSpheres8And10.StarBundles.Stereographic
@@ -221,7 +221,7 @@ theorem contMDiff_height : ContMDiff (𝓡 (m + 1)) 𝓘(ℝ, ℝ) ∞ D.height 
   exact contMDiff_glueLift (𝓡 (m + 1)) D.hκS D.hκSs _ (hi.contMDiff.comp contMDiff_ζU)
     (hi.neg.contMDiff.comp contMDiff_ζU)
 
-/-- [D]'s level function `f = −cos t` on `X`. -/
+/-- [GG]'s level function `f = −cos t` on `X`. -/
 def fX (x : QuotSpace D) : ℝ := -D.height x
 
 theorem contMDiff_fX : ContMDiff (𝓡 (m + 1)) 𝓘(ℝ, ℝ) ∞ D.fX := D.contMDiff_height.neg

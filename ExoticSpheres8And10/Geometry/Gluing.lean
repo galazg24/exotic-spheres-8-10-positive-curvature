@@ -1,14 +1,14 @@
 /-
 Copyright (c) 2026 Fernando Galaz-García. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Fernando Galaz-García (Department of Mathematical Sciences, Durham University),
-Claude Opus 5.5 (Anthropic), which wrote the Lean under Fernando Galaz-García's supervision
+Authors: Fernando Galaz-García
+Developed with extensive assistance from Claude (Anthropic), used through Claude Code.
 -/
 import Mathlib
 
 /-! # Infrastructure: gluing two copies of a manifold along a partial diffeomorphism
 
-Mathlib has no gluing of manifolds. [D] §2 builds the polar bundle `P_θ` by gluing two product
+Mathlib has no gluing of manifolds. [GG] §2 builds the polar bundle `P_θ` by gluing two product
 charts along `u_S = θ(x) u_N`, and its star quotient by gluing two disks. Both are instances of
 the following construction.
 

@@ -1,8 +1,8 @@
 /-
 Copyright (c) 2026 Fernando Galaz-García. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Fernando Galaz-García (Department of Mathematical Sciences, Durham University),
-Claude Opus 5 (Anthropic), which wrote the Lean under Fernando Galaz-García's supervision
+Authors: Fernando Galaz-García
+Developed with extensive assistance from Claude (Anthropic), used through Claude Code.
 -/
 import RiemannianGeometry.Curvature
 import RiemannianGeometry.ONeillLemmaTwo
@@ -27,7 +27,7 @@ identity, for basic fields, in this project's conventions.
 Two conventions differ from the source and both are recorded in `ONEILL_EQUATIONS.md` §7a.
 
 * **Curvature sign.** O'Neill's `R_XY Z = ∇_{[X,Y]}Z − ∇_X∇_YZ + ∇_Y∇_XZ` (p. 464, eq. (1)) is
-  **minus** `Foundations.curvature`. Multiplying his `(4)` through by `−1` gives the statement
+  **minus** `RiemannianGeometry.curvature`. Multiplying his `(4)` through by `−1` gives the statement
   proved here.
 * **Direction last.** `leviCivita g F z v` is `(∇_v F)(z)`, so the differentiated field is the
   *second* argument and the direction the *last*. In `oneillA I J f D F` the direction is the
@@ -87,7 +87,7 @@ takes
 ## Instance and spelling notes
 
 Everything metric-valued is written with `tangentMetric I M p`, never `inner ℝ`, following
-`Foundations.ONeillTensors`; the two are `rfl`-equal but distinct atoms to every tactic.
+`RiemannianGeometry.ONeillTensors`; the two are `rfl`-equal but distinct atoms to every tactic.
 `horizontalProjection_add_verticalProjection` is bound with its full expected type before use — a
 bare application leaves `ChartedSpace ?m ?m` stuck.
 -/

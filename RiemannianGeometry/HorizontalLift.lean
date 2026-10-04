@@ -1,8 +1,8 @@
 /-
 Copyright (c) 2026 Fernando Galaz-García. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Fernando Galaz-García (Department of Mathematical Sciences, Durham University),
-Claude Opus 5 (Anthropic), which wrote the Lean under Fernando Galaz-García's supervision
+Authors: Fernando Galaz-García
+Developed with extensive assistance from Claude (Anthropic), used through Claude Code.
 -/
 import RiemannianGeometry.HorizontalAdjoint
 import RiemannianGeometry.RelatedVectorFields
@@ -10,10 +10,10 @@ import RiemannianGeometry.RelatedVectorFields
 /-!
 # Horizontal and vertical vector fields, and the horizontal lift of a field on the base
 
-`Foundations.HorizontalSpace` splits each tangent space of a submersion `f : M → B` into its
-vertical and horizontal parts, and `Foundations.HorizontalAdjoint` identifies the horizontal
+`RiemannianGeometry.HorizontalSpace` splits each tangent space of a submersion `f : M → B` into its
+vertical and horizontal parts, and `RiemannianGeometry.HorizontalAdjoint` identifies the horizontal
 projection and the horizontal lift with the fibrewise metric adjoint `dπ*` of
-`Foundations.MfderivAdjoint`. This file promotes all of that from a single point to a vector
+`RiemannianGeometry.MfderivAdjoint`. This file promotes all of that from a single point to a vector
 field, and draws the first consequence for Lie brackets.
 
 ## Main definitions
@@ -34,12 +34,12 @@ field, and draws the first consequence for Lie brackets.
 * `contMDiffAt_horizontalPart`, `contMDiffAt_verticalPart` — **the payoff**: the two projections
   of a `C^m` field are `C^m`, with no subbundle theory whatever. The route is
   `horizontalProjection_eq`, which rewrites `𝓗X` as `dπ*(dπ X)`, followed by the two regularity
-  theorems of `Foundations.MfderivAdjoint`.
+  theorems of `RiemannianGeometry.MfderivAdjoint`.
 * `horizontalLiftField_mem`, `isHorizontalField_horizontalLiftField` — `Yᴴ` is horizontal, with
   **no hypothesis at all** (`mfderivAdjoint_mem_horizontalSpace`).
 * `mfderiv_horizontalLiftField` — `Yᴴ` is `f`-related to `Y`.
 * `horizontalLiftField_eq_horizontalLift` — it agrees with the pointwise lift of
-  `Foundations.HorizontalSpace`.
+  `RiemannianGeometry.HorizontalSpace`.
 * `contMDiffAt_horizontalLiftField` — `Yᴴ` is `C^m` when `Y` is.
 * `eq_horizontalLiftField_of_mem_of_mfderiv_eq`, `eq_horizontalLiftField` — uniqueness: a
   horizontal field `f`-related to `Y` *is* `Yᴴ`.
@@ -62,7 +62,7 @@ Exactly one derivative of `f` is spent, and it is spent in
   hypotheses of `mfderiv_mlieBracket_of_related`. They are *not* specialised to `n = 2`: `n` stays
   a variable, and the two `IsManifold` premises `mfderiv_mlieBracket_of_related` carries at orders
   `1` and `n + 1` are discharged from the ambient `[IsManifold I ∞ M]` by instance search, using
-  the `ENat.LEInfty.coe_add_one` instance of `Foundations.ManifoldOrder`.
+  the `ENat.LEInfty.coe_add_one` instance of `RiemannianGeometry.ManifoldOrder`.
 
 `(n : ℕ∞ω) ≠ ∞` is a genuine restriction inherited from `mfderiv_mlieBracket_of_related`; the
 finite-order statement is what is available, and it is what is stated.
@@ -87,7 +87,7 @@ by `Filter.Eventually.of_forall (h.submersion)` and `Filter.Eventually.of_forall
 * The `RiemannianBundle` instance on `TangentSpace J` is not needed for `horizontalPart`,
   `verticalPart` or the two field predicates, so it is introduced only after them; the metric on
   the base enters first with the adjoint.
-* Rule 1 of `Foundations.HorizontalSpace` is respected: no fibrewise `InnerProductSpace` or
+* Rule 1 of `RiemannianGeometry.HorizontalSpace` is respected: no fibrewise `InnerProductSpace` or
   `NormedAddCommGroup` on a tangent space is ever bound to a local name.
 -/
 

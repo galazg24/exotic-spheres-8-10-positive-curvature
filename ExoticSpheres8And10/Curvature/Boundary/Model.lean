@@ -1,15 +1,15 @@
 /-
 Copyright (c) 2026 Fernando Galaz-García. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Fernando Galaz-García (Department of Mathematical Sciences, Durham University),
-Claude Opus 5.5 (Anthropic), which wrote the Lean under Fernando Galaz-García's supervision
+Authors: Fernando Galaz-García
+Developed with extensive assistance from Claude (Anthropic), used through Claude Code.
 -/
 import ExoticSpheres8And10.Geometry.SFF.Descent
 
 /-! # §4.4: warped source metrics on `V × S³`, for the boundary analysis
 
 `GW β w = β(dY, dY) + w(Y)²|dU|²` on `V × S³`: a base metric `β` on `V` warped with the round
-`S³` by `w`, with the **product** connection. Near the gluing boundary both of [D]'s source
+`S³` by `w`, with the **product** connection. Near the gluing boundary both of [GG]'s source
 metrics have this form, in the common northern trivialisation:
 - `G_N = GW βN r̃` (`northMetric_eq_GW`);
 - the southern product-connection metric `GH 0 r_S = GW (ψR⟪,⟫) r_S` (`GH_zero_eq_GW`).

@@ -1,14 +1,14 @@
 /-
 Copyright (c) 2026 Fernando Galaz-García. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Fernando Galaz-García (Department of Mathematical Sciences, Durham University),
-Claude Opus 5.5 (Anthropic), which wrote the Lean under Fernando Galaz-García's supervision
+Authors: Fernando Galaz-García
+Developed with extensive assistance from Claude (Anthropic), used through Claude Code.
 -/
 import ExoticSpheres8And10.Main.TheoremsAB
 
-/-! # [D] Remark `rem:general_bound`: the representation bound can be removed
+/-! # [GG] Remark `rem:general_bound`: the representation bound can be removed
 
-[D]: "let `E → S(ℝe ⊕ V)` be any star bundle … By `prop:polar`, `E` is equivariantly isomorphic
+[GG]: "let `E → S(ℝe ⊕ V)` be any star bundle … By `prop:polar`, `E` is equivariantly isomorphic
 to a polar bundle `P_θ` … By `lem:attaching`, `E/S³_⋆ ≅ D(V)_N ∪_{σ_{ρ,θ}} D(V)_S` with
 `σ_{ρ,θ}(x) = ρ(θ(x))⁻¹x`. Set `β = θ⁻¹`. Then `β` is again conjugation-equivariant and
 `σ_{ρ,θ}(x) = ρ(β(x))x = J_β(x)`. Deng–Hu–Zhang [Proposition 5.1], together with Reiser–Wraith,
@@ -112,7 +112,7 @@ variable {m : ℕ} {W : Type} [NormedAddCommGroup W] [InnerProductSpace ℝ W]
   [ChartedSpace (ModelProd (EuclideanSpace ℝ (Fin (m + 1))) (EuclideanSpace ℝ (Fin 3))) E]
   [IsManifold (IP m) ∞ E] [T2Space E]
 
-/-- **[D] Remark `rem:general_bound`.** For every star bundle `E`, with an arbitrary
+/-- **[GG] Remark `rem:general_bound`.** For every star bundle `E`, with an arbitrary
 representation and no bound on `K`:
 - `E/S³_⋆ ≃ₜ QuotSpace D` for a polar datum `D` whose attaching map is `J_β`, `β = θ⁻¹`
   smooth and conjugation-equivariant;

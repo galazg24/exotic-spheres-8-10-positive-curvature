@@ -1,14 +1,14 @@
 /-
 Copyright (c) 2026 Fernando Galaz-García. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Fernando Galaz-García (Department of Mathematical Sciences, Durham University),
-Claude Opus 5.5 (Anthropic), which wrote the Lean under Fernando Galaz-García's supervision
+Authors: Fernando Galaz-García
+Developed with extensive assistance from Claude (Anthropic), used through Claude Code.
 -/
 import ExoticSpheres8And10.Curvature.Northern.Area
 
-/-! # A6. The criterion algebra ([D] `eq:fullcurvature` ⇒ positivity)
+/-! # A6. The criterion algebra ([GG] `eq:fullcurvature` ⇒ positivity)
 
-[D] §4.3, "Criterion": "Suppose `F, r > 0`, `F', r' ≥ 0`, `r' < 1`, and [`eq:northcriterion`]
+[GG] §4.3, "Criterion": "Suppose `F, r > 0`, `F', r' ≥ 0`, `r' < 1`, and [`eq:northcriterion`]
 `(1−F'²)/F² > 8FF'r'/r³`, `−F''/F > 4F²(r'')₊/r³`. The two graph estimates then leave strictly
 positive coefficients of `|λY−μX|²` and `|X∧Y|²` in the full numerator, with a nonnegative
 vertical-area term. These two base areas cannot both vanish for an independent horizontal pair,
@@ -25,7 +25,7 @@ namespace ExoticSpheres8And10
 
 open scoped RealInnerProductSpace
 
-/-- **Scalar criterion.** The algebra of [D]'s criterion, on five abstract area quantities
+/-- **Scalar criterion.** The algebra of [GG]'s criterion, on five abstract area quantities
 `A = |λY−μX|²`, `B = |λV−μU|²`, `W = |X∧Y|²`, `UV = |U∧V|²`, `Tn = |X⊗V−Y⊗U|²`. -/
 theorem criterion_scalar (F r Fp rp Fpp rpp A B W UV Tn : ℝ)
     (hF : 0 < F) (hr : 0 < r) (hFp : 0 ≤ Fp) (hrp : 0 ≤ rp) (hrp1 : rp < 1)

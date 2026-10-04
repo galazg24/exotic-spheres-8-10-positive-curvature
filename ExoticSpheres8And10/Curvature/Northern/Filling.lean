@@ -1,27 +1,27 @@
 /-
 Copyright (c) 2026 Fernando Galaz-García. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Fernando Galaz-García (Department of Mathematical Sciences, Durham University),
-Claude Opus 5.5 (Anthropic), which wrote the Lean under Fernando Galaz-García's supervision
+Authors: Fernando Galaz-García
+Developed with extensive assistance from Claude (Anthropic), used through Claude Code.
 -/
 import ExoticSpheres8And10.Curvature.Northern.Warped
 import ExoticSpheres8And10.Geometry.RoundMetric
 import ExoticSpheres8And10.Curvature.Northern.ProfilesExistence
 
-/-! # §4: [D]'s northern filling has positive sectional curvature on star-horizontal planes
+/-! # §4: [GG]'s northern filling has positive sectional curvature on star-horizontal planes
 
-The northern metric of [D] is `ds² + F(s)² h_{S^{n−1}} + r(s)² h_{S³}` with the profiles
+The northern metric of [GG] is `ds² + F(s)² h_{S^{n−1}} + r(s)² h_{S³}` with the profiles
 `F = Fprof δ` and `r = rprof r_a d δ ℓ_N` of `A7_Existence`, for `0 < s ≤ ℓ_N`.
 
 `S4_North` applies to doubly warped metrics with warping functions positive on all of `ℝ`,
-because `RiemannianGeometry`'s curvature is defined for a metric on the whole manifold. [D]'s `F` vanishes at
+because `RiemannianGeometry`'s curvature is defined for a metric on the whole manifold. [GG]'s `F` vanishes at
 `s = 0`. By `riemannTensorAt_wG`, the curvature at `s` depends only on the 2-jets `(F, F', F'')`
-and `(r, r', r'')` at `s`. So at each `s` we use a globally positive `C^∞` function with [D]'s
+and `(r, r', r'')` at `s`. So at each `s` we use a globally positive `C^∞` function with [GG]'s
 2-jet there (`jetFun`), and round fibres in normal coordinates (`HR`, at the origin).
 
 * `jetFun`: `a e^{β(t−s)+γ(t−s)²}` has 2-jet `(a, b, c)` at `s` (`jetFun_self`, `deriv_jetFun`,
   `deriv2_jetFun`);
-* `northern_sectionalCurvature_pos`: **for [D]'s parameters, at every `s ∈ (0, ℓ_N]`, `RiemannianGeometry`'s
+* `northern_sectionalCurvature_pos`: **for [GG]'s parameters, at every `s ∈ (0, ℓ_N]`, `RiemannianGeometry`'s
   sectional curvature is positive on every star-horizontal plane**, for every `K` with
   `‖K‖ ≤ 2`, `T = −(F/r)K^*`.
 -/
@@ -84,25 +84,25 @@ theorem deriv2_jetFun_self {s a b c : ℝ} (ha : a ≠ 0) :
   field_simp
   ring
 
-/-! ### [D]'s northern filling -/
+/-! ### [GG]'s northern filling -/
 
 section NorthD
 
 variable {H Vv : Type} [NormedAddCommGroup H] [InnerProductSpace ℝ H] [FiniteDimensional ℝ H]
   [NormedAddCommGroup Vv] [InnerProductSpace ℝ Vv] [FiniteDimensional ℝ Vv]
 
-/-- [D]'s angular profile `F = Fprof δ`, realised near `s` by its 2-jet. -/
+/-- [GG]'s angular profile `F = Fprof δ`, realised near `s` by its 2-jet. -/
 def northF (δ s : ℝ) : ℝ → ℝ :=
   jetFun s (Fprof δ s) (Real.exp (-(Fprof δ s) ^ 2 / (2 * δ ^ 2)))
     (-(Fprof δ s / δ ^ 2) * Real.exp (-(Fprof δ s) ^ 2 / (2 * δ ^ 2)) ^ 2)
 
-/-- [D]'s fibre profile `r = rprof r_a d δ ℓ`, realised near `s` by its 2-jet. -/
+/-- [GG]'s fibre profile `r = rprof r_a d δ ℓ`, realised near `s` by its 2-jet. -/
 def northR (ra d δ ℓ s : ℝ) : ℝ → ℝ :=
   jetFun s (rprof ra d δ ℓ s) (d * etaCut (s / δ)) (d * (deriv etaCut (s / δ) * (1 / δ)))
 
-/-- **[D] §4, northern filling: positive sectional curvature on star-horizontal planes.** For
+/-- **[GG] §4, northern filling: positive sectional curvature on star-horizontal planes.** For
 the parameters of `northern_filling_pos` (`eq:delta`, `eq:bdata`, `q_sℓ_N ≤ ½`, `d < 1`), at
-every `s ∈ (0, ℓ_N]`, for every `K` with `‖K‖ ≤ 2`, the doubly warped metric with [D]'s 2-jets at
+every `s ∈ (0, ℓ_N]`, for every `K` with `‖K‖ ≤ 2`, the doubly warped metric with [GG]'s 2-jets at
 `s` and round fibres has **positive `RiemannianGeometry` sectional curvature** on every plane spanned by an
 independent star-horizontal pair `(λ, X, TX)`, `(μ, Y, TY)`, `T = −(F/r)K^*`. -/
 theorem northern_sectionalCurvature_pos (Cη : ℝ) (hC0 : 0 ≤ Cη)

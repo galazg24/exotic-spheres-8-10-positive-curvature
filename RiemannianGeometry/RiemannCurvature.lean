@@ -1,8 +1,8 @@
 /-
 Copyright (c) 2026 Fernando Galaz-García. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Fernando Galaz-García (Department of Mathematical Sciences, Durham University),
-Claude Opus 5 (Anthropic), which wrote the Lean under Fernando Galaz-García's supervision
+Authors: Fernando Galaz-García
+Developed with extensive assistance from Claude (Anthropic), used through Claude Code.
 -/
 import RiemannianGeometry.LeviCivita
 import RiemannianGeometry.CurvatureBundled
@@ -10,9 +10,9 @@ import RiemannianGeometry.CurvatureBundled
 /-!
 # The Riemann curvature operator of a metric
 
-The general curvature layer (`Foundations.Curvature*`) builds
+The general curvature layer (`RiemannianGeometry.Curvature*`) builds
 `R_x : T_xM →L[𝕜] T_xM →L[𝕜] End(V x)` for an arbitrary connection on an arbitrary vector bundle,
-under a local-regularity hypothesis on the connection. `Foundations.LeviCivita` constructs the
+under a local-regularity hypothesis on the connection. `RiemannianGeometry.LeviCivita` constructs the
 Levi-Civita connection of a metric supplied as data. This file joins them: it **discharges** that
 hypothesis for the Levi-Civita connection, and specialises the bundled operator to
 `V := TangentSpace I`, `cov := leviCivita g`, giving an operator that depends on the metric alone.

@@ -1,18 +1,18 @@
 /-
 Copyright (c) 2026 Fernando Galaz-García. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Fernando Galaz-García (Department of Mathematical Sciences, Durham University),
-Claude Opus 5.5 (Anthropic), which wrote the Lean under Fernando Galaz-García's supervision
+Authors: Fernando Galaz-García
+Developed with extensive assistance from Claude (Anthropic), used through Claude Code.
 -/
 import ExoticSpheres8And10.StarBundles.StarBundle
 
 /-! # §3, Steps 5–6: from equivariant sections to a meridian-constant transition
 
 Input (`EquivSections`): smooth sections `s_N` over `U_N`, `s_S` over `U_S` of a star bundle with
-the equivariance `eq:sectionequiv`, `s(ρ(q)ζ) = (q ⋆ s(ζ)) q⁻¹`. Steps 1–4 of [D] produce such
+the equivariance `eq:sectionequiv`, `s(ρ(q)ζ) = (q ⋆ s(ζ)) q⁻¹`. Steps 1–4 of [GG] produce such
 sections by parallel transport; here we derive the rest.
 
-**Difference from [D], Step 6.** [D] obtains constancy of the transition along meridians from
+**Difference from [GG], Step 6.** [GG] obtains constancy of the transition along meridians from
 uniqueness of horizontal lifts (both sections are radially parallel for one invariant
 connection). Here the sections are modified instead: with `g = s_S⁻¹ s_N` on the overlap,
 `θ := g|_{S(V)}` and a smooth `ρ`-equivariant map `F` that is the identity on
@@ -193,7 +193,7 @@ def ht (e : W) (ζ : Sn) : ℝ := ⟪(ζ : W), e⟫
 theorem continuous_ht : Continuous (ht e) :=
   continuous_subtype_val.inner continuous_const
 
-/-- **Input of Steps 5–6** ([D] `eq:sectionequiv`): smooth sections over `U_N` and `U_S`
+/-- **Input of Steps 5–6** ([GG] `eq:sectionequiv`): smooth sections over `U_N` and `U_S`
 (total functions, meaningful on `U_N`, `U_S`) with `s(ρ(q)ζ) = (q ⋆ s(ζ))q⁻¹`. -/
 structure EquivSections where
   sN : Sn → E

@@ -1,8 +1,8 @@
 /-
 Copyright (c) 2026 Fernando Galaz-García. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Fernando Galaz-García (Department of Mathematical Sciences, Durham University),
-Claude Opus 5 (Anthropic), which wrote the Lean under Fernando Galaz-García's supervision
+Authors: Fernando Galaz-García
+Developed with extensive assistance from Claude (Anthropic), used through Claude Code.
 -/
 import RiemannianGeometry.ONeillHorizontalCurvature
 import RiemannianGeometry.ONeillLemmaOne
@@ -16,12 +16,12 @@ p. 464, just before his equation `(4)`:
 > By Lemma 1 and the definition of `R*` … the second structural equation of `B` lifts to `M` in
 > the form `R*_XY Z = ∇*_{𝓗[X,Y]}Z − [∇*_X, ∇*_Y]Z`.
 
-This file proves that identification for `Foundations.oneillHorizontalCurvature`, the intrinsic
+This file proves that identification for `RiemannianGeometry.oneillHorizontalCurvature`, the intrinsic
 total-space operator
 
     R^H(X, Y)Z = 𝓗∇_{Xᴴ}(𝓗∇_{Yᴴ}Zᴴ) − 𝓗∇_{Yᴴ}(𝓗∇_{Xᴴ}Zᴴ) − 𝓗∇_{([X,Y])ᴴ}Zᴴ,
 
-whose relation to the base curvature `Foundations.curvature (leviCivita (tangentMetric J B))` was
+whose relation to the base curvature `RiemannianGeometry.curvature (leviCivita (tangentMetric J B))` was
 deliberately deferred when `R^H` was defined.
 
 ## Why this needed a separate campaign, and what changed
@@ -378,14 +378,14 @@ theorem tangentMetric_horizontalLeviCivita_horizontalLeviCivita_horizontalLiftFi
 
     ⟪R^H(X, Y)Z, Wᴴ p⟫ = ⟪R*(X, Y)Z, W⟫ (f p)
 
-for basic fields, where `R* = Foundations.curvature (leviCivita (tangentMetric J B))` is this
+for basic fields, where `R* = RiemannianGeometry.curvature (leviCivita (tangentMetric J B))` is this
 project's curvature of the **base** connection, in the same modern convention as on `M`.
 
 The three terms of `oneillHorizontalCurvature` are matched one-to-one with the three terms of
-`Foundations.curvature`: the first two by the two-derivative case (the second with `X` and `Y`
+`RiemannianGeometry.curvature`: the first two by the two-derivative case (the second with `X` and `Y`
 exchanged), the third by the single-derivative case with direction `[X, Y]`. **No sign is
 adjusted**: after the three rewrites the two sides are equal by `abel`-free syntactic matching,
-because `Foundations.curvature`'s subtractions and `oneillHorizontalCurvature`'s are the same
+because `RiemannianGeometry.curvature`'s subtractions and `oneillHorizontalCurvature`'s are the same
 subtractions.
 
 -/

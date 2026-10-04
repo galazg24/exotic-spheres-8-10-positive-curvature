@@ -1,8 +1,8 @@
 /-
 Copyright (c) 2026 Fernando Galaz-García. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Fernando Galaz-García (Department of Mathematical Sciences, Durham University),
-Claude Opus 5 (Anthropic), which wrote the Lean under Fernando Galaz-García's supervision
+Authors: Fernando Galaz-García
+Developed with extensive assistance from Claude (Anthropic), used through Claude Code.
 -/
 import RiemannianGeometry.CurvatureSection
 import Mathlib.Geometry.Manifold.VectorBundle.LocalFrame
@@ -99,7 +99,7 @@ omit [∀ (x : M), IsTopologicalAddGroup (V x)] [∀ (x : M), ContinuousSMul �
   [VectorBundle 𝕜 F V] [(x : M) → Module 𝕜 (V x)] [(x : M) → AddCommGroup (V x)]
   [IsManifold I 1 M] in
 /-- Downgrade a `C²`-near-`x` section hypothesis to differentiability near `x`, which is what the
-section-slot laws of `Foundations.CurvatureSection` consume. -/
+section-slot laws of `RiemannianGeometry.CurvatureSection` consume. -/
 theorem eventually_mdiffAt_of_eventually_contMDiffAt_two {s : Π y : M, V y}
     (h : ∀ᶠ y in 𝓝 x, CMDiffAt (2 : ℕ∞ω) (T% s) y) : ∀ᶠ y in 𝓝 x, MDiffAt (T% s) y :=
   h.mono fun _ hy ↦ hy.mdifferentiableAt (by simp)

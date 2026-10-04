@@ -1,14 +1,14 @@
 /-
 Copyright (c) 2026 Fernando Galaz-García. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Fernando Galaz-García (Department of Mathematical Sciences, Durham University),
-Claude Opus 5.5 (Anthropic), which wrote the Lean under Fernando Galaz-García's supervision
+Authors: Fernando Galaz-García
+Developed with extensive assistance from Claude (Anthropic), used through Claude Code.
 -/
 import ExoticSpheres8And10.Curvature.Boundary.ShapeSum
 
-/-! # A8, completed: the boundary cometric ([D] §4.4)
+/-! # A8, completed: the boundary cometric ([GG] §4.4)
 
-[D]: "At `u = 1`, the boundary quotient differential in scaled components is
+[GG]: "At `u = 1`, the boundary quotient differential in scaled components is
 `L(X,U) = F_a⁻¹X − r_a⁻¹K_yU`, hence its cometric is
 `h⁻¹ = LL^* = F_a⁻²h_{S^{n−1}}^{-1} + r_a⁻²K_yK_y^*`."
 

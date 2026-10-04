@@ -1,8 +1,8 @@
 /-
 Copyright (c) 2026 Fernando Galaz-García. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Fernando Galaz-García (Department of Mathematical Sciences, Durham University),
-Claude Opus 5 (Anthropic), which wrote the Lean under Fernando Galaz-García's supervision
+Authors: Fernando Galaz-García
+Developed with extensive assistance from Claude (Anthropic), used through Claude Code.
 -/
 import RiemannianGeometry.KoszulBundled
 import RiemannianGeometry.CovariantDerivativeSmooth
@@ -16,7 +16,7 @@ import Mathlib.Topology.Algebra.Module.FiniteDimension
 
 ## The construction
 
-Read the Koszul identity as a definition rather than a consequence. `Foundations.KoszulBundled`
+Read the Koszul identity as a definition rather than a consequence. `RiemannianGeometry.KoszulBundled`
 bundles the right-hand side into a field of bilinear forms `koszulSection g Y`, so the pointwise
 formula
 
@@ -38,7 +38,7 @@ that it satisfies the four things a Levi-Civita connection must.
 * `contMDiffAt_leviCivita` — it takes `C^(m+1)` sections to `C^m` sections.
 * `mdiffAtCovSection_leviCivita` — the local regularity the curvature layer consumes, at the
   strength this construction can supply.
-* `eq_leviCivita` — with `Foundations.Koszul`'s uniqueness: **the fundamental theorem of
+* `eq_leviCivita` — with `RiemannianGeometry.Koszul`'s uniqueness: **the fundamental theorem of
   (pseudo-)Riemannian geometry.** Only symmetry, nondegeneracy and differentiability of `g` are
   used, never positive-definiteness, so the theorem is pseudo-Riemannian in generality and the
   Riemannian case is the special case where `g` is positive-definite.
@@ -56,7 +56,7 @@ substantive statements at the `κ` level are given alongside so the content is v
 
 ## The connection loses one derivative — and the curvature layer's hypothesis was repaired for it
 
-`Foundations.CurvaturePointwise` carries a local-regularity hypothesis on the connection. When this
+`RiemannianGeometry.CurvaturePointwise` carries a local-regularity hypothesis on the connection. When this
 construction was finished it read
 
   `CovLocalMDiffAt F cov x : ∀ s, (∀ᶠ y in 𝓝 x, MDiffAt (T% s) y) → MDiffAt (T% (cov s)) x`
@@ -70,7 +70,7 @@ connection is a first-order operator, `∇s = ds + Γ·s` in a trivialisation, s
 
 `contMDiffAt_leviCivita` below is the general statement (`C^(m+1)` on an open set gives `C^m` at a
 point); `mdiffAtCovSection_leviCivita` is its `m := 1` case, and
-`Foundations.RiemannCurvature.covC2LocalMDiffAt_leviCivita` packages that into the repaired
+`RiemannianGeometry.RiemannCurvature.covC2LocalMDiffAt_leviCivita` packages that into the repaired
 hypothesis, as a theorem.
 
 -/
@@ -312,10 +312,10 @@ def IsMDiffMetric (E : Type*) [NormedAddCommGroup E] [NormedSpace ℝ E]
 
 omit [CompleteSpace E] [FiniteDimensional ℝ E] in
 /-- The bridge between the two metric-regularity notions in this development: from the `C^n`
-section of `Foundations.KoszulRegularity` to the differentiable section this file consumes.
+section of `RiemannianGeometry.KoszulRegularity` to the differentiable section this file consumes.
 
 Stated for any `n ≠ 0` and for an explicit `g`, because callers arrive at every order.
-`Foundations.RiemannSymmetries` has a section-variable specialisation of the same fact, fixed at
+`RiemannianGeometry.RiemannSymmetries` has a section-variable specialisation of the same fact, fixed at
 that file's `C²` hypothesis. -/
 theorem IsContMDiffMetricSection.isMDiffMetric {n : ℕ∞ω} (hn : n ≠ 0)
     {g : Π x : M, TangentSpace I x →L[ℝ] TangentSpace I x →L[ℝ] ℝ}
@@ -536,7 +536,7 @@ theorem contMDiffAt_leviCivita {m : ℕ∞} {u : Set M} (hu : IsOpen u) (hxu : x
 
 /--
 This is the `m := 1` case of `contMDiffAt_leviCivita`, and it is what
-`Foundations.RiemannCurvature.covC2LocalMDiffAt_leviCivita` turns into the curvature layer's
+`RiemannianGeometry.RiemannCurvature.covC2LocalMDiffAt_leviCivita` turns into the curvature layer's
 `CovC2LocalMDiffAt` hypothesis. See the module docstring for why that hypothesis had to be repaired
 before it could be discharged at all. -/
 theorem mdiffAtCovSection_leviCivita {u : Set M} (hu : IsOpen u) (hxu : x ∈ u)

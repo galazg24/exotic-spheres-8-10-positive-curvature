@@ -1,8 +1,8 @@
 /-
 Copyright (c) 2026 Fernando Galaz-García. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Fernando Galaz-García (Department of Mathematical Sciences, Durham University),
-Claude Opus 5.5 (Anthropic), which wrote the Lean under Fernando Galaz-García's supervision
+Authors: Fernando Galaz-García
+Developed with extensive assistance from Claude (Anthropic), used through Claude Code.
 -/
 import ExoticSpheres8And10.Curvature.Southern.Potential
 
@@ -15,9 +15,9 @@ For a metric section `g` on a manifold `M` (`RiemannianGeometry`'s conventions) 
   towards increasing `f`, i.e. **outward** for the sublevel set `{f ≤ c}`;
 * `sff hnd f x v w = g(∇_v ν, w)`, the second fundamental form of the level set through `x`
   with respect to `ν`, for `v, w ∈ ker df_x`. With this sign the boundary of a round ball is
-  positive, which is [D]'s and Reiser–Wraith's convention.
+  positive, which is [GG]'s and Reiser–Wraith's convention.
 
-* **`RWGluing`**: [D] `prop:gluing` (Reiser–Wraith, Theorem A(i), `k = 1`) as a named hypothesis,
+* **`RWGluing`**: [GG] `prop:gluing` (Reiser–Wraith, Theorem A(i), `k = 1`) as a named hypothesis,
   for a closed manifold cut along a regular level set.
 -/
 
@@ -127,7 +127,7 @@ structure RWData where
     0 ≤ sff pN.isNondegenerate (fun y : UN => f y) ⟨x, subN (le_of_eq hx)⟩ v v +
       sff pS.isNondegenerate (fun y : US => -f y) ⟨x, subS (ge_of_eq hx)⟩ v v
 
-/-- **[D] `prop:gluing` (Reiser–Wraith, Theorem A(i), `k = 1`)**, as a hypothesis on `X`:
+/-- **[GG] `prop:gluing` (Reiser–Wraith, Theorem A(i), `k = 1`)**, as a hypothesis on `X`:
 every gluing datum yields a smooth metric of positive sectional curvature on `X`. -/
 def RWGluing [CompactSpace X] : Prop := RWData I X → HasPosCurvMetric I X
 

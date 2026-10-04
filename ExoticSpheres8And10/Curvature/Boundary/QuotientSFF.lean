@@ -1,8 +1,8 @@
 /-
 Copyright (c) 2026 Fernando Galaz-García. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Fernando Galaz-García (Department of Mathematical Sciences, Durham University),
-Claude Opus 5.5 (Anthropic), which wrote the Lean under Fernando Galaz-García's supervision
+Authors: Fernando Galaz-García
+Developed with extensive assistance from Claude (Anthropic), used through Claude Code.
 -/
 import ExoticSpheres8And10.Curvature.Boundary.Model
 
@@ -17,7 +17,7 @@ import ExoticSpheres8And10.Curvature.Boundary.Model
 
     `sff_{g_B}(hb)(c, c) = β(Dν_B·Zh₁, Zh₁) + ½ Dβ(ν_B)(Zh₁, Zh₁) + w·Dw(ν_B)·|Zh₂|²`,
 
-  where `ν_B` is the `β`-unit normal of `hb`. This is [D]'s `B(Y, Y) = B_source(X + U, X + U)`,
+  where `ν_B` is the `β`-unit normal of `hb`. This is [GG]'s `B(Y, Y) = B_source(X + U, X + U)`,
   made explicit for warped products.
 -/
 

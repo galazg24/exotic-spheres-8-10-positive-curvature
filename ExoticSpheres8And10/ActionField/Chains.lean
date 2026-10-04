@@ -1,8 +1,8 @@
 /-
 Copyright (c) 2026 Fernando Galaz-García. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Fernando Galaz-García (Department of Mathematical Sciences, Durham University),
-Claude Opus 5.5 (Anthropic), which wrote the Lean under Fernando Galaz-García's supervision
+Authors: Fernando Galaz-García
+Developed with extensive assistance from Claude (Anthropic), used through Claude Code.
 -/
 import ExoticSpheres8And10.PolarBundles.Orientation
 import ExoticSpheres8And10.Curvature.Criterion
@@ -11,7 +11,7 @@ import ExoticSpheres8And10.Curvature.Northern.Profiles
 /-! # Chains: connecting three of the formalisation targets (see `docs/targets.md`)
 
 1. **A1 ⇒ A5/A6.** The pointwise bound `‖K ξ‖² ≤ 4‖ξ‖²` gives `‖K‖ ≤ 2`, and then
-   `T = −(F/r) K^*` has `‖T‖ ≤ 2F/r` ([D] §4.3, "By the hypothesis `‖K‖_op ≤ 2`,
+   `T = −(F/r) K^*` has `‖T‖ ≤ 2F/r` ([GG] §4.3, "By the hypothesis `‖K‖_op ≤ 2`,
    `‖T‖_op ≤ 2F/r`"), using `‖K^*‖ = ‖K‖`.
 2. **A3(c) ⇒ (d).** For a unit-quaternion-valued `θ`, `dθ θ⁻¹` is imaginary, so
    `β = dθ θ⁻¹` is a linear map into `Im ℍ`; with (c) this gives `det(Id − Kβ) = 1` as one
@@ -39,7 +39,7 @@ theorem opNorm_le_two_of_sq (K : E →L[ℝ] F') (h : ∀ ξ, ‖K ξ‖ ^ 2 ≤
     have h2 : ‖K ξ‖ ^ 2 ≤ (2 * ‖ξ‖) ^ 2 := by nlinarith [h ξ]
     exact (pow_le_pow_iff_left₀ (norm_nonneg _) (by positivity) two_ne_zero).1 h2
 
-/-- **[D] §4.3.** If `‖K‖ ≤ 2`, `F ≥ 0`, `r > 0`, then `T = −(F/r) K^*` has `‖T‖ ≤ 2F/r`. -/
+/-- **[GG] §4.3.** If `‖K‖ ≤ 2`, `F ≥ 0`, `r > 0`, then `T = −(F/r) K^*` has `‖T‖ ≤ 2F/r`. -/
 theorem norm_graphT_le (K : E →L[ℝ] F') (hK : ‖K‖ ≤ 2) {F r : ℝ} (hF : 0 ≤ F) (hr : 0 < r) :
     ‖-(F / r) • ContinuousLinearMap.adjoint K‖ ≤ 2 * F / r := by
   rw [norm_smul, LinearIsometryEquiv.norm_map, norm_neg, Real.norm_of_nonneg (by positivity)]
@@ -97,7 +97,7 @@ theorem imEmb_betaCoord (θ : Y → ℍ[ℝ]) (Dθ : Y →L[ℝ] ℍ[ℝ]) (y : 
 finite-dimensional, and `K : Im ℍ → Y` linear such that for each `v` the orbit of `y` under a
 curve of units `q` with `q 0 = 1`, `q' 0 = v` (as an imaginary quaternion) has velocity `K v`
 and satisfies the equivariance `θ(γ τ) = q(τ) θ(y) q(τ)⁻¹`. Then, with `β = dθ θ⁻¹`,
-`det(Id − Kβ) = 1` ([D] `lem:attaching`(3): `det(Id − K_y β_y) = det Ad_{θ(y)} = 1`). -/
+`det(Id − Kβ) = 1` ([GG] `lem:attaching`(3): `det(Id − K_y β_y) = det Ad_{θ(y)} = 1`). -/
 theorem det_id_sub_K_beta_of_equivariance [FiniteDimensional ℝ Y]
     (θ : Y → ℍ[ℝ]) (Dθ : Y →L[ℝ] ℍ[ℝ]) (y : Y) (hθ : HasFDerivAt θ Dθ y)
     (hunit : ∀ z, ‖θ z‖ = 1) (K : (Fin 3 → ℝ) →ₗ[ℝ] Y)
@@ -120,7 +120,7 @@ section North
 variable {H Vv : Type*} [NormedAddCommGroup H] [InnerProductSpace ℝ H] [CompleteSpace H]
   [NormedAddCommGroup Vv] [InnerProductSpace ℝ Vv] [CompleteSpace Vv]
 
-/-- **Northern filling, pointwise.** At a parameter value `s` of [D]'s northern profile:
+/-- **Northern filling, pointwise.** At a parameter value `s` of [GG]'s northern profile:
 `F' = e^{−F²/(2δ²)}`, `F'' = −(F/δ²)F'²`, `0 ≤ r' ≤ d < 1`, `0 ≤ r''`, `r'' ≤ (d/δ)C_η`,
 `r'' ≠ 0 ⇒ s ≤ δ/2` (the support of `η'`), `F ≤ s`, `eq:delta`'s `δ³` bound and
 `d/r³ ≤ 4A₀F_a`. Then for every `K : Vv → H` with `‖K‖ ≤ 2`, with `T = −(F/r)K^*`, the numerator

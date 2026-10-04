@@ -1,15 +1,15 @@
 /-
 Copyright (c) 2026 Fernando Galaz-García. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Fernando Galaz-García (Department of Mathematical Sciences, Durham University),
-Claude Opus 5.5 (Anthropic), which wrote the Lean under Fernando Galaz-García's supervision
+Authors: Fernando Galaz-García
+Developed with extensive assistance from Claude (Anthropic), used through Claude Code.
 -/
 import ExoticSpheres8And10.Geometry.Boundary.Disk
 import ExoticSpheres8And10.Geometry.Boundary.PolarCoordinates
 import ExoticSpheres8And10.PolarBundles.Attaching
 import ExoticSpheres8And10.PolarBundles.Summary
 
-/-! # [D] `lem:attaching` (1) and (3) with smooth closed disks
+/-! # [GG] `lem:attaching` (1) and (3) with smooth closed disks
 
 `MB_Disk` makes the closed disk `𝔻(R) ⊆ ℝ^{m+1}` a smooth manifold with boundary on
 `𝓡∂ (m+1)`. Here:
@@ -27,7 +27,7 @@ import ExoticSpheres8And10.PolarBundles.Summary
   So `D_α` is a smooth closed disk in `X = P_θ/S³_⋆`, with inverse `Y ↦ [(Y, 1)]_⋆`.
 * The manifold boundary `∂𝔻` is sent onto the equator `D_N ∩ D_S`.
 * **(3)**: `X = jN(𝔻(a)) ∪ jS(𝔻(π − a))`, and `jN y = jS y'` exactly when the boundary
-  relation `DiskRel` of `S2_Attaching` holds. That relation is `y_S = σ(y_N)` ([D]
+  relation `DiskRel` of `S2_Attaching` holds. That relation is `y_S = σ(y_N)` ([GG]
   `eq:sigma`). So `X` is `𝔻_N ∪_σ 𝔻_S`, with both disks smoothly embedded.
 -/
 
@@ -299,7 +299,7 @@ theorem diskRel_of_eq {a : ℝ} (ha0 : 0 < a) (haπ : a < π) (Y : Disk e a) (Y'
     _ = _ := by rw [h2, hn']
 
 /-- **(3), the gluing relation**: `jN y = jS y'` iff `y ∈ ∂𝔻(a)` and `y' = (π − a) σ(y/a)`
-(`DiskRel`, [D] `eq:sigma`). -/
+(`DiskRel`, [GG] `eq:sigma`). -/
 theorem jN_eq_jS_iff {a : ℝ} (ha0 : 0 < a) (haπ : a < π) (y : CDisk (m + 1) a)
     (y' : CDisk (m + 1) (π - a)) :
     D.jN a y = D.jS a y' ↔
@@ -398,7 +398,7 @@ theorem isBoundaryPoint_iff_jS_mem_DN (a : ℝ) [Fact (0 < a)] [Fact (a < π)]
       exact this
     rw [← norm_Lr (e := e)]; exact h'
 
-/-- **[D] `lem:attaching` (1) and (3), smooth form.** For `0 < a < π`:
+/-- **[GG] `lem:attaching` (1) and (3), smooth form.** For `0 < a < π`:
 * `jN : 𝔻(a) → X` and `jS : 𝔻(π − a) → X` are smooth maps of manifolds with boundary, with
   invertible differentials everywhere, and closed embeddings with images `D_N`, `D_S`;
 * the manifold boundary of each disk is mapped onto the equator `D_N ∩ D_S`;

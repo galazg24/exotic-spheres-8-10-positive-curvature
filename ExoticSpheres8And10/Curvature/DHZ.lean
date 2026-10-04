@@ -1,8 +1,8 @@
 /-
 Copyright (c) 2026 Fernando Galaz-García. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Fernando Galaz-García (Department of Mathematical Sciences, Durham University),
-Claude Opus 5.5 (Anthropic), which wrote the Lean under Fernando Galaz-García's supervision
+Authors: Fernando Galaz-García
+Developed with extensive assistance from Claude (Anthropic), used through Claude Code.
 -/
 import ExoticSpheres8And10.Curvature.RemarkGeneralBound
 
@@ -25,7 +25,7 @@ exists by compactness. Here:
     `B_N + B_S ≥ 0`;
   - given RW, a smooth metric of positive sectional curvature.
 * `dhzGluing_of_RW`: the hypothesis `DHZGluing` of `S4_RemarkGeneral` follows from RW.
-* **`remark_general_bound_RW`**: [D] `rem:general_bound` with **RW as the only input**.
+* **`remark_general_bound_RW`**: [GG] `rem:general_bound` with **RW as the only input**.
 -/
 
 open RiemannianGeometry Bundle VectorField
@@ -94,7 +94,7 @@ variable {m : ℕ} {W : Type} [NormedAddCommGroup W] [InnerProductSpace ℝ W]
   [ChartedSpace (ModelProd (EuclideanSpace ℝ (Fin (m + 1))) (EuclideanSpace ℝ (Fin 3))) E]
   [IsManifold (IP m) ∞ E] [T2Space E]
 
-/-- **[D] `rem:general_bound`, with Reiser–Wraith as the only input.** For every star bundle,
+/-- **[GG] `rem:general_bound`, with Reiser–Wraith as the only input.** For every star bundle,
 with any representation and no bound on `K`, `E/S³_⋆ ≃ₜ QuotSpace D`, and `QuotSpace D`
 carries a smooth metric of positive sectional curvature, given RW. -/
 theorem remark_general_bound_RW (B : StarBundle (m := m) R E) :

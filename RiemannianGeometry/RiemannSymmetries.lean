@@ -1,8 +1,8 @@
 /-
 Copyright (c) 2026 Fernando Galaz-García. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Fernando Galaz-García (Department of Mathematical Sciences, Durham University),
-Claude Opus 5 (Anthropic), which wrote the Lean under Fernando Galaz-García's supervision
+Authors: Fernando Galaz-García
+Developed with extensive assistance from Claude (Anthropic), used through Claude Code.
 -/
 import RiemannianGeometry.RiemannTensor
 import RiemannianGeometry.SectionalCurvature
@@ -15,7 +15,7 @@ import RiemannianGeometry.CurvatureBundled
 /-!
 # The remaining curvature symmetries of the Riemann tensor of a metric
 
-`Foundations.RiemannTensor` records first-pair antisymmetry. This file adds the remaining
+`RiemannianGeometry.RiemannTensor` records first-pair antisymmetry. This file adds the remaining
 symmetries, all at `C²` regularity of the metric:
 
 * `isMetricCompatibleWith_leviCivita` — the bridge from `IsCompatibleWith` (tangent bundle) to

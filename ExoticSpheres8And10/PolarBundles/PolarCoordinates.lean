@@ -1,14 +1,14 @@
 /-
 Copyright (c) 2026 Fernando Galaz-García. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Fernando Galaz-García (Department of Mathematical Sciences, Durham University),
-Claude Opus 5.5 (Anthropic), which wrote the Lean under Fernando Galaz-García's supervision
+Authors: Fernando Galaz-García
+Developed with extensive assistance from Claude (Anthropic), used through Claude Code.
 -/
 import Mathlib
 
 /-! # §2: geodesic polar coordinates on `S(W)` and the caps as closed disks
 
-[D] §2: "Every `ζ ∈ S^n ∖ {o_N, o_S}` can be written
+[GG] §2: "Every `ζ ∈ S^n ∖ {o_N, o_S}` can be written
 uniquely as `ζ = (cos t)e + (sin t)x`, `0 < t < π`, `x ∈ S(V)`. [...] Since `ρ` fixes `e` and
 preserves `V`, it preserves the radial coordinate `t` and acts on the angular variable through
 `ρ|_V`." And: "We identify `U_α` with the closed disk of radius `R_α` in `V` by the
@@ -249,7 +249,7 @@ noncomputable def capEquiv {a : ℝ} (ha0 : 0 ≤ a) (haπ : a < π) : Disk e a 
   right_inv ζ := Subtype.ext (expN_diskN he ζ.2.1 fun h => by
     have := ζ.2.2; rw [h, polarT_neg_e he] at this; linarith)
 
-/-- **[D] §2: the cap `U_N = {t ≤ a}` is homeomorphic to the closed disk of radius `a` in `V`**
+/-- **[GG] §2: the cap `U_N = {t ≤ a}` is homeomorphic to the closed disk of radius `a` in `V`**
 via `Y ↦ cos‖Y‖ e + sin‖Y‖ Y/‖Y‖`, with inverse `ζ ↦ ζ_N = t x`. -/
 noncomputable def capHomeo [FiniteDimensional ℝ W] {a : ℝ} (ha0 : 0 ≤ a) (haπ : a < π) :
     Disk e a ≃ₜ Cap e a :=

@@ -1,8 +1,8 @@
 /-
 Copyright (c) 2026 Fernando Galaz-García. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Fernando Galaz-García (Department of Mathematical Sciences, Durham University),
-Claude Opus 5.5 (Anthropic), which wrote the Lean under Fernando Galaz-García's supervision
+Authors: Fernando Galaz-García
+Developed with extensive assistance from Claude (Anthropic), used through Claude Code.
 -/
 import ExoticSpheres8And10.Geometry.Gluing
 import ExoticSpheres8And10.PolarBundles.PolarCoordinates
@@ -10,7 +10,7 @@ import ExoticSpheres8And10.PolarBundles.OrientationSphere
 
 /-! # §2: polar data and the polar bundle `P_θ` as a smooth manifold
 
-[D] §2, `def:starbundle` and `def:polar`.
+[GG] §2, `def:starbundle` and `def:polar`.
 
 * `PolarData e`: a Euclidean space `W` with unit vector `e`, `V = e^⊥`; a smooth orthogonal
   representation `ρ : S³ → O(W)` fixing `e`; a smooth `θ : S(V) → S³` with `eq:equiv`.
@@ -167,7 +167,7 @@ variable (e : W) [Fact (finrank ℝ (Vs e) = m + 1)]
 
 local notation "Sn" => sphere (0 : W) 1
 
-/-- **Polar data** ([D] `def:starbundle` (1)–(2) and `def:polar`): a unit vector `e`, a smooth
+/-- **Polar data** ([GG] `def:starbundle` (1)–(2) and `def:polar`): a unit vector `e`, a smooth
 orthogonal representation `ρ` of `S³` on `W` fixing `e`, and a smooth `θ : S(V) → S³` with
 `θ(ρ(q)y) = qθ(y)q⁻¹` (`eq:equiv`). -/
 structure PolarData where
@@ -381,7 +381,7 @@ end PolarData
 
 /-! ## The polar bundle -/
 
-/-- **The polar bundle `P_θ`** ([D] `def:polar`). -/
+/-- **The polar bundle `P_θ`** ([GG] `def:polar`). -/
 abbrev PolarBundle (D : PolarData (m := m) e) := Glued D.κP
 
 instance chartedSpace_polarBundle (D : PolarData (m := m) e) :
@@ -417,7 +417,7 @@ theorem starM_mem {q : S3} {p : M0 e} (hp : ζ0 p ≠ e) : ζ0 (D.starM q p) ≠
 theorem κP_eq (p : M0 e) (hp : ζ0 p ≠ e) : D.κP p = (D.Rmap p hp, D.θ (D.xS p hp) * p.2) :=
   D.κP_apply ⟨p, hp⟩
 
-/-- **The star action is compatible with the transition** ([D] §2, after `def:polar`:
+/-- **The star action is compatible with the transition** ([GG] §2, after `def:polar`:
 `θ(ρ(q)x) q u_N = q θ(x) u_N`). -/
 theorem κP_starM (q : S3) (p : M0 e) (hp : ζ0 p ≠ e) :
     D.κP (D.starM q p) = D.starM q (D.κP p) := by
@@ -506,7 +506,7 @@ theorem star_free (q : S3) (p : PolarBundle D) (hq : q • p = p) : q = 1 := by
     have h := congrArg Prod.snd (ι₂_injective D.κP hq)
     exact mul_right_cancel (h.trans (one_mul _).symm)
 
-/-- **`π_θ` is equivariant**: `π(q ⋆ p) = ρ(q) π(p)` ([D] `def:starbundle` (3)). -/
+/-- **`π_θ` is equivariant**: `π(q ⋆ p) = ρ(q) π(p)` ([GG] `def:starbundle` (3)). -/
 theorem proj_star (q : S3) (p : PolarBundle D) : D.proj (q • p) = D.ρS q (D.proj p) := by
   induction p using glued_induction with
   | h₁ a => rfl

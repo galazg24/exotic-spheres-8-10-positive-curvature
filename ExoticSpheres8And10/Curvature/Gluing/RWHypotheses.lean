@@ -1,14 +1,14 @@
 /-
 Copyright (c) 2026 Fernando Galaz-García. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Fernando Galaz-García (Department of Mathematical Sciences, Durham University),
-Claude Opus 5.5 (Anthropic), which wrote the Lean under Fernando Galaz-García's supervision
+Authors: Fernando Galaz-García
+Developed with extensive assistance from Claude (Anthropic), used through Claude Code.
 -/
 import ExoticSpheres8And10.Curvature.Gluing.RWDatum
 
-/-! # §4: [D]'s model data satisfy the boundary hypotheses of `rwData`
+/-! # §4: [GG]'s model data satisfy the boundary hypotheses of `rwData`
 
-For [D]'s northern quotient metric `G_N = gB(ρ, δ, r̃)` and southern quotient metric
+For [GG]'s northern quotient metric `G_N = gB(ρ, δ, r̃)` and southern quotient metric
 `G_S = SQ.gB(GH(A_S, r_S))`, with `ρ₀ = 1` (so `F_a = 4/5`, `λ = 5/4`, `J(Y) = (5/4)Y` on `Σ`):
 * **`model_hbm`**: `G_S(τJY)(dτ dJ c, dτ dJ c') = G_N(Y)(c, c')`. Proof: `gB_τ`, then
   `bdry_model_metric`.
@@ -58,7 +58,7 @@ variable {χt : ℝ → ℝ} (hχ : IsSouthCutoff χt) (hχ0 : ∀ s, 1 / 2 ≤ 
   (hw0N : ∀ Y : Vs e, rD ra d δ (4 / 5) Y ≠ 0)
 
 include hχ hχ0 hε hra hw0N in
-/-- **The boundary metrics agree** for [D]'s data, through the chart transition. -/
+/-- **The boundary metrics agree** for [GG]'s data, through the chart transition. -/
 theorem model_hbm (Y c c' : Vs e) (hY : ‖Y‖ = 4 / 5) (hc : ⟪Y, c⟫ = 0) (hc' : ⟪Y, c'⟫ = 0) :
     SQ.gB D.ρVs (GsH (D.AS χt) (rSy ε A0)) (D.τ (Jk (1 / 5) Y))
         (fderiv ℝ D.τ (Jk (1 / 5) Y) (fderiv ℝ (Jk (1 / 5)) Y c))
@@ -73,7 +73,7 @@ theorem model_hbm (Y c c' : Vs e) (hY : ‖Y‖ = 4 / 5) (hc : ⟪Y, c⟫ = 0) (
     bdry_model_metric D.contMDiff_ρVs hε one_pos (by norm_num) hra hw0N hY hc hc', gB_eq_SQ]
 
 include hχ hχ0 hε hra hw0N in
-/-- **`B_N + B_S ≥ 0`** for [D]'s data, through the chart transition. -/
+/-- **`B_N + B_S ≥ 0`** for [GG]'s data, through the chart transition. -/
 theorem model_hbs (hδ : 0 < δ) (hqs : qs = ε * A0 * (4 / 5) / 2) (hd : d = ra * qs)
     (hη : 1 / 2 ≤ Gδ δ (4 / 5) / δ)
     (hndN : IsNondegenerate (cmet (gB D.ρVs δ (rD ra d δ (4 / 5)))))

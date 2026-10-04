@@ -1,8 +1,8 @@
 /-
 Copyright (c) 2026 Fernando Galaz-García. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Fernando Galaz-García (Department of Mathematical Sciences, Durham University),
-Claude Opus 5.5 (Anthropic), which wrote the Lean under Fernando Galaz-García's supervision
+Authors: Fernando Galaz-García
+Developed with extensive assistance from Claude (Anthropic), used through Claude Code.
 -/
 import ExoticSpheres8And10.StarBundles.CircleEndomorphisms
 import ExoticSpheres8And10.StarBundles.Skeleton
@@ -11,7 +11,7 @@ import ExoticSpheres8And10.ActionField.Bound
 /-! # B1, stage 1: every injective continuous endomorphism of `S³` is inner
 
 Discharges the named hypothesis `InjContEndoInner` of B1 for `S³ = sphere (0 : ℍ) 1`, the group
-of unit quaternions ([D] `prop:polar`, Step 2: "An injective Lie group homomorphism `S³ → S³` is
+of unit quaternions ([GG] `prop:polar`, Step 2: "An injective Lie group homomorphism `S³ → S³` is
 an automorphism [...]. Every automorphism of `S³` is inner").
 
 Route (no Lie theory): for an injective continuous endomorphism `φ`,
@@ -508,9 +508,9 @@ theorem injContEndoInner_S3 : InjContEndoInner S3 := by
   rw [conj_smul_quat hc (inv_ne_zero hcn.ne')]
 
 set_option synthInstance.maxHeartbeats 200000 in
-/-- **B1 for `S³`, with the imported fact discharged.** [D] Step 2's model point exists for any
+/-- **B1 for `S³`, with the imported fact discharged.** [GG] Step 2's model point exists for any
 right action of `S³` on `P` free on the orbit of `p₀`, a commuting left action preserving that
-orbit and free at `p₀`, provided `φ` is continuous (in [D], `φ` is smooth). The hypothesis
+orbit and free at `p₀`, provided `φ` is continuous (in [GG], `φ` is smooth). The hypothesis
 `InjContEndoInner` of `exists_model_point` is now a theorem. -/
 theorem exists_model_point_S3 {P : Type*} [MulAction S3 P] [MulAction S3ᵐᵒᵖ P]
     [SMulCommClass S3 S3ᵐᵒᵖ P] (p₀ : P)

@@ -1,8 +1,8 @@
 /-
 Copyright (c) 2026 Fernando Galaz-García. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Fernando Galaz-García (Department of Mathematical Sciences, Durham University),
-Claude Opus 5.5 (Anthropic), which wrote the Lean under Fernando Galaz-García's supervision
+Authors: Fernando Galaz-García
+Developed with extensive assistance from Claude (Anthropic), used through Claude Code.
 -/
 import ExoticSpheres8And10.Curvature.Southern.Quotient
 import ExoticSpheres8And10.PolarBundles.PolarBundle
@@ -13,14 +13,14 @@ On the chart `V = e^⊥` centred at the south pole:
 - `ρVs`: the star representation restricted to `V`, a smooth `S³ →* (V ≃ₗᵢ V)`;
 - `θh y = θ(y/|y|)`, smooth on `V ∖ {0}`, with unit values;
 - `AS χt y = (χt(|y|²) − 1)·(dθh_y)·θh(y)⁻¹`, for a smooth cutoff `χt` equal to `1` near `0`
-  (the south pole). [D]'s `χ(t)` is `χt(|y|²)` with `|y| = 2 tan((π−t)/2)`.
+  (the south pole). [GG]'s `χ(t)` is `χt(|y|²)` with `|y| = 2 tan((π−t)/2)`.
 
 Then:
 - `contDiff_AS`: `A_S` is smooth on all of `V`, since it vanishes near `o_S`;
 - `AS_im`: `A_S` is imaginary;
-- `AS_equiv`: `A_S(ρ(q)y)(ρ(q)a) = q A_S(y)(a) q⁻¹` ([D]: `ρ(q)^*A_S = qA_Sq⁻¹`).
+- `AS_equiv`: `A_S(ρ(q)y)(ρ(q)a) = q A_S(y)(a) q⁻¹` ([GG]: `ρ(q)^*A_S = qA_Sq⁻¹`).
 
-So [D]'s southern data satisfy the hypotheses of `southern_quotient_pos` (`southern_quotient_pos_D`).
+So [GG]'s southern data satisfy the hypotheses of `southern_quotient_pos` (`southern_quotient_pos_D`).
 -/
 
 open RiemannianGeometry Bundle
@@ -163,7 +163,7 @@ theorem θh_ρ (q : S3) (y : Vs e) :
 
 /-! ### The southern potential `A_S` -/
 
-/-- **[D]'s southern potential** `A_S = (χ − 1) dθ θ⁻¹` in the southern chart. -/
+/-- **[GG]'s southern potential** `A_S = (χ − 1) dθ θ⁻¹` in the southern chart. -/
 def AS (χt : ℝ → ℝ) (y : Vs e) : Vs e →L[ℝ] Quaternion ℝ :=
   (χt (‖y‖ ^ 2) - 1) • ((ContinuousLinearMap.mul ℝ (Quaternion ℝ)).flip (D.θh y)⁻¹).comp
     (fderiv ℝ D.θh y)
@@ -268,12 +268,12 @@ theorem AS_equiv {χt : ℝ → ℝ} (hχ : IsSouthCutoff χt) (q : S3) (y a : V
 
 end PolarData
 
-/-! ### [D]'s southern quotient -/
+/-! ### [GG]'s southern quotient -/
 
 open PolarData in
-/-- **[D] §4, the southern filling, for [D]'s own data.** Given polar data `D` and a cutoff `χ`
+/-- **[GG] §4, the southern filling, for [GG]'s own data.** Given polar data `D` and a cutoff `χ`
 equal to `1` near the south pole, the southern connection `A_S = (χ−1)dθθ⁻¹` satisfies the
-hypotheses of `southern_quotient_pos`. So [D]'s parameter order gives a quotient metric on the
+hypotheses of `southern_quotient_pos`. So [GG]'s parameter order gives a quotient metric on the
 southern cap `−cos t ≥ c₀` with positive sectional curvature. -/
 theorem southern_quotient_pos_D {χt : ℝ → ℝ} (hχ : IsSouthCutoff χt) {c0 : ℝ} (hc0 : 0 < c0) :
     ∃ Λ0 : ℝ, ∀ Λ, Λ0 ≤ Λ → ∀ A0 : ℝ, 0 ≤ A0 → Λ ≤ A0 * c0 →

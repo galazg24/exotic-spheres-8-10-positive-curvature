@@ -1,14 +1,14 @@
 /-
 Copyright (c) 2026 Fernando Galaz-García. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Fernando Galaz-García (Department of Mathematical Sciences, Durham University),
-Claude Opus 5.5 (Anthropic), which wrote the Lean under Fernando Galaz-García's supervision
+Authors: Fernando Galaz-García
+Developed with extensive assistance from Claude (Anthropic), used through Claude Code.
 -/
 import ExoticSpheres8And10.ActionField.Bound
 
-/-! # A3. Orientation bookkeeping ([D] `lem:attaching`(3), second paragraph)
+/-! # A3. Orientation bookkeeping ([GG] `lem:attaching`(3), second paragraph)
 
-[D]: "For orientation bookkeeping put `β = dθ θ⁻¹`. Differentiating equivariance and the
+[GG]: "For orientation bookkeeping put `β = dθ θ⁻¹`. Differentiating equivariance and the
 definition of `σ` gives `β_y K_y = Id − Ad_{θ(y)}`, `Dσ_y = ρ(θ(y)⁻¹)(Id − K_y β_y)`, where
 `K_y ξ = d/dτ|₀ ρ(e^{τξ}) y`. The determinant identity `det(Id − AB) = det(Id − BA)` gives
 `det(Id − K_y β_y) = det Ad_{θ(y)} = 1`."
@@ -147,7 +147,7 @@ theorem beta_K {Y : Type*} [NormedAddCommGroup Y] [NormedSpace ℝ Y]
 
 /-! ### (d) `det(Id − K_y β_y) = 1` -/
 
-/-- **A3(d).** Let `T` be finite-dimensional (in [D], `T = T_y S^{n−1}`), `K : Im ℍ → T` and
+/-- **A3(d).** Let `T` be finite-dimensional (in [GG], `T = T_y S^{n−1}`), `K : Im ℍ → T` and
 `β : T → Im ℍ` linear (with `Im ℍ` in coordinates `i, j, k`), and suppose
 `β(K v) = v − θ v θ⁻¹` for all `v` (the conclusion of (c)). Then `det(Id − Kβ) = 1`. -/
 theorem det_id_sub_K_beta {T : Type*} [AddCommGroup T] [Module ℝ T] [FiniteDimensional ℝ T]

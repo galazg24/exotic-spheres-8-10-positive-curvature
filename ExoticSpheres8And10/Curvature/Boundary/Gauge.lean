@@ -1,14 +1,14 @@
 /-
 Copyright (c) 2026 Fernando Galaz-García. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Fernando Galaz-García (Department of Mathematical Sciences, Durham University),
-Claude Opus 5.5 (Anthropic), which wrote the Lean under Fernando Galaz-García's supervision
+Authors: Fernando Galaz-García
+Developed with extensive assistance from Claude (Anthropic), used through Claude Code.
 -/
 import ExoticSpheres8And10.Geometry.NaturalityLocal
 
 /-! # §4.4: near the gluing boundary the southern metric is a warped product (gauge)
 
-Where the cutoff vanishes (`χ = 0`, near `t = a`), [D]'s southern potential is the pure gauge
+Where the cutoff vanishes (`χ = 0`, near `t = a`), [GG]'s southern potential is the pure gauge
 `A_S = −dθ̂ θ̂⁻¹`. For fixed `q₀ ∈ S³` the map
 
   `Λ_{q₀}(y, u) = (ρ(q₀) y, q₀ θ̂(y) u)`
@@ -227,7 +227,7 @@ theorem mvfderiv_fU_Λ (q₀ : S3) {p : Vs e × S3} (hp : p.1 ≠ 0) (v : Tangen
   rfl
 
 /-- **Where `χ = 0`, `Λ_{q₀}` is a local isometry** from the product-connection metric to
-[D]'s southern metric: `θL_A(dΛ u) = q₀θ̂·dU(u)`. -/
+[GG]'s southern metric: `θL_A(dΛ u) = q₀θ̂·dU(u)`. -/
 theorem Λ_isometry {χt : ℝ → ℝ} (hχ : IsSouthCutoff χt) {r : Vs e → ℝ}
     (hrρ : ∀ q y, r (D.ρVs q y) = r y) (q₀ : S3) {p : Vs e × S3} (hp : p.1 ≠ 0)
     (hχ0 : χt (‖p.1‖ ^ 2) = 0) (v v' : TangentSpace (IN (Vs e)) p) :

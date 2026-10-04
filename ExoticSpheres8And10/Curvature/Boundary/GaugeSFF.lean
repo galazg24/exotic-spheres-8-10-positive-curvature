@@ -1,15 +1,15 @@
 /-
 Copyright (c) 2026 Fernando Galaz-García. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Fernando Galaz-García (Department of Mathematical Sciences, Durham University),
-Claude Opus 5.5 (Anthropic), which wrote the Lean under Fernando Galaz-García's supervision
+Authors: Fernando Galaz-García
+Developed with extensive assistance from Claude (Anthropic), used through Claude Code.
 -/
 import ExoticSpheres8And10.Curvature.Boundary.Values
 
 /-! # §4.4: the southern boundary second fundamental form through the gauge
 
 Where `χ = 0` near `y`, the gauge `τ` is a local isometry from the product-connection quotient
-`g_0 = SQ.gB (GsW β0 r)` to [D]'s southern quotient `g_A = SQ.gB (GsH A_S r)` (`gB_τ`). It also
+`g_0 = SQ.gB (GsW β0 r)` to [GG]'s southern quotient `g_A = SQ.gB (GsH A_S r)` (`gB_τ`). It also
 preserves `|y|²`. Hence (**`sff_τ`**) the boundary second fundamental forms correspond:
 `B^{g_0}_y(c, c) = B^{g_A}_{τy}(dτ c, dτ c)`.
 

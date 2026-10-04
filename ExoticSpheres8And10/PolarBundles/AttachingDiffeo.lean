@@ -1,14 +1,14 @@
 /-
 Copyright (c) 2026 Fernando Galaz-García. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Fernando Galaz-García (Department of Mathematical Sciences, Durham University),
-Claude Opus 5.5 (Anthropic), which wrote the Lean under Fernando Galaz-García's supervision
+Authors: Fernando Galaz-García
+Developed with extensive assistance from Claude (Anthropic), used through Claude Code.
 -/
 import ExoticSpheres8And10.Geometry.Boundary.Radial
 import ExoticSpheres8And10.Geometry.Boundary.DiskGluing
 import ExoticSpheres8And10.PolarBundles.AttachingDisks
 
-/-! # [D] `lem:attaching` (1) and (3) as diffeomorphisms
+/-! # [GG] `lem:attaching` (1) and (3) as diffeomorphisms
 
 `X = P_θ/S³_⋆` (`QuotSpace D`) is a model of the smooth disk gluing `𝔻(a) ∪_σ 𝔻(π − a)` with
 product collars (`MB_Gluing`).
@@ -392,7 +392,7 @@ theorem DS_eq_ψS_image (a : ℝ) (ha0 : 0 < a) (haπ : a < π) :
     image_univ]
   rfl
 
-/-- **[D] `lem:attaching` (1), as diffeomorphisms.** `D_N` is the image of the closed disk
+/-- **[GG] `lem:attaching` (1), as diffeomorphisms.** `D_N` is the image of the closed disk
 `𝔻(a) ⊆ V` under the chart `ψ_N`. `ψ_N` is a smooth map from the open ball `B(a + ε)` onto the
 open set `ψ_N(B(a + ε)) ⊆ X`, with smooth inverse. `j_N = ψ_N ∘ Lr` on the closed disk.
 The same holds for `D_S`, `ψ_S`, `j_S` with radius `π − a`. -/
@@ -415,7 +415,7 @@ theorem lem_attaching_1 (a : ℝ) (ha0 : 0 < a) (haπ : a < π) :
       (D.xModel a ha0 haπ).smooth_S, (D.xModel a ha0 haπ).smooth_S_symm,
       D.DS_eq_ψS_image a ha0 haπ, D.jS_eq_ψS a ha0 haπ⟩⟩
 
-/-- **[D] `lem:attaching` (3), as a diffeomorphism: `P_θ/S³_⋆ ≅ D_N ∪_σ D_S`.** `X` is
+/-- **[GG] `lem:attaching` (3), as a diffeomorphism: `P_θ/S³_⋆ ≅ D_N ∪_σ D_S`.** `X` is
 diffeomorphic to every smooth disk gluing `𝔻(a) ∪_σ 𝔻(π − a)` with product collars, of any
 collar width. The gluing is unique up to diffeomorphism (`diskGluing_unique`), and `X` is one
 (`xModel`). -/

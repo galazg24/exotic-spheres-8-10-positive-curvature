@@ -1,14 +1,14 @@
 /-
 Copyright (c) 2026 Fernando Galaz-García. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Fernando Galaz-García (Department of Mathematical Sciences, Durham University),
-Claude Opus 5.5 (Anthropic), which wrote the Lean under Fernando Galaz-García's supervision
+Authors: Fernando Galaz-García
+Developed with extensive assistance from Claude (Anthropic), used through Claude Code.
 -/
 import ExoticSpheres8And10.Curvature.Northern.ProfilesExistence
 
 /-! # A7 at the centre: polar smoothness conditions and the curvature `δ⁻²`
 
-[D] §5 (northern filling): "The inverse of the odd function `F ↦ ∫₀^F e^{z²/(2δ²)}dz` is smooth
+[GG] §5 (northern filling): "The inverse of the odd function `F ↦ ∫₀^F e^{z²/(2δ²)}dz` is smooth
 and odd, with `F(s) = s − s³/(6δ²) + O(s⁵)`. As `r` is constant near zero, these are the polar
 smoothness conditions for `eq:north`. [...] The latter has sectional curvature `δ⁻²`, proving
 positivity there directly."

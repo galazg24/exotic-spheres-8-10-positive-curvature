@@ -1,19 +1,19 @@
 /-
 Copyright (c) 2026 Fernando Galaz-García. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Fernando Galaz-García (Department of Mathematical Sciences, Durham University),
-Claude Opus 5.5 (Anthropic), which wrote the Lean under Fernando Galaz-García's supervision
+Authors: Fernando Galaz-García
+Developed with extensive assistance from Claude (Anthropic), used through Claude Code.
 -/
 import Mathlib
 
-/-! # A5. The area inequalities ([D] §4.3, "Horizontal graph")
+/-! # A5. The area inequalities ([GG] §4.3, "Horizontal graph")
 
-[D]: "`|λV−μU|² ≤ (4F²/r²)|λY−μX|²`, `|X⊗V − Y⊗U|² ≤ (8F²/r²)|X∧Y|²`. For the second area
+[GG]: "`|λV−μU|² ≤ (4F²/r²)|λY−μX|²`, `|X⊗V − Y⊗U|² ≤ (8F²/r²)|X∧Y|²`. For the second area
 inequality, replace independent `X,Y` by a determinant-one change of the pair making them
 orthogonal. Both alternating expressions are unchanged, and the squared tensor norm becomes
 `|X|²|TY|² + |Y|²|TX|²`. If `X,Y` are dependent, both expressions vanish."
 
-Here `T : H → Vv` is linear with `‖T‖ ≤ τ` (in [D], `τ = 2F/r`), `U = TX`, `V = TY`.
+Here `T : H → Vv` is linear with `‖T‖ ≤ τ` (in [GG], `τ = 2F/r`), `U = TX`, `V = TY`.
 
 Encoding: `tensorSq X Y U V := ‖X‖²‖V‖² + ‖Y‖²‖U‖² − 2⟨X,Y⟩⟨V,U⟩` and
 `wedgeSq X Y := ‖X‖²‖Y‖² − ⟨X,Y⟩²`. We prove that `tensorSq X Y U V` **is** the squared
@@ -79,7 +79,7 @@ theorem wedgeSq_shear (X Y : H) (c : ℝ) : wedgeSq X (Y - c • X) = wedgeSq X 
   rw [wedgeSq, wedgeSq, norm_sub_smul_sq, inner_sub_smul_self]
   ring
 
-/-- If `Y = cX` both alternating expressions vanish ([D], dependent case). -/
+/-- If `Y = cX` both alternating expressions vanish ([GG], dependent case). -/
 theorem tensorSq_wedgeSq_of_dependent (T : H →L[ℝ] Vv) (X : H) (c : ℝ) :
     tensorSq X (c • X) (T X) (T (c • X)) = 0 ∧ wedgeSq X (c • X) = 0 := by
   constructor
@@ -113,7 +113,7 @@ theorem tensorSq_of_orthogonal (X Y : H) (U V : Vv) (h : ⟪X, Y⟫ = 0) :
   ring
 
 /-- **A5(b).** `|X⊗V − Y⊗U|² ≤ 2τ²|X∧Y|²` with `U = TX`, `V = TY`. No independence hypothesis:
-the dependent case is included. The proof is [D]'s: shear `Y` to `Y' = Y − cX ⊥ X`. -/
+the dependent case is included. The proof is [GG]'s: shear `Y` to `Y' = Y − cX ⊥ X`. -/
 theorem area_ineq_b (hT : ‖T‖ ≤ τ) (X Y : H) :
     tensorSq X Y (T X) (T Y) ≤ 2 * τ ^ 2 * wedgeSq X Y := by
   by_cases hX : X = 0
@@ -132,7 +132,7 @@ theorem area_ineq_b (hT : ‖T‖ ≤ τ) (X Y : H) :
   have h2 := mul_le_mul_of_nonneg_left (sq_norm_apply_le T hT X) (sq_nonneg ‖Y - c • X‖)
   nlinarith [h1, h2]
 
-/-- [D]'s displayed form, with `τ = 2F/r`: `|λV−μU|² ≤ (4F²/r²)|λY−μX|²` and
+/-- [GG]'s displayed form, with `τ = 2F/r`: `|λV−μU|² ≤ (4F²/r²)|λY−μX|²` and
 `|X⊗V − Y⊗U|² ≤ (8F²/r²)|X∧Y|²`. -/
 theorem area_ineqs_graph (F r : ℝ) (hT : ‖T‖ ≤ 2 * F / r) (X Y : H) (lam mu : ℝ) :
     ‖lam • T Y - mu • T X‖ ^ 2 ≤ 4 * F ^ 2 / r ^ 2 * ‖lam • Y - mu • X‖ ^ 2 ∧

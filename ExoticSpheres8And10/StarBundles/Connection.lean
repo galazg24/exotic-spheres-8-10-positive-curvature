@@ -1,15 +1,15 @@
 /-
 Copyright (c) 2026 Fernando Galaz-García. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Fernando Galaz-García (Department of Mathematical Sciences, Durham University),
-Claude Opus 5.5 (Anthropic), which wrote the Lean under Fernando Galaz-García's supervision
+Authors: Fernando Galaz-García
+Developed with extensive assistance from Claude (Anthropic), used through Claude Code.
 -/
 import ExoticSpheres8And10.StarBundles.Stereographic
 import ExoticSpheres8And10.Analysis.ODEParameters
 
 /-! # §3, Step 1 (first half): a principal connection on `E|_{U_N}`
 
-[D] Step 1: "Choose a smooth principal connection `ω₀` on `E`." Mathlib has no principal
+[GG] Step 1: "Choose a smooth principal connection `ω₀` on `E`." Mathlib has no principal
 connections. We work over `U_N ≅ V` (stereographic coordinates) with the local trivialisations
 `σ_i(v) = sec_i(φ(v))` of the star bundle, pulled back to open sets `O_i ⊆ V`, and construct a
 connection as a compatible family of `Im ℍ`-valued potentials `A_i : O_i → L(V, ℍ)`:
@@ -20,7 +20,7 @@ connection as a compatible family of `Im ℍ`-valued potentials `A_i : O_i → L
 * `contDiffOn_A`: `A_j` is smooth on `O_j`;
 * `A_re`: `A_j` is `Im ℍ`-valued;
 * `A_compat`: on `O_i ∩ O_j`, `A_j = g_{ij}⁻¹ A_i g_{ij} + g_{ij}⁻¹ dg_{ij}` (the gauge law of
-  [D] `eq:potentials`), so the local horizontal-lift equations `u' = −A(c')u` are compatible.
+  [GG] `eq:potentials`), so the local horizontal-lift equations `u' = −A(c')u` are compatible.
 -/
 
 namespace ExoticSpheres8And10
@@ -223,7 +223,7 @@ theorem mc_trans (i j k : Sn) {v : V} (hi : v ∈ B.O i) (hj : v ∈ B.O j) (hk 
     noncomm_ring
   rw [this, hunit, mul_one, add_comm]
 
-/-- **The gauge law** ([D] `eq:potentials`): on `O_i ∩ O_j`,
+/-- **The gauge law** ([GG] `eq:potentials`): on `O_i ∩ O_j`,
 `A_j = g_{ij}⁻¹ A_i g_{ij} + g_{ij}⁻¹ dg_{ij}`. -/
 theorem A_compat (i j : Sn) {v : V} (hi : v ∈ B.O i) (hj : v ∈ B.O j) (w : V) :
     B.A j v w = Star.star (B.gV i j v) * B.A i v w * B.gV i j v +

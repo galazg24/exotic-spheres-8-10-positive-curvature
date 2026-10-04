@@ -1,14 +1,14 @@
 /-
 Copyright (c) 2026 Fernando Galaz-García. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Fernando Galaz-García (Department of Mathematical Sciences, Durham University),
-Claude Opus 5.5 (Anthropic), which wrote the Lean under Fernando Galaz-García's supervision
+Authors: Fernando Galaz-García
+Developed with extensive assistance from Claude (Anthropic), used through Claude Code.
 -/
 import ExoticSpheres8And10.PolarBundles.PolarBundle
 
 /-! # §2: the star quotient `P_θ/S³_⋆` as a smooth manifold
 
-[D] `lem:attaching`: "`Ψ_α(ζ_α, u_α) = ρ(u_α)⁻¹ζ_α` is constant on star orbits. [...] every star
+[GG] `lem:attaching`: "`Ψ_α(ζ_α, u_α) = ρ(u_α)⁻¹ζ_α` is constant on star orbits. [...] every star
 orbit contains a unique point with fibre coordinate `1`." Mathlib has no quotient manifolds. For
 the star action on `P_θ` the slices `{u = 1}` are global in each chart, so the quotient manifold
 can be constructed directly.

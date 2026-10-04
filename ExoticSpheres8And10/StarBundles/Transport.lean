@@ -1,8 +1,8 @@
 /-
 Copyright (c) 2026 Fernando Galaz-García. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Fernando Galaz-García (Department of Mathematical Sciences, Durham University),
-Claude Opus 5.5 (Anthropic), which wrote the Lean under Fernando Galaz-García's supervision
+Authors: Fernando Galaz-García
+Developed with extensive assistance from Claude (Anthropic), used through Claude Code.
 -/
 import ExoticSpheres8And10.StarBundles.Skeleton
 import ExoticSpheres8And10.ActionField.Bound
@@ -10,7 +10,7 @@ import ExoticSpheres8And10.ActionField.Chains
 
 /-! # B3, strengthened: parallel transport for a connection on a trivial `S³`-bundle
 
-[D] `prop:polar`, Steps 3 and 6 use horizontal lifts of curves for a principal connection. B3
+[GG] `prop:polar`, Steps 3 and 6 use horizontal lifts of curves for a principal connection. B3
 took their existence, uniqueness and right-invariance as an interface (`HorizontalLifts`) with the
 flat model. Here the interface is **constructed** for an arbitrary (curved) connection on the
 trivial bundle `E × ℍ` over a normed space `E`, with connection potential `A : E → (E →L ℍ)`
@@ -262,7 +262,7 @@ noncomputable def transportLifts (A : E → E →L[ℝ] ℍ[ℝ]) (hA : Continuo
       rw [(hu t ht).2]
     · exact ((hu' t ht).mul_const _).congr_deriv (mul_assoc _ _ _)
 
-/-- **[D] Step 6 for genuine parallel transport.** If `s_N = s_S · θ` and both sections are
+/-- **[GG] Step 6 for genuine parallel transport.** If `s_N = s_S · θ` and both sections are
 parallel along a `C¹` curve `c` for the connection `A`, then `θ` is constant along `c`. -/
 theorem transport_theta_const (A : E → E →L[ℝ] ℍ[ℝ]) (hA : Continuous A)
     (hpure : ∀ x v, (A x v).re = 0) (sN sS : E → E × S3) (θ : E → S3)
@@ -309,7 +309,7 @@ theorem transport_theta_model (g : sphere (0 : ℍ[ℝ]) 1) :
 /-! ## Gauge covariance
 
 A change of trivialisation `(b, s) ↦ (b, γ(b)⁻¹ s)` by a unit-valued `C¹` gauge `γ : E → S³`
-transforms the potential to `A^γ = γ⁻¹Aγ + γ⁻¹dγ` ([D] `eq:potentials`), and maps
+transforms the potential to `A^γ = γ⁻¹Aγ + γ⁻¹dγ` ([GG] `eq:potentials`), and maps
 `A`-horizontal lifts to `A^γ`-horizontal lifts. This is the compatibility needed to patch the
 local transports of a non-trivial bundle across overlapping charts. -/
 

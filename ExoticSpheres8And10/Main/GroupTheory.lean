@@ -1,19 +1,19 @@
 /-
 Copyright (c) 2026 Fernando Galaz-García. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Fernando Galaz-García (Department of Mathematical Sciences, Durham University),
-Claude Opus 5.5 (Anthropic), which wrote the Lean under Fernando Galaz-García's supervision
+Authors: Fernando Galaz-García
+Developed with extensive assistance from Claude (Anthropic), used through Claude Code.
 -/
 import Mathlib
 
 /-! # A9. Group theory in Corollary C and Theorem B
 
-* (a) [D] proof of Corollary C: "`α : Θ₁₀ → KO₁₀ ≅ ℤ/2` ... is nonzero in dimension ten,
+* (a) [GG] proof of Corollary C: "`α : Θ₁₀ → KO₁₀ ≅ ℤ/2` ... is nonzero in dimension ten,
   so its kernel in `ℤ/6` is exactly the subgroup of order three."
-* (b) [D] proof of Theorem B: "This identifies a generator of the order-three subgroup,
+* (b) [GG] proof of Theorem B: "This identifies a generator of the order-three subgroup,
   without fixing a preferred sign. Reversing its orientation represents the other generator."
   (In `ℤ/3`, `g` generates iff `−g` does, and `g ≠ −g` for `g ≠ 0`.)
-* (c) [D] Corollary C, dimension 8: `|Θ₈| = 2`, so there is exactly one exotic class.
+* (c) [GG] Corollary C, dimension 8: `|Θ₈| = 2`, so there is exactly one exotic class.
 
 Only the group theory is formalised: the identifications `Θ₁₀ ≅ ℤ/6`, `Θ₈ ≅ ℤ/2`,
 `KO₁₀ ≅ ℤ/2`, and that `α` is a nonzero homomorphism, are imported inputs.

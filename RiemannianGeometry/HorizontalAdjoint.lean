@@ -1,8 +1,8 @@
 /-
 Copyright (c) 2026 Fernando Galaz-García. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Fernando Galaz-García (Department of Mathematical Sciences, Durham University),
-Claude Opus 5 (Anthropic), which wrote the Lean under Fernando Galaz-García's supervision
+Authors: Fernando Galaz-García
+Developed with extensive assistance from Claude (Anthropic), used through Claude Code.
 -/
 import RiemannianGeometry.HorizontalSpace
 import RiemannianGeometry.MfderivAdjoint
@@ -11,12 +11,12 @@ import RiemannianGeometry.AdjointProjection
 /-!
 # The horizontal projection of a Riemannian submersion is `Aᵃ ∘ A`
 
-`Foundations.HorizontalSpace` builds the horizontal space of a submersion as an orthogonal
+`RiemannianGeometry.HorizontalSpace` builds the horizontal space of a submersion as an orthogonal
 complement and its horizontal lift as the inverse of a restricted linear isomorphism. Both are
 correct pointwise, and both are opaque: an inverse produced by `ContinuousLinearEquiv.ofBijective`
-carries no route to smoothness in the base point. `Foundations.MfderivAdjoint` builds a second,
+carries no route to smoothness in the base point. `RiemannianGeometry.MfderivAdjoint` builds a second,
 manifestly smooth object — the fibrewise metric adjoint `Aᵃ` of `A = dπ_p` — and
-`Foundations.AdjointProjection` supplies the purely algebraic fact that an adjoint which is also a
+`RiemannianGeometry.AdjointProjection` supplies the purely algebraic fact that an adjoint which is also a
 section of `A` computes the orthogonal projection onto `(ker A)ᗮ`.
 
 This file joins the three. Its payoff is the pair
@@ -53,7 +53,7 @@ which replace every occurrence of orthogonal-projection machinery by an expressi
 
 ## Implementation notes
 
-Two instance rules of `Foundations.RiemannianBundleBridge` are respected throughout: the fibrewise
+Two instance rules of `RiemannianGeometry.RiemannianBundleBridge` are respected throughout: the fibrewise
 `InnerProductSpace` is never bound to a name, and `FiniteDimensional ℝ (TangentSpace I p)` is
 introduced by `inferInstanceAs` wherever `Submodule.starProjection` or completeness of the fibre is
 needed. `CompleteSpace (TangentSpace I p)`, which every `AdjointProjection` lemma mentioning
@@ -85,7 +85,7 @@ variable (I M) in
 /-- **The tangent metric as data.** Mathlib's `Bundle.RiemannianBundle E` is a one-field class
 holding a `Bundle.RiemannianMetric E`, whose own `inner` field is precisely this development's
 metric-as-data `Π p, T_pM →L[ℝ] T_pM →L[ℝ] ℝ`. Naming it lets the fibrewise adjoint of
-`Foundations.MfderivAdjoint`, which is stated in metric-as-data terms, be applied to a bundle
+`RiemannianGeometry.MfderivAdjoint`, which is stated in metric-as-data terms, be applied to a bundle
 carrying only the class. -/
 def tangentMetric : Π p : M, TangentSpace I p →L[ℝ] TangentSpace I p →L[ℝ] ℝ :=
   (Bundle.RiemannianBundle.g (E := (TangentSpace I : M → Type _))).inner
@@ -102,7 +102,7 @@ definiteness field of `Bundle.RiemannianMetric`: a vector pairing to zero with e
 zero with itself.
 
 This is exactly the hypothesis `mfderivAdjoint_spec` requires, and the only reason the adjoint of
-`Foundations.MfderivAdjoint` — which is defined without hypotheses, using the junk value of
+`RiemannianGeometry.MfderivAdjoint` — which is defined without hypotheses, using the junk value of
 `ContinuousLinearMap.inverse` — has its characterising property here. -/
 theorem tangentMetric_nondegenerate (p : M) :
     ∀ v : TangentSpace I p, (∀ w, tangentMetric I M p v w = 0) → v = 0 := by
@@ -193,7 +193,7 @@ omit [FiniteDimensional ℝ E'] [IsManifold J ∞ B] in
 
 The right-hand side mentions no orthogonal projection, no orthogonal complement and no restricted
 isomorphism: it is built from `mfderiv` and the fibrewise inverse of the metric, both of whose
-regularity is established in `Foundations.MfderivAdjoint`. This is what makes the smoothness of
+regularity is established in `RiemannianGeometry.MfderivAdjoint`. This is what makes the smoothness of
 the horizontal projection in `p` reachable at all. -/
 theorem horizontalProjection_eq (hsub : IsSubmersionAtPoint I J f p)
     (hriem : IsRiemannianSubmersionAtPoint I J f p) (u : TangentSpace I p) :

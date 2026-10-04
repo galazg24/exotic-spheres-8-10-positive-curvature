@@ -1,8 +1,8 @@
 /-
 Copyright (c) 2026 Fernando Galaz-García. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Fernando Galaz-García (Department of Mathematical Sciences, Durham University),
-Claude Opus 5.5 (Anthropic), which wrote the Lean under Fernando Galaz-García's supervision
+Authors: Fernando Galaz-García
+Developed with extensive assistance from Claude (Anthropic), used through Claude Code.
 -/
 import ExoticSpheres8And10.Geometry.SFF.Warped
 import RiemannianGeometry.ONeillLemmaOne
@@ -15,7 +15,7 @@ For a Riemannian submersion `f : M → B` and `h : B → ℝ`:
 * `unitNormal_comp_submersion`: `ν_M (h ∘ f) = (ν_B h)ᴴ`;
 * **`sff_submersion`**: `sff_B h (Y, Y) = sff_M (h ∘ f)(Yᴴ, Yᴴ)`.
 
-This is [D]'s "The second fundamental form of a quotient boundary is the source second
+This is [GG]'s "The second fundamental form of a quotient boundary is the source second
 fundamental form restricted to star-horizontal lifts". It follows from O'Neill's Lemma 1(3), that
 `𝓗∇_{Y₁ᴴ}Y₂ᴴ = (∇*_{Y₁}Y₂)ᴴ` (`RiemannianGeometry` `horizontalProjection_leviCivita_horizontalLiftField`), and
 from Lemma 1(1).

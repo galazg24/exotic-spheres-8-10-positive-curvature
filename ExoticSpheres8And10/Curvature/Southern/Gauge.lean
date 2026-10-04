@@ -1,23 +1,23 @@
 /-
 Copyright (c) 2026 Fernando Galaz-García. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Fernando Galaz-García (Department of Mathematical Sciences, Durham University),
-Claude Opus 5.5 (Anthropic), which wrote the Lean under Fernando Galaz-García's supervision
+Authors: Fernando Galaz-García
+Developed with extensive assistance from Claude (Anthropic), used through Claude Code.
 -/
 import ExoticSpheres8And10.ActionField.Bound
 
-/-! # A4. Gauge algebra ([D] §4.2, "The southern filling", items 1 and 3)
+/-! # A4. Gauge algebra ([GG] §4.2, "The southern filling", items 1 and 3)
 
 At the level of values of derivatives at a point, in `ℍ[ℝ]`. Here `θ`, `u` are the values of
 the (unit-quaternion-valued) maps at a point and `dθ`, `du` the values of their derivatives on
 a tangent vector; `χ` is the value of the cutoff.
 
-[D] item 1 (*Gauge compatibility*): "From `u_S = θ u_N`: `u_S⁻¹du_S = u_N⁻¹θ⁻¹dθ u_N + u_N⁻¹du_N`
+[GG] item 1 (*Gauge compatibility*): "From `u_S = θ u_N`: `u_S⁻¹du_S = u_N⁻¹θ⁻¹dθ u_N + u_N⁻¹du_N`
 and `u_S⁻¹A_Su_S = u_N⁻¹θ⁻¹A_Sθu_N`. So compatibility is `A_N = θ⁻¹A_Sθ + θ⁻¹dθ`, which holds:
 `(χ−1)θ⁻¹dθ + θ⁻¹dθ = χθ⁻¹dθ`." Here `A_N = χ θ⁻¹dθ`, `A_S = (χ−1) dθ θ⁻¹`
 (`eq:potentials`), `ω = u⁻¹Au + u⁻¹du`.
 
-[D] item 3 (*Star invariance*): "By `eq:equiv`, `θ(ρ(q)x)⁻¹dθ(ρ(q)x) = q(θ⁻¹dθ)q⁻¹` [...].
+[GG] item 3 (*Star invariance*): "By `eq:equiv`, `θ(ρ(q)x)⁻¹dθ(ρ(q)x) = q(θ⁻¹dθ)q⁻¹` [...].
 With `u ↦ qu`, `(qu)⁻¹qAq⁻¹(qu) + (qu)⁻¹d(qu) = u⁻¹Au + u⁻¹du`."
 -/
 
@@ -80,7 +80,7 @@ theorem star_invariance_mc (q θ dθ : ℍ[ℝ]) (hq : q ≠ 0) :
 
 /-! ### Non-vacuity
 
-The only hypotheses are `θ ≠ 0` and `q ≠ 0`, which hold for the unit quaternions of [D]
+The only hypotheses are `θ ≠ 0` and `q ≠ 0`, which hold for the unit quaternions of [GG]
 (e.g. `θ = q = 1`, or `θ = i`). Instance with non-commuting values: -/
 
 example : (qmk 0 1 0 0 * qmk 0 0 1 0)⁻¹ * ((2 - 1 : ℝ) • (qmk 0 0 0 1 * (qmk 0 1 0 0)⁻¹)) *

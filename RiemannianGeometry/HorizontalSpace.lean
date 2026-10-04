@@ -1,8 +1,8 @@
 /-
 Copyright (c) 2026 Fernando Galaz-García. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Fernando Galaz-García (Department of Mathematical Sciences, Durham University),
-Claude Opus 5 (Anthropic), which wrote the Lean under Fernando Galaz-García's supervision
+Authors: Fernando Galaz-García
+Developed with extensive assistance from Claude (Anthropic), used through Claude Code.
 -/
 import Mathlib.Analysis.InnerProductSpace.Projection.Basic
 import Mathlib.Analysis.InnerProductSpace.LinearMap
@@ -12,7 +12,7 @@ import RiemannianGeometry.RiemannianBundleBridge
 /-!
 # The horizontal space of a Riemannian submersion — the pointwise layer
 
-`Foundations.Submersion` defines the vertical space `V_p = ker (dπ_p)` with no metric. This file
+`RiemannianGeometry.Submersion` defines the vertical space `V_p = ker (dπ_p)` with no metric. This file
 adds the metric: the horizontal space is its orthogonal complement, the tangent space splits, and a
 tangent vector downstairs has a unique horizontal lift upstairs.
 
@@ -37,7 +37,7 @@ twin, and orthogonality `⟪𝓗 u, 𝓥 w⟫ = 0` — and `existsUnique_horizon
 ## Where the metric comes from
 
 `[Bundle.RiemannianBundle (TangentSpace I : M → Type _)]`. A caller holding this project's
-metric-as-data supplies it through `Foundations.RiemannianBundleBridge`, and the registered
+metric-as-data supplies it through `RiemannianGeometry.RiemannianBundleBridge`, and the registered
 `inner ℝ` is then *definitionally* that data. Taking the class rather than the derived instances is
 deliberate — see below.
 

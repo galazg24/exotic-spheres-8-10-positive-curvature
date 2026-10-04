@@ -1,8 +1,8 @@
 /-
 Copyright (c) 2026 Fernando Galaz-García. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Fernando Galaz-García (Department of Mathematical Sciences, Durham University),
-Claude Opus 5.5 (Anthropic), which wrote the Lean under Fernando Galaz-García's supervision
+Authors: Fernando Galaz-García
+Developed with extensive assistance from Claude (Anthropic), used through Claude Code.
 -/
 import ExoticSpheres8And10.Curvature.Northern.QuotientSubmersion
 import ExoticSpheres8And10.Curvature.ONeill
@@ -200,7 +200,7 @@ theorem isPosDef_cmet_gB (hrt0 : ∀ Y, rt Y ≠ 0) : IsPosDef (cmet (gB ρV δ 
 theorem two_le_top_nat : ((2 : ℕ∞) : ℕ∞ω) ≤ ((⊤ : ℕ∞) : ℕ∞ω) := WithTop.coe_le_coe.mpr le_top
 
 include hρ in
-/-- **Positive curvature of the northern quotient metric.** If [D]'s northern metric `G_N` has
+/-- **Positive curvature of the northern quotient metric.** If [GG]'s northern metric `G_N` has
 positive curvature on the horizontal planes at `(Y, 1)` (horizontal: `G_N`-orthogonal to the
 star orbit, `G(u, (K_Y β, β)) = 0`), then `g_B` has positive curvature at `Y`. -/
 theorem northQuot_sectionalCurvature_pos (hrt0 : ∀ Y, rt Y ≠ 0) (hrt : ContDiff ℝ ∞ rt)

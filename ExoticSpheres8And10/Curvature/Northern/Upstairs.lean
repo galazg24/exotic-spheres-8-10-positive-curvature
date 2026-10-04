@@ -1,15 +1,15 @@
 /-
 Copyright (c) 2026 Fernando Galaz-García. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Fernando Galaz-García (Department of Mathematical Sciences, Durham University),
-Claude Opus 5.5 (Anthropic), which wrote the Lean under Fernando Galaz-García's supervision
+Authors: Fernando Galaz-García
+Developed with extensive assistance from Claude (Anthropic), used through Claude Code.
 -/
 import ExoticSpheres8And10.Curvature.Northern.Chart
 
 /-! # §4: positive curvature upstairs on the northern piece, away from the centre
 
 At a point `q = Φ̂(s₀, 0, z30)` of `V × S³` (so `q = (F(s₀) e, 1)`), every plane of `T_q` that is
-horizontal for the star action has positive sectional curvature for [D]'s northern metric.
+horizontal for the star action has positive sectional curvature for [GG]'s northern metric.
 
 * `sectionalCurvatureAt_Φh`: `K_{wG}(p₀; û, v̂) = K_{G_N}(Φ̂ p₀; dΦ̂ û, dΦ̂ v̂)`, where `wG` is the
   metric of `S4_NorthLocal`. The proof is germ locality (`Gh = wG` near `p₀`) followed by
@@ -18,7 +18,7 @@ horizontal for the star action has positive sectional curvature for [D]'s northe
 * The vertical vectors `(K_Y β, β)` at `q` are the images of `(0, K_e β, β)`.
 * A horizontal `u = dΦ̂ û` therefore has `û = (λ, X/F, TX/r)` with `T = −(F/r)K_e^*`. This is
   exactly `S4_NorthLocal`'s scaled star-horizontal vector.
-* **`north_up_pos`**: positivity on every horizontal plane at `q`, under [D]'s parameter
+* **`north_up_pos`**: positivity on every horizontal plane at `q`, under [GG]'s parameter
   choices, for `s₀ ∈ (0, ℓ_N]` and `‖K_e‖ ≤ 2`.
 -/
 
@@ -168,10 +168,10 @@ theorem mfderiv_Φh_wv {δ s₀ : ℝ} {e : V} (hs : 0 < s₀) (β : E3) :
   simp only [toTSv, wvP, Kh_coe, mul_zero, zero_smul, zero_add, ContinuousLinearMap.smul_apply]
 
 include hρ in
-/-- **Positive curvature upstairs, away from the centre.** For [D]'s parameters (those of
+/-- **Positive curvature upstairs, away from the centre.** For [GG]'s parameters (those of
 `northern_sectionalCurvature_pos_all`), `s₀ ∈ (0, ℓ_N]`, a unit `e` with `‖K_e‖ ≤ 2`, and a
-fibre radius `r̃` equal to [D]'s `r` along rays: every plane at `q = (F(s₀) e, 1)` that is
-horizontal for the star action has positive sectional curvature for [D]'s northern metric. -/
+fibre radius `r̃` equal to [GG]'s `r` along rays: every plane at `q = (F(s₀) e, 1)` that is
+horizontal for the star action has positive sectional curvature for [GG]'s northern metric. -/
 theorem north_up_pos (Cη : ℝ) (hC0 : 0 ≤ Cη) (hC : ∀ x, |deriv etaCut x| ≤ Cη)
     (a ε A0 Fa δ ra qs d : ℝ) (hε : 0 < ε) (hA0 : 0 < A0) (hFa : 0 < Fa) (hδ : 0 < δ)
     {L : ℝ} (hL : 0 < L) (hδ3 : δ ^ 3 ≤ 1 / (32 * L ^ 2 * A0 * Fa * (1 + Cη))) (hra : 0 < ra)

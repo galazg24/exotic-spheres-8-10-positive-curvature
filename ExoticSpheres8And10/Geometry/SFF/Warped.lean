@@ -1,8 +1,8 @@
 /-
 Copyright (c) 2026 Fernando Galaz-García. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Fernando Galaz-García (Department of Mathematical Sciences, Durham University),
-Claude Opus 5.5 (Anthropic), which wrote the Lean under Fernando Galaz-García's supervision
+Authors: Fernando Galaz-García
+Developed with extensive assistance from Claude (Anthropic), used through Claude Code.
 -/
 import ExoticSpheres8And10.Geometry.SFF.Naturality
 import ExoticSpheres8And10.Curvature.Northern.Centre
@@ -10,7 +10,7 @@ import ExoticSpheres8And10.Curvature.Northern.Centre
 /-! # Second fundamental forms of warped products, in the chart `V × ℝ³`
 
 `Gwarp β w (Y, z) = β(Y) ⊕ w(Y)² HR(z)`: a base metric `β` on `V`, warped with the round `S³`
-(in its stereographic chart) by `w`. Both of [D]'s source metrics have this form near the
+(in its stereographic chart) by `w`. Both of [GG]'s source metrics have this form near the
 gluing boundary:
 - `G_N` in the chart `Φc` (`Gw = Gwarp βN r̃`);
 - `G_S` in the chart `Φc` after the gauge `u = θ̂u'`, with `β = ψR` the round metric.

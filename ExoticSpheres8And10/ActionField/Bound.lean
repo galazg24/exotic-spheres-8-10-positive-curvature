@@ -1,14 +1,14 @@
 /-
 Copyright (c) 2026 Fernando Galaz-García. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Fernando Galaz-García (Department of Mathematical Sciences, Durham University),
-Claude Opus 5.5 (Anthropic), which wrote the Lean under Fernando Galaz-García's supervision
+Authors: Fernando Galaz-García
+Developed with extensive assistance from Claude (Anthropic), used through Claude Code.
 -/
 import Mathlib
 
-/-! # A1. Action-field bound ([D] `lem:K`)
+/-! # A1. Action-field bound ([GG] `lem:K`)
 
-[D] `lem:K`: "For `ρ₈` and `ρ₁₀`, `‖K_y‖_op ≤ 2` for every `y ∈ S^{n-1}`."
+[GG] `lem:K`: "For `ρ₈` and `ρ₁₀`, `‖K_y‖_op ≤ 2` for every `y ∈ S^{n-1}`."
 Proof: "For `ξ, v ∈ ℍ` with `ξ` imaginary, `ξv − vξ = [ξ, Im v] = 2 ξ × Im v`.
 *Dimension 8.* At `y = (x, w)`, `K_y ξ = (ξx, 2ξ × Im w)`, so
 `|K_y ξ|² = |ξ|²|x|² + 4|ξ × Im w|² ≤ |ξ|²(|x|² + 4|Im w|²) ≤ 4|ξ|²`, using `|x|²+|w|² = 1`.
@@ -74,7 +74,7 @@ theorem qdot_eq_inner (ξ u : ℍ[ℝ]) (hξ : ξ.re = 0) :
     Quaternion.imJ_star, Quaternion.imK_star, hξ]
   ring
 
-/-- **Key identity 1.** `ξv − vξ = 2 (ξ × Im v)`. (It holds for all `ξ`; [D] states it for
+/-- **Key identity 1.** `ξv − vξ = 2 (ξ × Im v)`. (It holds for all `ξ`; [GG] states it for
 imaginary `ξ`, where `ξ × Im v = Im ξ × Im v`.) -/
 theorem commutator_eq_two_qcross (ξ v : ℍ[ℝ]) : ξ * v - v * ξ = (2 : ℝ) • qcross ξ v.im := by
   rw [qcross_im]
@@ -134,7 +134,7 @@ theorem actionField_bound_dim8 (ξ x w : ℍ[ℝ]) (h : ‖x‖ ^ 2 + ‖w‖ ^ 
   have hh : ‖ξ‖ ^ 2 * (‖x‖ ^ 2 + ‖w‖ ^ 2) = ‖ξ‖ ^ 2 * 1 := by rw [h]
   nlinarith [mul_le_mul_of_nonneg_left h2 hξ, mul_nonneg hξ hx]
 
-/-- The refined dimension-8 bound of [D]: `‖ξx‖² + ‖ξw − wξ‖² ≤ ‖ξ‖²(‖x‖² + 4‖Im w‖²)`. -/
+/-- The refined dimension-8 bound of [GG]: `‖ξx‖² + ‖ξw − wξ‖² ≤ ‖ξ‖²(‖x‖² + 4‖Im w‖²)`. -/
 theorem actionField_refined_dim8 (ξ x w : ℍ[ℝ]) :
     ‖ξ * x‖ ^ 2 + ‖ξ * w - w * ξ‖ ^ 2 ≤ ‖ξ‖ ^ 2 * (‖x‖ ^ 2 + 4 * ‖w.im‖ ^ 2) := by
   have h1 := norm_commutator_sq_le ξ w

@@ -1,15 +1,15 @@
 /-
 Copyright (c) 2026 Fernando Galaz-García. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Fernando Galaz-García (Department of Mathematical Sciences, Durham University),
-Claude Opus 5.5 (Anthropic), which wrote the Lean under Fernando Galaz-García's supervision
+Authors: Fernando Galaz-García
+Developed with extensive assistance from Claude (Anthropic), used through Claude Code.
 -/
 import ExoticSpheres8And10.Geometry.Coordinates
 import Mathlib
 
 /-! # §4: the doubly warped metric and its curvature (`eq:fullcurvature`)
 
-[D] §4, northern filling: the metric `G_N = ds² + F(s)² h_{S^{n−1}} + r(s)² h_{S³}` (`eq:north`)
+[GG] §4, northern filling: the metric `G_N = ds² + F(s)² h_{S^{n−1}} + r(s)² h_{S³}` (`eq:north`)
 has, on the star-horizontal planes, the sectional-curvature numerator `eq:fullcurvature`.
 "This is the dimension-independent form of [HLY, (5.7)]. It follows from the standard curvature
 formulas for a doubly warped product."

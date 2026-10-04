@@ -1,7 +1,7 @@
 Positive sectional curvature on exotic spheres in dimensions 8 and 10: a Lean formalisation
 Copyright (c) 2026 Fernando Galaz-García
 
-This product is licensed under the Apache License, Version 2.0 (see LICENSE).
+This formalisation is licensed under the Apache License, Version 2.0 (see LICENSE).
 
 The library `RiemannianGeometry` (directory RiemannianGeometry/) originates in a separate
 formalisation project by the same author: the "Foundations" layer of a Lean formalisation
@@ -12,5 +12,5 @@ included here under the same licence. Changes made for this release:
     removed.
 No definition, statement or proof was changed.
 
-The Lean code in both libraries was written by Claude (Anthropic) under the direction and
-supervision of Fernando Galaz-García.
+Both libraries were developed by Fernando Galaz-García with extensive assistance from Claude
+(Anthropic), used through Claude Code.

@@ -1,14 +1,14 @@
 /-
 Copyright (c) 2026 Fernando Galaz-García. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Fernando Galaz-García (Department of Mathematical Sciences, Durham University),
-Claude Opus 5.5 (Anthropic), which wrote the Lean under Fernando Galaz-García's supervision
+Authors: Fernando Galaz-García
+Developed with extensive assistance from Claude (Anthropic), used through Claude Code.
 -/
 import ExoticSpheres8And10.PolarBundles.OrientationDerivative
 
 /-! # A3/A2 for `ρ₈`: `σ` on the sphere, its smoothness, and the orientation convention
 
-[D] `lem:attaching`: "The map `σ` is a diffeomorphism of `S^{n−1}` with inverse `σ̂` [...]
+[GG] `lem:attaching`: "The map `σ` is a diffeomorphism of `S^{n−1}` with inverse `σ̂` [...]
 `Dσ_y = ρ(θ(y)⁻¹)(Id − K_yβ_y)` [...] The first factor preserves the ambient orientation and sends
 the normal `y` to `σ(y)`, so `σ` preserves the standard sphere orientation."
 
@@ -21,7 +21,7 @@ With the ambient Euclidean inner product `dot2` on `ℍ × ℍ` (the metric of `
 * `Dsigma8_normal`, `Dsigma8_tangent`: the ambient map `A = ρ₈(θ⁻¹)∘(Id − Kβ)` sends the normal
   `y` to `σ(y)` and `T_yS⁷ = y^⊥` into `σ(y)^⊥ = T_{σ(y)}S⁷`.
 
-Together with `det_Dsigma8_ambient` (`det A = 1`) this is [D]'s orientation argument: the sphere
+Together with `det_Dsigma8_ambient` (`det A = 1`) this is [GG]'s orientation argument: the sphere
 orientation at `y` is the one for which `(y, positive basis of T_y)` is positive in `ℍ²`, so `A`
 restricts to an orientation-preserving map `T_y → T_{σ(y)}` exactly when `det A > 0`.
 -/
@@ -90,7 +90,7 @@ theorem K8_dot_self (y : ℍ[ℝ] × ℍ[ℝ]) (η : ℍ[ℝ]) (hη : η.re = 0)
   ring
 
 /-- `dθ_y(y) = 0` when `θ` is `0`-homogeneous (`θ(ty) = θ(y)` for `t > 0`), e.g. the radial
-extension of [D]'s `θ : S^{n−1} → S³`. -/
+extension of [GG]'s `θ : S^{n−1} → S³`. -/
 theorem dtheta_radial_zero {E : Type*} [NormedAddCommGroup E] [NormedSpace ℝ E]
     (θ : E → ℍ[ℝ]) (Dθ : E →L[ℝ] ℍ[ℝ]) (y : E) (hθ : HasFDerivAt θ Dθ y)
     (hhom : ∀ t : ℝ, 0 < t → θ (t • y) = θ y) : Dθ y = 0 := by

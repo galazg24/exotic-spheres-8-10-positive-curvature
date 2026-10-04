@@ -1,8 +1,8 @@
 /-
 Copyright (c) 2026 Fernando Galaz-García. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Fernando Galaz-García (Department of Mathematical Sciences, Durham University),
-Claude Opus 5.5 (Anthropic), which wrote the Lean under Fernando Galaz-García's supervision
+Authors: Fernando Galaz-García
+Developed with extensive assistance from Claude (Anthropic), used through Claude Code.
 -/
 import ExoticSpheres8And10.Main.RoundSphere
 import ExoticSpheres8And10.Geometry.FrameFields
@@ -10,7 +10,7 @@ import ExoticSpheres8And10.Curvature.HLYModel.Frame
 
 /-! # Principal `S³`-bundles with connection, over a base possibly with boundary
 
-The structures behind the general [D] `fact:prop31` ([HLY] Prop. 3.1). They are modelled on
+The structures behind the general [GG] `fact:prop31` ([HLY] Prop. 3.1). They are modelled on
 `StarBundle`, since Mathlib has no smooth principal bundles.
 
 * `PrincipalS3Bundle I B P`: a smooth right `S³`-action on `P` and a smooth projection
@@ -19,7 +19,7 @@ The structures behind the general [D] `fact:prop31` ([HLY] Prop. 3.1). They are 
 * `fund ζ`: the fundamental field of `ζ ∈ T₁S³ = ℝ³`, `p ↦ d(ract p)₁ ζ`.
 * `S3Connection`: an `ℍ`-valued 1-form `ω` (`conn`) on `P`, imaginary, smooth, with `ω(ζ^#) = ι ζ` and
   `R_q^*ω = q̄ ω q`.
-* `connMetric g φ ε`: [D]'s `G_ε = π^*g_B + ε e^{εφ} Q(ω, ω)`, with `Q = ⟪·,·⟫` on `ℍ`.
+* `connMetric g φ ε`: [GG]'s `G_ε = π^*g_B + ε e^{εφ} Q(ω, ω)`, with `Q = ⟪·,·⟫` on `ℍ`.
 -/
 
 open RiemannianGeometry VectorField Bundle

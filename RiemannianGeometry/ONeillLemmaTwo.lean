@@ -1,8 +1,8 @@
 /-
 Copyright (c) 2026 Fernando Galaz-García. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Fernando Galaz-García (Department of Mathematical Sciences, Durham University),
-Claude Opus 5 (Anthropic), which wrote the Lean under Fernando Galaz-García's supervision
+Authors: Fernando Galaz-García
+Developed with extensive assistance from Claude (Anthropic), used through Claude Code.
 -/
 import RiemannianGeometry.ONeillTensors
 import RiemannianGeometry.VerticalBracket
@@ -97,7 +97,7 @@ polarisation, not a normalisation put in by hand.
 
 The `½` is written `(2 : ℝ)⁻¹ • ·`, a scalar action on `TangentSpace I p`, rather than
 `(1 / 2 : ℝ) • ·`. The two are equal (`one_div`); `2⁻¹` is chosen because it is the spelling the
-Levi-Civita connection is *defined* with in `Foundations.LeviCivita`
+Levi-Civita connection is *defined* with in `RiemannianGeometry.LeviCivita`
 (`leviCivita g Y x = (2⁻¹ : ℝ) • …`) and the one `g_leviCivita_apply` states, so no numeral
 normalisation step is needed anywhere between the connection and Lemma 2.
 
@@ -126,7 +126,7 @@ assumed `C^n`: `IsContMDiffMetricSection.isMDiffMetric` derives it.
 
 ## Instance notes
 
-Rule 1 of `Foundations.HorizontalSpace` is respected: no fibrewise `InnerProductSpace` or
+Rule 1 of `RiemannianGeometry.HorizontalSpace` is respected: no fibrewise `InnerProductSpace` or
 `NormedAddCommGroup` on a tangent space is bound to a local name anywhere in this file, and no
 instance is declared. `CompleteSpace E`, `CompleteSpace E'` and `SeparatingDual ℝ E'`, which
 `leviCivita` and the bracket lemmas need, are found by search from `FiniteDimensional ℝ E`,
@@ -135,7 +135,7 @@ instance is declared. `CompleteSpace E`, `CompleteSpace E'` and `SeparatingDual 
 ## The one spelling commitment
 
 Everything metric-valued below is written with `tangentMetric I M p`, following
-`Foundations.ONeillTensors`, and never with `inner ℝ`. `inner_eq_tangentMetric` is `rfl`, but `rw`,
+`RiemannianGeometry.ONeillTensors`, and never with `inner ℝ`. `inner_eq_tangentMetric` is `rfl`, but `rw`,
 `simp only` and `linarith` treat the two as different atoms, so mixing them silently costs a
 rewrite at every step. The single crossing point is inside
 `HorizontalLift.tangentMetric_horizontalLiftField`, where `IsRiemannianSubmersionAtPoint` —
@@ -514,7 +514,7 @@ theorem verticalProjection_mlieBracket_eq_oneillA_sub {X W : Π z : M, TangentSp
     oneillA I J f Y₁ᴴ Y₂ᴴ p = (2 : ℝ)⁻¹ • 𝓥_p [Y₁ᴴ, Y₂ᴴ]_p
 
 The `½` is a scalar action on `TangentSpace I p`, written `(2 : ℝ)⁻¹ •` — the spelling
-`Foundations.LeviCivita` already uses for the half in the definition of the connection.
+`RiemannianGeometry.LeviCivita` already uses for the half in the definition of the connection.
 
 The two inputs are `verticalProjection_mlieBracket_eq_oneillA_sub` (torsion-freeness) and
 `oneillA_horizontalLiftField_swap_neg` (property 3′), and the `2` that gets inverted is produced by
@@ -562,7 +562,7 @@ its horizontal projection vanishes.
 
 This is **not** O'Neill's proof, which derives property 3 from integrability of the vertical
 distribution; this development has no theory of integrability, and the substitute is the verticality
-of the bracket of two vertical fields, which `Foundations.VerticalBracket` proves with **no
+of the bracket of two vertical fields, which `RiemannianGeometry.VerticalBracket` proves with **no
 submersion hypothesis** — `f` need only be `C^n` at `p`. The two facts are equivalent in content
 (involutivity of `ker dπ`), but the route is different and is recorded rather than passed off as a
 transcription. 

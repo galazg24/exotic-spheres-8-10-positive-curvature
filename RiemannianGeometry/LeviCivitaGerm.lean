@@ -1,8 +1,8 @@
 /-
 Copyright (c) 2026 Fernando Galaz-García. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Fernando Galaz-García (Department of Mathematical Sciences, Durham University),
-Claude Opus 5 (Anthropic), which wrote the Lean under Fernando Galaz-García's supervision
+Authors: Fernando Galaz-García
+Developed with extensive assistance from Claude (Anthropic), used through Claude Code.
 -/
 import RiemannianGeometry.LeviCivita
 import RiemannianGeometry.CurvatureMetric
@@ -13,7 +13,7 @@ import RiemannianGeometry.CurvatureMetric
 `leviCivita g Y x` depends only on the **germ** of the differentiated field `Y` at `x`: if
 `Y = Y'` on a neighbourhood of `x`, then `leviCivita g Y x = leviCivita g Y' x`.
 
-This is a general fact about the connection of `Foundations.LeviCivita` and it needs **no
+This is a general fact about the connection of `RiemannianGeometry.LeviCivita` and it needs **no
 hypothesis at all** — not symmetry of `g`, not nondegeneracy, not regularity of `g` or of the
 fields, and no differentiability of `Y`. That is a consequence of the design of `leviCivita`: it is
 *total*, built as `½ (g x)⁻¹ ∘ koszulSection g Y x`, and both factors are germ-local for structural
@@ -36,7 +36,7 @@ mention `Y`, so everything reduces to `koszulSection`, and — because `koszulSe
 1. `koszulRHS g X Y x Z` is germ-local in `Y`. Four of its six terms need an argument; two need
    only `Y x = Y' x`. The two derivative terms in which `Y` sits inside the differentiated function
    go through `Filter.EventuallyEq.mvfderiv_eq`, this project's germ-locality lemma for `mvfderiv`
-   (`Foundations.CurvatureMetric`), and the two bracket terms through Mathlib's
+   (`RiemannianGeometry.CurvatureMetric`), and the two bracket terms through Mathlib's
    `Filter.EventuallyEq.mlieBracket_vectorField_eq`. Nothing is reproved.
 2. `IsKoszulTensorialAt g Y x` is germ-local **as a predicate**. This is the obligation the `dite`
    creates and it is discharged, not circumvented: the predicate quantifies over test fields but
@@ -51,7 +51,7 @@ Both directions of (2) are used, which is why `isKoszulTensorialAt_congr_of_even
 as an implication and applied twice, once to `h` and once to its symmetrisation, rather than as
 an `Iff`.
 
-## Relation to `Foundations.CurvatureSection.curvature_congr_of_eventuallyEq`
+## Relation to `RiemannianGeometry.CurvatureSection.curvature_congr_of_eventuallyEq`
 
 That lemma is the same kind of statement one layer up — germ locality of the curvature operator in
 its section slot — but its proof is genuinely different: it must move the germ hypothesis through

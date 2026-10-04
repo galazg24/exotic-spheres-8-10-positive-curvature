@@ -1,8 +1,8 @@
 /-
 Copyright (c) 2026 Fernando Galaz-García. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Fernando Galaz-García (Department of Mathematical Sciences, Durham University),
-Claude Opus 5.5 (Anthropic), which wrote the Lean under Fernando Galaz-García's supervision
+Authors: Fernando Galaz-García
+Developed with extensive assistance from Claude (Anthropic), used through Claude Code.
 -/
 import ExoticSpheres8And10.StarBundles.Model
 import ExoticSpheres8And10.PolarBundles.AttachingSphere
@@ -10,7 +10,7 @@ import ExoticSpheres8And10.ActionField.Derivative
 
 /-! # §5: the representations `ρ₈`, `ρ₁₀`, the action-field bound, and Theorems A and B
 
-[D] §5 applies `prop:polar` and `thm:HLYgeneral` to Sperança's bundles `E¹¹ → S⁸` and
+[GG] §5 applies `prop:polar` and `thm:HLYgeneral` to Sperança's bundles `E¹¹ → S⁸` and
 `E¹³ → S¹⁰`, which are star bundles for
 
 * `ρ₈(q)(λ, x, w) = (λ, qx, qwq⁻¹)` on `ℝ ⊕ ℍ ⊕ ℍ`, with `e₈ = (1, 0, 0)` (`eq:rho8`);
@@ -22,7 +22,7 @@ and `P = ℝ` or `P = ℝ³ ≅ Im ℍ`. This file:
 * `rhoRep P`: this `ρ` as a smooth orthogonal representation `S³ →* O(W)` (the data of a
   `StarRep`), with `rep8 : StarRep e₈` and `rep10 : StarRep e₁₀`;
 * `hasDerivAt_actionField`: `K_y ξ = d/dτ|₀ ρ(e^{τξ})y` is `(0, ξx, ξw − wξ)`;
-* `lem_K`: **[D] `lem:K`**, `‖K_y ξ‖ ≤ 2‖ξ‖` for `‖y‖ ≤ 1`, in both dimensions;
+* `lem_K`: **[GG] `lem:K`**, `‖K_y ξ‖ ≤ 2‖ξ‖` for `‖y‖ ≤ 1`, in both dimensions;
 * `polar_and_K8`, `polar_and_K10`: the Lean part of the proofs of Theorems A and B. Every star
   bundle for `ρ₈` (resp. `ρ₁₀`) is isomorphic to a polar bundle `P_θ` with the same `ρ`, and
   `‖K_y‖ ≤ 2` holds for it. These are exactly the hypotheses of `thm:HLYgeneral` (`n = 8, 10`);
@@ -162,7 +162,7 @@ def expS {ξ : ℍ[ℝ]} (hξ : ξ.re = 0) (τ : ℝ) : S3 :=
     rw [mem_sphere_zero_iff_norm, Quaternion.norm_exp]
     simp [hξ]⟩
 
-/-- **`K_y ξ = d/dτ|₀ ρ(e^{τξ}) y`** ([D] §5, definition of `K_y`). -/
+/-- **`K_y ξ = d/dτ|₀ ρ(e^{τξ}) y`** ([GG] §5, definition of `K_y`). -/
 theorem hasDerivAt_actionField {ξ : ℍ[ℝ]} (hξ : ξ.re = 0) (w : WP P) :
     HasDerivAt (fun τ : ℝ => rhoHom P (expS hξ τ) w) (Kf P w ξ) 0 := by
   obtain ⟨-, hd, -⟩ := exp_curve ξ
@@ -189,7 +189,7 @@ theorem hasDerivAt_actionField {ξ : ℍ[ℝ]} (hξ : ξ.re = 0) (w : WP P) :
   show L (ξ * y.1, ξ * y.2 - y.2 * ξ) = Kf P w ξ
   rfl
 
-/-- **[D] `lem:K`**: `‖K_y ξ‖ ≤ 2‖ξ‖` for every `y` with `‖y‖ ≤ 1`, in particular on `S(V)`. -/
+/-- **[GG] `lem:K`**: `‖K_y ξ‖ ≤ 2‖ξ‖` for every `y` with `‖y‖ ≤ 1`, in particular on `S(V)`. -/
 theorem lem_K (w : WP P) (hw : ‖w‖ ≤ 1) (ξ : ℍ[ℝ]) : ‖Kf P w ξ‖ ≤ 2 * ‖ξ‖ := by
   set y := eV8 w.snd
   have hy : ‖y.1‖ ^ 2 + ‖y.2‖ ^ 2 ≤ 1 := by

@@ -1,14 +1,14 @@
 /-
 Copyright (c) 2026 Fernando Galaz-García. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Fernando Galaz-García (Department of Mathematical Sciences, Durham University),
-Claude Opus 5.5 (Anthropic), which wrote the Lean under Fernando Galaz-García's supervision
+Authors: Fernando Galaz-García
+Developed with extensive assistance from Claude (Anthropic), used through Claude Code.
 -/
 import ExoticSpheres8And10.Curvature.Gluing.Overlap
 
 /-! # §4: the cut of `X` along `Σ = {f = 3/5}` in the two charts
 
-With `ρ₀ = 1`, [D]'s gluing sphere is `Σ = {cos t = −3/5}`. Here `f = −cos t` (`fX`) and
+With `ρ₀ = 1`, [GG]'s gluing sphere is `Σ = {cos t = −3/5}`. Here `f = −cos t` (`fX`) and
 `c₀ = (4 − ρ₀²)/(4 + ρ₀²) = 3/5`.
 * `subN`, `subS`: `{f ≤ 3/5} ⊆ U₁` and `{f ≥ 3/5} ⊆ U₂`.
 * `fX_ψN`: on `U₁`, `f = φN(|ψN|²)` with `φN(s) = φL(25 s)`, `ψN = ψ₁/5`.

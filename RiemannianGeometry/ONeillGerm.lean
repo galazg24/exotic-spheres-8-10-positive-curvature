@@ -1,8 +1,8 @@
 /-
 Copyright (c) 2026 Fernando Galaz-García. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Fernando Galaz-García (Department of Mathematical Sciences, Durham University),
-Claude Opus 5 (Anthropic), which wrote the Lean under Fernando Galaz-García's supervision
+Authors: Fernando Galaz-García
+Developed with extensive assistance from Claude (Anthropic), used through Claude Code.
 -/
 import RiemannianGeometry.LeviCivitaGerm
 import RiemannianGeometry.ONeillCurvatureNondecreasing
@@ -11,7 +11,7 @@ import RiemannianGeometry.ONeillCurvatureNondecreasing
 # Germ hypotheses for the O'Neill submersion identities, and Corollary 1(3) for arbitrary
 horizontal vectors
 
-The submersion identities of `Foundations.ONeillLemmaOne`, `ONeillHorizontalCurvature`,
+The submersion identities of `RiemannianGeometry.ONeillLemmaOne`, `ONeillHorizontalCurvature`,
 `ONeillHorizontalCurvatureScalar`, `ONeillBaseCurvature`, `ONeillBasicRegularity`,
 `ONeillCorollaryOne` and `ONeillCurvatureNondecreasing` are stated for base fields that are `C^n`
 at **every** point of `B`. This file restates them with `∀ᶠ q in 𝓝 (f p), …` in place of `∀ q, …`,
@@ -22,7 +22,7 @@ horizontal vectors** `u, v ∈ horizontalSpace I J f p`, with the base plane `P_
 
 ## Why the global hypotheses were there, and what removes them
 
-The obstruction was not tensoriality, which `Foundations.ONeillTensoriality` supplies. It was a
+The obstruction was not tensoriality, which `RiemannianGeometry.ONeillTensoriality` supplies. It was a
 single missing lemma: the *field* form of Lemma 1(3),
 
     𝓗∇_{Y₁ᴴ} Y₂ᴴ = (∇*_{Y₁} Y₂)ᴴ,
@@ -31,7 +31,7 @@ is an equality of fields on all of `M`, and the two-derivative case of the base-
 identification substitutes it **inside** a second covariant derivative. Substituting an equality
 that holds only *near* `p` requires knowing that `leviCivita g Y p` depends only on the germ of `Y`
 at `p`, and no such lemma existed. It does now:
-`Foundations.LeviCivitaGerm.leviCivita_congr_of_eventuallyEq`, hypothesis-free. Everything in this
+`RiemannianGeometry.LeviCivitaGerm.leviCivita_congr_of_eventuallyEq`, hypothesis-free. Everything in this
 file is downstream of it.
 
 ## Main results
@@ -236,7 +236,7 @@ exactly two places, and each is now a germ statement:
 * the inner Lemma 1(3) substitution, which was an equality of fields on all of `M` and is now
   `horizontalLeviCivita_horizontalLiftField_eventuallyEq`, fed to
   `horizontalLeviCivita_congr_of_eventuallyEq` — that is, to
-  `Foundations.leviCivita_congr_of_eventuallyEq`. **This is the step for which germ locality of
+  `RiemannianGeometry.leviCivita_congr_of_eventuallyEq`. **This is the step for which germ locality of
   the connection was the missing ingredient**;
 * the `C¹` regularity of `∇*_Y Z` at `f p`, now
   `contMDiffAt_leviCivita_apply_base_of_eventually`.
@@ -1063,7 +1063,7 @@ field slot is the one that has to be moved by order-zero tensoriality, so `F` ca
 `v` by `HorizontalLift.exists_basic_eq_of_mem_horizontalSpace`, which certifies them `C²` only on a
 **neighbourhood** of `f p`. Every earlier form of Corollary 1(3) demanded base fields `C²` at every
 point of `B` and so could not consume them; the germ chain of this file can, and germ locality of
-`leviCivita` (`Foundations.leviCivita_congr_of_eventuallyEq`) is what makes that chain exist.
+`leviCivita` (`RiemannianGeometry.leviCivita_congr_of_eventuallyEq`) is what makes that chain exist.
 -/
 theorem sectionalCurvatureAt_of_mem_horizontalSpace
     (hsymmM : IsSymm (tangentMetric I M)) (hposM : IsPosDef (tangentMetric I M))

@@ -1,18 +1,18 @@
 /-
 Copyright (c) 2026 Fernando Galaz-García. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Fernando Galaz-García (Department of Mathematical Sciences, Durham University),
-Claude Opus 5.5 (Anthropic), which wrote the Lean under Fernando Galaz-García's supervision
+Authors: Fernando Galaz-García
+Developed with extensive assistance from Claude (Anthropic), used through Claude Code.
 -/
 import ExoticSpheres8And10.Curvature.Gluing.RWHypotheses
 
-/-! # [D] `thm:HLYgeneral`: `P_θ/S³_⋆` carries a metric of positive sectional curvature
+/-! # [GG] `thm:HLYgeneral`: `P_θ/S³_⋆` carries a metric of positive sectional curvature
 
 **`hly_general`**: for every polar datum `D` with `‖K_y‖ ≤ 2` on unit vectors, the
 Reiser–Wraith gluing theorem (`RWGluing`, a hypothesis) gives a smooth metric of positive
 sectional curvature on `X = QuotSpace D = P_θ/S³_⋆`.
 
-The parameters are chosen as in [D]:
+The parameters are chosen as in [GG]:
 - `ρ₀ = 1`, so `c₀ = 3/5`, `F_a = 4/5` and `|cos a| = 3/5`;
 - a cutoff `χ` with `χ = 1` near `0` and `χ = 0` on `[1/4·2, ∞)`;
 - `A₀` from [HLY]'s Prop. 3.1 as proved in `southern_quotient_pos_D`;
@@ -97,7 +97,7 @@ end PolarData
 
 attribute [instance] PolarData.compactSpace_quotSpace
 
-/-- [D]'s southern cutoff: `χ = 1` on `s < 1/4`, `χ = 0` on `s ≥ 1/2`. -/
+/-- [GG]'s southern cutoff: `χ = 1` on `s < 1/4`, `χ = 0` on `s ≥ 1/2`. -/
 def χD (s : ℝ) : ℝ := 1 - Real.smoothTransition (4 * s - 1)
 
 theorem isSouthCutoff_χD : IsSouthCutoff χD := by
@@ -202,7 +202,7 @@ theorem hly_general_L (L : ℝ) (hL : 0 < L) (hK : ∀ y : Vs e, ‖y‖ = 1 →
     (hRW : RWGluing (𝓡 (m + 1)) (QuotSpace D)) : HasPosCurvMetric (𝓡 (m + 1)) (QuotSpace D) :=
   hRW (exists_rwData_L D L hL hK).some
 
-/-- **[D] `thm:HLYgeneral`.** Let `P_θ → S^n` be a polar bundle with `‖K_y‖ ≤ 2` for every unit
+/-- **[GG] `thm:HLYgeneral`.** Let `P_θ → S^n` be a polar bundle with `‖K_y‖ ≤ 2` for every unit
 `y ∈ V`. Assuming the Reiser–Wraith gluing theorem on `X`, the star quotient `P_θ/S³_⋆` carries
 a smooth Riemannian metric of positive sectional curvature. -/
 theorem hly_general (hK : ∀ y : Vs e, ‖y‖ = 1 → ‖KY D.ρVs y‖ ≤ 2)

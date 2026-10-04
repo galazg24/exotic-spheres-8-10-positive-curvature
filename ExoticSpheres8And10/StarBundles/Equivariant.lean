@@ -1,22 +1,22 @@
 /-
 Copyright (c) 2026 Fernando Galaz-García. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Fernando Galaz-García (Department of Mathematical Sciences, Durham University),
-Claude Opus 5.5 (Anthropic), which wrote the Lean under Fernando Galaz-García's supervision
+Authors: Fernando Galaz-García
+Developed with extensive assistance from Claude (Anthropic), used through Claude Code.
 -/
 import ExoticSpheres8And10.StarBundles.Average
 import ExoticSpheres8And10.StarBundles.NormalForm
 
 /-! # §3, Steps 3–5: equivariant radial sections, and `prop:polar`
 
-With the invariant potential `Ā` of `S3_Average` (in the trivialisation `s⁰`), [D] Step 3's
+With the invariant potential `Ā` of `S3_Average` (in the trivialisation `s⁰`), [GG] Step 3's
 section is `s_N(φ(v)) = s⁰(v) · u_v(1)`, where `u_v` solves the transport equation
 `u' = −Ā(τv, v) u`, `u(0) = 1`, along the ray `τ ↦ τv`.
 
 * `sV`: this section in stereographic coordinates; smooth (`contMDiff_sV`, from the smooth
   dependence of ODE solutions on parameters, `LinCoeff.contDiff_T`);
-* `T_equiv`, `sV_equiv`: **[D] Step 4**, `s_N(ρ(q)ζ) = (q ⋆ s_N(ζ)) q⁻¹` (`eq:sectionequiv`).
-  [D] argues that `q ⋆ s_N ∘ c_x` and `(s_N ∘ c_{ρ(q)x}) q` are horizontal lifts of the same
+* `T_equiv`, `sV_equiv`: **[GG] Step 4**, `s_N(ρ(q)ζ) = (q ⋆ s_N(ζ)) q⁻¹` (`eq:sectionequiv`).
+  [GG] argues that `q ⋆ s_N ∘ c_x` and `(s_N ∘ c_{ρ(q)x}) q` are horizontal lifts of the same
   curve with the same initial point; in the trivialisation this is the statement that
   `h(q, τv) u_v(τ) q⁻¹` solves the transport equation for `ρ(q)v` (by the invariance `Abar_inv`)
   with initial value `h(q,0) q⁻¹ = 1`, and ODE uniqueness;
@@ -64,7 +64,7 @@ def T3 (v : V) : S3 :=
 theorem contMDiff_T3 : ContMDiff 𝓘(ℝ, V) (𝓡 3) ∞ B.T3 :=
   contMDiff_sphere_of_coe B.Cbar.contDiff_T.contMDiff
 
-/-- **[D] Step 3: the radial section** `s_N(φ(v)) = s⁰(v) u_v(1)`. -/
+/-- **[GG] Step 3: the radial section** `s_N(φ(v)) = s⁰(v) u_v(1)`. -/
 def sV (v : V) : E := B.ract (B.s0 v) (B.T3 v)
 
 theorem contMDiff_sV : ContMDiff 𝓘(ℝ, V) (IP m) ∞ B.sV :=
@@ -112,7 +112,7 @@ theorem T_equiv (q : S3) (v : V) :
   simp only [u, one_smul] at this
   rw [LinCoeff.T, ← this]; rfl
 
-/-- **[D] Step 4, `eq:sectionequiv`** in stereographic coordinates. -/
+/-- **[GG] Step 4, `eq:sectionequiv`** in stereographic coordinates. -/
 theorem sV_equiv (q : S3) (v : V) : B.sV (R.ρL q v) = B.ract (B.star q (B.sV v)) q⁻¹ := by
   rw [sV, sV, B.star_ract, ← B.ract_hq, B.ract_mul, B.ract_mul]
   congr 1
@@ -221,7 +221,7 @@ variable {m : ℕ} {W : Type} [NormedAddCommGroup W] [InnerProductSpace ℝ W]
 
 namespace StarBundle
 
-/-- **The output of [D] Steps 1–4**: smooth equivariant sections over `U_N` and `U_S`. -/
+/-- **The output of [GG] Steps 1–4**: smooth equivariant sections over `U_N` and `U_S`. -/
 def equivSections : EquivSections B where
   sN := B.sN
   sS := B.flip.sN
@@ -238,7 +238,7 @@ theorem _root_.ExoticSpheres8And10.StarRep.factVs (m : ℕ) [Fact (finrank ℝ W
   ⟨Submodule.finrank_orthogonal_span_singleton (n := m + 1) (fun h => by
     have := R.e_norm; rw [h, norm_zero] at this; exact zero_ne_one this)⟩
 
-/-- **[D] `prop:polar`.** Every star bundle `π : E → S^n` is isomorphic to a polar bundle: there
+/-- **[GG] `prop:polar`.** Every star bundle `π : E → S^n` is isomorphic to a polar bundle: there
 are polar data `D` (with the same representation `ρ` and a smooth `θ : S(V) → S³` satisfying
 `θ(ρ(q)x) = qθ(x)q⁻¹`, a field of `PolarData`) and a `C^∞` diffeomorphism `Φ : P_θ → E`
 covering the identity of `S^n`, equivariant for the principal actions (a principal-bundle

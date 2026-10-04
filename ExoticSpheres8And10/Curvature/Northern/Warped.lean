@@ -1,25 +1,25 @@
 /-
 Copyright (c) 2026 Fernando Galaz-García. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Fernando Galaz-García (Department of Mathematical Sciences, Durham University),
-Claude Opus 5.5 (Anthropic), which wrote the Lean under Fernando Galaz-García's supervision
+Authors: Fernando Galaz-García
+Developed with extensive assistance from Claude (Anthropic), used through Claude Code.
 -/
 import ExoticSpheres8And10.Curvature.WarpedProduct
 import ExoticSpheres8And10.Curvature.Criterion
 
 /-! # §4: positive curvature of the northern doubly warped metric on star-horizontal planes
 
-[D] §4, "Curvature of star-horizontal planes": for star-horizontal vectors
+[GG] §4, "Curvature of star-horizontal planes": for star-horizontal vectors
 `λ∂_s + X + U`, `μ∂_s + Y + V` with `U = TX`, `V = TY`, the numerator of the doubly warped metric
 is `eq:fullcurvature`. Under `eq:northcriterion` and `‖T‖ ≤ 2F/r` it is positive: "every
 star-horizontal two-plane has positive sectional-curvature numerator".
 
 `riemannTensorAt_wG` computes `RiemannianGeometry`'s Riemann tensor of the doubly warped metric in coordinates.
-Here it is specialised to [D]'s setting and composed with A6.
+Here it is specialised to [GG]'s setting and composed with A6.
 
 * `riemannTensorAt_wG_orthonormal`: at a point where the fibre metrics are the Euclidean inner
   products with sectional curvature `1` (round fibres in normal coordinates), and in the scaled
-  components `X = F·X_coord`, `U = r·U_coord` of [D], **`RiemannianGeometry`'s `Rm(u,v,v,u)` equals A6's
+  components `X = F·X_coord`, `U = r·U_coord` of [GG], **`RiemannianGeometry`'s `Rm(u,v,v,u)` equals A6's
   `northNumerator`**, i.e. `eq:fullcurvature`;
 * `sectionalCurvatureAt_wG_pos`: **`RiemannianGeometry`'s sectional curvature of the doubly warped metric is
   positive on every star-horizontal plane** at a point where `eq:northcriterion` holds and

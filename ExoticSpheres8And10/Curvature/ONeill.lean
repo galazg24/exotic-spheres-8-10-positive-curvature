@@ -1,15 +1,15 @@
 /-
 Copyright (c) 2026 Fernando Galaz-García. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Fernando Galaz-García (Department of Mathematical Sciences, Durham University),
-Claude Opus 5.5 (Anthropic), which wrote the Lean under Fernando Galaz-García's supervision
+Authors: Fernando Galaz-García
+Developed with extensive assistance from Claude (Anthropic), used through Claude Code.
 -/
 import RiemannianGeometry.ONeillPositiveCurvature
 import ExoticSpheres8And10.PolarBundles.StarQuotient
 
 /-! # §4: O'Neill's formula for the star quotients
 
-[D] §4 twice concludes positive curvature of a quotient from positive curvature upstairs. In the
+[GG] §4 twice concludes positive curvature of a quotient from positive curvature upstairs. In the
 south: "The star action is free and isometric, so the quotient map `(P_S, G_S) → (D_S, g_S)` is a
 Riemannian submersion. O'Neill's formula therefore gives `sec_{g_S} > 0`." In the north:
 "every star-horizontal two-plane has positive sectional-curvature numerator … O'Neill's formula
@@ -27,7 +27,7 @@ one plane at a time. This file supplies the two remaining steps.
   `RiemannianGeometry` records this step as missing;
 * `orbitMap_isSubmersion`: the star quotient map `P_θ → P_θ/S³_⋆` is a submersion everywhere,
   through the local sections `y ↦ u ⋆ ι(chart(y), 1)`;
-* `quotSpace_pos_sectionalCurvature`: **[D]'s O'Neill step for the star quotient.** For any
+* `quotSpace_pos_sectionalCurvature`: **[GG]'s O'Neill step for the star quotient.** For any
   metrics on `P_θ` and on `P_θ/S³_⋆` making `orbitMap` a Riemannian submersion, positive
   curvature on star-horizontal planes gives positive sectional curvature of the quotient.
 -/
@@ -175,7 +175,7 @@ theorem orbitMap_isSubmersion (p : PolarBundle D) :
 variable [Bundle.RiemannianBundle (TangentSpace (IP m) : PolarBundle D → Type _)]
   [Bundle.RiemannianBundle (TangentSpace (𝓡 (m + 1)) : QuotSpace D → Type _)]
 
-/-- **[D]'s O'Neill step for the star quotient.** Let `P_θ` and `P_θ/S³_⋆` carry `C²`
+/-- **[GG]'s O'Neill step for the star quotient.** Let `P_θ` and `P_θ/S³_⋆` carry `C²`
 Riemannian metrics for which the star quotient map is a Riemannian submersion (the quotient
 metric of a free isometric star action). If the sectional curvature of `P_θ` is positive on every
 star-horizontal 2-plane, then `P_θ/S³_⋆` has positive sectional curvature on every 2-plane. -/

@@ -1,8 +1,8 @@
 /-
 Copyright (c) 2026 Fernando Galaz-García. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Fernando Galaz-García (Department of Mathematical Sciences, Durham University),
-Claude Opus 5.5 (Anthropic), which wrote the Lean under Fernando Galaz-García's supervision
+Authors: Fernando Galaz-García
+Developed with extensive assistance from Claude (Anthropic), used through Claude Code.
 -/
 import ExoticSpheres8And10.Curvature.Northern.Model
 import ExoticSpheres8And10.PolarBundles.StarQuotient
@@ -12,10 +12,10 @@ import ExoticSpheres8And10.StarBundles.StarBundle
 /-! # §4: the northern star action on `V × S³`, and its orbit map
 
 The star action on the northern piece `P_N ≅ D^n × S³` is `q ⋆ (Y, u) = (ρ(q)Y, qu)`, with the
-product connection ([D]: "`(qu)⁻¹d(qu) = u⁻¹du`"). This file proves:
+product connection ([GG]: "`(qu)⁻¹d(qu) = u⁻¹du`"). This file proves:
 
 * `mvfderiv_comp'`, `mvfderiv_clm_comp`: chain rules for `mvfderiv` (infrastructure);
-* `starN`: the star action; `northMetric_starN`: **it acts by isometries** of [D]'s northern
+* `starN`: the star action; `northMetric_starN`: **it acts by isometries** of [GG]'s northern
   metric, when `r̃` is `ρ`-invariant;
 * `πN (Y, u) = ρ(u)⁻¹ Y`: the orbit map, with `πN_starN : πN ∘ (q ⋆ ·) = πN`.
 -/
@@ -103,7 +103,7 @@ theorem inner_mul_left_unit (q : S3) (a b : Quaternion ℝ) :
     (fun x => by rw [norm_mul, hq, one_mul]) a b
 
 include hρ in
-/-- **The star action is isometric** for [D]'s northern metric, when `r̃` is `ρ`-invariant. -/
+/-- **The star action is isometric** for [GG]'s northern metric, when `r̃` is `ρ`-invariant. -/
 theorem northMetric_starN {δ : ℝ} {rt : V → ℝ} (hrt : ∀ q Y, rt (ρV q Y) = rt Y) (q : S3)
     (p : V × S3) (v w : TangentSpace (IN V) p) :
     northMetric δ rt (starN ρV q p) (mfderiv (IN V) (IN V) (starN ρV q) p v)

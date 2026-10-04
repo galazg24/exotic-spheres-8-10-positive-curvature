@@ -1,14 +1,14 @@
 /-
 Copyright (c) 2026 Fernando Galaz-García. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Fernando Galaz-García (Department of Mathematical Sciences, Durham University),
-Claude Opus 5.5 (Anthropic), which wrote the Lean under Fernando Galaz-García's supervision
+Authors: Fernando Galaz-García
+Developed with extensive assistance from Claude (Anthropic), used through Claude Code.
 -/
 import ExoticSpheres8And10.PolarBundles.Summary
 
 /-! # §3: general star bundles
 
-[D] §2 `def:starbundle` / §3 `prop:polar`: a *star bundle* is a smooth principal right
+[GG] §2 `def:starbundle` / §3 `prop:polar`: a *star bundle* is a smooth principal right
 `S³`-bundle `π : E → S^n = S(W)` with a smooth free left `S³`-action `⋆` commuting with the
 principal action and covering `ρ`.
 
@@ -41,7 +41,7 @@ variable {m : ℕ} {W : Type*} [NormedAddCommGroup W] [InnerProductSpace ℝ W]
 
 local notation "Sn" => sphere (0 : W) 1
 
-/-- Representation data of a star bundle ([D] `def:starbundle` (1)–(2)). -/
+/-- Representation data of a star bundle ([GG] `def:starbundle` (1)–(2)). -/
 structure StarRep (e : W) where
   e_norm : ‖e‖ = 1
   ρ : S3 →* (W ≃ₗᵢ[ℝ] W)
@@ -56,7 +56,7 @@ def StarRep.ρS (R : StarRep e) (q : S3) (ζ : Sn) : Sn :=
     rw [mem_sphere_zero_iff_norm, LinearIsometryEquiv.norm_map]
     exact mem_sphere_zero_iff_norm.1 ζ.2⟩
 
-/-- **A star bundle** ([D] `def:starbundle` (3)) on a smooth manifold `E`. -/
+/-- **A star bundle** ([GG] `def:starbundle` (3)) on a smooth manifold `E`. -/
 structure StarBundle (R : StarRep e) (E : Type*) [TopologicalSpace E]
     [ChartedSpace (ModelProd (EuclideanSpace ℝ (Fin (m + 1))) (EuclideanSpace ℝ (Fin 3))) E] where
   proj : E → Sn

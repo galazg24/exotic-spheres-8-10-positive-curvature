@@ -1,15 +1,15 @@
 /-
 Copyright (c) 2026 Fernando Galaz-García. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Fernando Galaz-García (Department of Mathematical Sciences, Durham University),
-Claude Opus 5.5 (Anthropic), which wrote the Lean under Fernando Galaz-García's supervision
+Authors: Fernando Galaz-García
+Developed with extensive assistance from Claude (Anthropic), used through Claude Code.
 -/
 import ExoticSpheres8And10.Curvature.Gluing.Charts
 
 /-! # §4: the chart transition of `X` near the gluing sphere
 
 On the overlap `U₁ ∩ U₂` the two stereographic charts are related by the inversion and the
-gauge: **`stD_κS`**: `ψ₂ = τ ∘ inv ∘ ψ₁`, with `inv(y) = 4y/|y|²`. This is [D]'s
+gauge: **`stD_κS`**: `ψ₂ = τ ∘ inv ∘ ψ₁`, with `inv(y) = 4y/|y|²`. This is [GG]'s
 `τ⁻¹ ∘ ψ_S ∘ κ_S = ψ_S ∘ R`, since `R` is the inversion in stereographic coordinates
 (`stereo_reflE`), and `ρ(θ(x))⁻¹` is `τ`, because `τ` only sees the direction (`θS_of_dir`).
 -/

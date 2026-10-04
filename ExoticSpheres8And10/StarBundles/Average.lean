@@ -1,15 +1,15 @@
 /-
 Copyright (c) 2026 Fernando Galaz-García. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Fernando Galaz-García (Department of Mathematical Sciences, Durham University),
-Claude Opus 5.5 (Anthropic), which wrote the Lean under Fernando Galaz-García's supervision
+Authors: Fernando Galaz-García
+Developed with extensive assistance from Claude (Anthropic), used through Claude Code.
 -/
 import ExoticSpheres8And10.StarBundles.RaySmooth
 import ExoticSpheres8And10.Analysis.HaarS3
 
 /-! # §3, Step 1 (second half): an invariant connection over `U_N`
 
-[D] Step 1 averages a principal connection over the star action with normalised Haar measure,
+[GG] Step 1 averages a principal connection over the star action with normalised Haar measure,
 `ω = ∫ L_q^* ω₀ dq`, and checks `L_a^* ω = ω`.
 
 The transport of Step 3 (`S3_RaySmooth`) with the partition-of-unity connection of
@@ -339,7 +339,7 @@ theorem Abar_re (p : V × V) : (B.Abar p).re = 0 := by
   rw [Abar_eq, ← reL_apply, ← ContinuousLinearMap.integral_comp_comm _ (B.integrable_mu_inv x w)]
   simp only [reL_apply, mu_re, integral_zero]
 
-/-- **Invariance of the averaged connection** ([D] Step 1, `L_a^* ω = ω`). -/
+/-- **Invariance of the averaged connection** ([GG] Step 1, `L_a^* ω = ω`). -/
 theorem Abar_inv (a : S3) (x w : V) :
     B.Abar (x, w) = Star.star ((B.hq a x : S3) : ℍ[ℝ]) * B.Abar (R.ρL a x, R.ρL a w) *
       ((B.hq a x : S3) : ℍ[ℝ]) + B.mu a x w := by

@@ -1,20 +1,20 @@
 /-
 Copyright (c) 2026 Fernando Galaz-García. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Fernando Galaz-García (Department of Mathematical Sciences, Durham University),
-Claude Opus 5.5 (Anthropic), which wrote the Lean under Fernando Galaz-García's supervision
+Authors: Fernando Galaz-García
+Developed with extensive assistance from Claude (Anthropic), used through Claude Code.
 -/
 import ExoticSpheres8And10.Curvature.Northern.ProfilesExistence
 
 /-! # The northern filling for an arbitrary bound `‖K‖ ≤ L` ([DHZ] §5.3)
 
-[D] and [HLY] assume `‖K_y‖ ≤ 2`. [DHZ] Prop. 5.1 needs only *some* bound `L`. The same
+[GG] and [HLY] assume `‖K_y‖ ≤ 2`. [DHZ] Prop. 5.1 needs only *some* bound `L`. The same
 argument goes through with:
 * `‖T‖ ≤ L F/r`;
 * the criterion `(1−F'²)/F² > 2L²FF'r'/r³` and `−F''/F > L²F²(r'')₊/r³`;
-* the profile condition `δ³ ≤ 1/(32L²A₀F_a(1+C_η))`. For `L = 2` this is [D]'s `eq:delta`.
+* the profile condition `δ³ ≤ 1/(32L²A₀F_a(1+C_η))`. For `L = 2` this is [GG]'s `eq:delta`.
 
-[D]'s profile `F' = e^{−F²/2δ²}` is kept. [DHZ] uses `s = F + F³/3δ²`; any profile with these
+[GG]'s profile `F' = e^{−F²/2δ²}` is kept. [DHZ] uses `s = F + F³/3δ²`; any profile with these
 inequalities serves, and `northern_filling_pos_L` proves the needed ones.
 
 * `area_ineqs_graph_L`, `criterion_scalar_L`, `northNumerator_pos_L`, `norm_graphT_le_L`;

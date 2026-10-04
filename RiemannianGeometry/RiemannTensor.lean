@@ -1,15 +1,15 @@
 /-
 Copyright (c) 2026 Fernando Galaz-García. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Fernando Galaz-García (Department of Mathematical Sciences, Durham University),
-Claude Opus 5 (Anthropic), which wrote the Lean under Fernando Galaz-García's supervision
+Authors: Fernando Galaz-García
+Developed with extensive assistance from Claude (Anthropic), used through Claude Code.
 -/
 import RiemannianGeometry.RiemannCurvature
 
 /-!
 # The `(0,4)` Riemann curvature tensor
 
-`Foundations.RiemannCurvature` builds the curvature *operator*
+`RiemannianGeometry.RiemannCurvature` builds the curvature *operator*
 `riemannCurvatureAt g x : T_xM →L[ℝ] T_xM →L[ℝ] End(T_xM)` of a metric. This file lowers the
 remaining index with the metric, giving the fully covariant curvature tensor, and records the two
 symmetries that are immediate from the operator.

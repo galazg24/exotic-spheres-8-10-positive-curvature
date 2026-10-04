@@ -1,8 +1,8 @@
 /-
 Copyright (c) 2026 Fernando Galaz-García. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Fernando Galaz-García (Department of Mathematical Sciences, Durham University),
-Claude Opus 5.5 (Anthropic), which wrote the Lean under Fernando Galaz-García's supervision
+Authors: Fernando Galaz-García
+Developed with extensive assistance from Claude (Anthropic), used through Claude Code.
 -/
 import ExoticSpheres8And10.Curvature.HLYModel.Blocks
 
@@ -12,9 +12,9 @@ import ExoticSpheres8And10.Curvature.HLYModel.Blocks
   `(y, u)` is `vecF v`, and `GH(vecF v, vecF w) = v·w`;
 * `sec_pos_of_bound`: a D2-type lower bound `m·totalGram ≤ Rm` with `m > 0` gives positive `RiemannianGeometry`
   sectional curvature on every plane at the point;
-* `rSy`, `ϑf_rSy`, `dϑy_rSy`, `Ny_rSy`: [D]'s southern radius `r_S² = ε e^{εφ}`,
+* `rSy`, `ϑf_rSy`, `dϑy_rSy`, `Ny_rSy`: [GG]'s southern radius `r_S² = ε e^{εφ}`,
   `φ = −A₀ cos t`, in the chart centred at the south pole, where `cos t = −(4−|y|²)/(4+|y|²)`.
-  There `ϑ_i = −2εA₀y_i/(4+|y|²)` and `N = (εA₀/2)·(4−|y|²)/(4+|y|²)·I − ϑ⊗ϑ`, which is [D]'s
+  There `ϑ_i = −2εA₀y_i/(4+|y|²)` and `N = (εA₀/2)·(4−|y|²)/(4+|y|²)·I − ϑ⊗ϑ`, which is [GG]'s
   `−Hess φ = −A₀ cos t · g_B` (`eq:south`).
 -/
 
@@ -116,7 +116,7 @@ variable {K : Type} [NormedAddCommGroup K] [InnerProductSpace ℝ K] [FiniteDime
 /-- `φ = −A₀ cos t`: in the chart centred at `o_S`, `cos t = −(4−|y|²)/(4+|y|²)`. -/
 def φS (A0 : ℝ) (y : K) : ℝ := A0 * (4 - ‖y‖ ^ 2) / (4 + ‖y‖ ^ 2)
 
-/-- [D]'s southern radius `r_S = √ε e^{εφ/2}` (`eq:south`). -/
+/-- [GG]'s southern radius `r_S = √ε e^{εφ/2}` (`eq:south`). -/
 def rSy (ε A0 : ℝ) (y : K) : ℝ := √ε * Real.exp (ε / 2 * φS A0 y)
 
 theorem den_pos (y : K) : 0 < 4 + ‖y‖ ^ 2 := by positivity
@@ -192,7 +192,7 @@ theorem dϑy_rSy {ε : ℝ} (hε : 0 < ε) (A0 : ℝ) (y : K) (k i : Fin n) :
   field_simp
   ring
 
-/-- **`N = −r⁻¹ Hess r` for [D]'s southern radius**:
+/-- **`N = −r⁻¹ Hess r` for [GG]'s southern radius**:
 `N_{ij} = (εA₀/2)·(4−|y|²)/(4+|y|²)·δ_{ij} − ϑ_iϑ_j`. That is
 `−(ε/2) Hess φ − (ε/2)² dφ⊗dφ`, with `−Hess φ = −A₀ cos t · g_B`. -/
 theorem Ny_rSy {ε : ℝ} (hε : 0 < ε) (A0 : ℝ) (y : K) (i j : Fin n) :
@@ -346,17 +346,17 @@ theorem exists_sq_bound {X : Type*} [TopologicalSpace X] {S : Set X} (hS : IsCom
 
 end Bounds
 
-/-! ## [D]'s southern filling: `G_S` has positive curvature on the cap -/
+/-! ## [GG]'s southern filling: `G_S` has positive curvature on the cap -/
 
 section Southern
 
 variable {K : Type} [NormedAddCommGroup K] [InnerProductSpace ℝ K] [FiniteDimensional ℝ K]
   {n : ℕ} {b : OrthonormalBasis (Fin n) ℝ K} {A : K → K →L[ℝ] Quaternion ℝ}
 
-/-- **[D] §4, the southern filling** (`eq:south`, via [HLY] Prop. 3.1). For a smooth imaginary
+/-- **[GG] §4, the southern filling** (`eq:south`, via [HLY] Prop. 3.1). For a smooth imaginary
 connection potential `A` on the southern chart, and the cap `−cos t ≥ c₀ > 0`:
 - there is `Λ₀` (from the curvature bounds `M₀`, `M₁` of `A` on the cap) such that
-- for every `Λ ≥ Λ₀` and every `A₀ ≥ 0` with `A₀c₀ ≥ Λ` ([D]: `A₀|cos a| ≥ Λ`),
+- for every `Λ ≥ Λ₀` and every `A₀ ≥ 0` with `A₀c₀ ≥ Λ` ([GG]: `A₀|cos a| ≥ Λ`),
 - there is `ε_S > 0` such that for `0 < ε < ε_S` the connection metric with
   `r_S = √ε e^{−εA₀ cos t/2}` has **positive `RiemannianGeometry` sectional curvature on every plane** at every
   point of the cap. -/

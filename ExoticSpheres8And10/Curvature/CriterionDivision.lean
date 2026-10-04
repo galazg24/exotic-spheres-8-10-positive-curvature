@@ -1,14 +1,14 @@
 /-
 Copyright (c) 2026 Fernando Galaz-García. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Fernando Galaz-García (Department of Mathematical Sciences, Durham University),
-Claude Opus 5.5 (Anthropic), which wrote the Lean under Fernando Galaz-García's supervision
+Authors: Fernando Galaz-García
+Developed with extensive assistance from Claude (Anthropic), used through Claude Code.
 -/
 import Mathlib
 
 /-! # A5/A6: dividing the curvature numerator by the area
 
-[D] §4.3: a two-plane is positively curved iff `𝒦(P, Q) > 0`, where the sectional curvature is
+[GG] §4.3: a two-plane is positively curved iff `𝒦(P, Q) > 0`, where the sectional curvature is
 `𝒦(P,Q) / (g(P,P) g(Q,Q) − g(P,Q)²)`. A6 proves `𝒦 > 0` for every independent horizontal pair;
 this file supplies the division step: for a symmetric positive-definite bilinear form `g`
 (the metric on the tangent space), the squared area of an independent pair is positive, so the

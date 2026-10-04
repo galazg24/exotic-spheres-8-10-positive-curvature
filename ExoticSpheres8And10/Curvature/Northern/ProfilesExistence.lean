@@ -1,14 +1,14 @@
 /-
 Copyright (c) 2026 Fernando Galaz-García. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Fernando Galaz-García (Department of Mathematical Sciences, Durham University),
-Claude Opus 5.5 (Anthropic), which wrote the Lean under Fernando Galaz-García's supervision
+Authors: Fernando Galaz-García
+Developed with extensive assistance from Claude (Anthropic), used through Claude Code.
 -/
 import ExoticSpheres8And10.ActionField.Chains
 
 /-! # A7, completed: existence of the northern profiles, and positivity along the whole filling
 
-[D] §4.3, "Choice of profiles": "Fix `η` smooth and nondecreasing, with `η = 0` on `(−∞,¼]` and
+[GG] §4.3, "Choice of profiles": "Fix `η` smooth and nondecreasing, with `η = 0` on `(−∞,¼]` and
 `η = 1` on `[½,∞)`, and put `C_η = sup|η'|` [...]. Let `F' = e^{−F²/(2δ²)}`, `F(0) = 0` and
 `ℓ_N = ∫₀^{F_a} e^{z²/(2δ²)}dz`. Set `d = r_aq_s` and `r(s) = r_a − d∫_s^{ℓ_N} η(v/δ)dv`, and require
 `q_sℓ_N ≤ ½` and `d < 1`. [...] The inverse of the odd function `F ↦ ∫₀^F e^{z²/(2δ²)}dz` is
@@ -216,7 +216,7 @@ theorem rprof_end (ra d δ ℓ : ℝ) : rprof ra d δ ℓ ℓ = ra := by simp [r
 variable {H Vv : Type*} [NormedAddCommGroup H] [InnerProductSpace ℝ H] [CompleteSpace H]
   [NormedAddCommGroup Vv] [InnerProductSpace ℝ Vv] [CompleteSpace Vv]
 
-/-- **[D] §4.3, northern filling, all `s`.** Let `C_η ≥ |η'|`, and let the parameters satisfy
+/-- **[GG] §4.3, northern filling, all `s`.** Let `C_η ≥ |η'|`, and let the parameters satisfy
 `eq:delta` (`δ³ ≤ 1/(128A₀F_a(1+C_η))`), `eq:bdata` (`r_a² = εe^{εA₀|cos a|}`, `q_s = ½εA₀F_a`),
 `d = r_aq_s`, `q_sℓ_N ≤ ½` and `d < 1`, with `ℓ_N = G(F_a)`. Then at every `s ∈ (0, ℓ_N]`, with
 `F = Fprof δ`, `r = rprof r_a d δ ℓ_N` and their derivatives (`hasDerivAt_Fprof`,

@@ -1,15 +1,15 @@
 /-
 Copyright (c) 2026 Fernando Galaz-García. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Fernando Galaz-García (Department of Mathematical Sciences, Durham University),
-Claude Opus 5.5 (Anthropic), which wrote the Lean under Fernando Galaz-García's supervision
+Authors: Fernando Galaz-García
+Developed with extensive assistance from Claude (Anthropic), used through Claude Code.
 -/
 import ExoticSpheres8And10.Analysis.Entire
 import ExoticSpheres8And10.Curvature.Gluing.Charts
 
 /-! # Infrastructure: geodesic polar coordinates are smooth at the centre
 
-[D] identifies `U_α` with the closed disk of radius `R_α` by geodesic polar coordinates
+[GG] identifies `U_α` with the closed disk of radius `R_α` by geodesic polar coordinates
 `ζ_N = t x`, whose inverse is `expN(Y) = cos|Y| e + sin|Y| Y/|Y|`. The formula is singular at
 `Y = 0`. Here it is written as a smooth composite:
 * `muR s = sinc(√s/2)/cos(√s/2)`, through `S4_Entire`'s `sincSq`, `cosSq`, so that

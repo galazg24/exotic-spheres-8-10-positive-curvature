@@ -1,19 +1,19 @@
 /-
 Copyright (c) 2026 Fernando Galaz-García. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Fernando Galaz-García (Department of Mathematical Sciences, Durham University),
-Claude Opus 5.5 (Anthropic), which wrote the Lean under Fernando Galaz-García's supervision
+Authors: Fernando Galaz-García
+Developed with extensive assistance from Claude (Anthropic), used through Claude Code.
 -/
 import ExoticSpheres8And10.Curvature.Northern.Upstairs
 
 /-! # §4: positive curvature upstairs at the centre of the northern piece
 
 At the centre `Y = 0` the polar chart degenerates. Use instead the chart
-`Φc(Y, z) = (Y, σ3 z) : V × ℝ³ → V × S³`, in which [D]'s northern metric is
+`Φc(Y, z) = (Y, σ3 z) : V × ℝ³ → V × S³`, in which [GG]'s northern metric is
 
   `Gw = |dY|² + ψ(|Y|²)⟪Y, dY⟫² + r̃(Y)² HR(z)`   (`hpull_Φc`).
 
-[D]'s `r̃` is constant, `= r₀`, near `Y = 0`. So near the centre `Gw` is the product metric `G0`,
+[GG]'s `r̃` is constant, `= r₀`, near `Y = 0`. So near the centre `Gw` is the product metric `G0`,
 whose Christoffel symbols are explicit:
 
   `Γ0((v₁,v₂),(w₁,w₂)) = (c(Y; v₁, w₁) Y, ΓR(v₂, w₂))`,
@@ -113,7 +113,7 @@ def Φc (p : V × E3) : V × S3 := (p.1, σ3 p.2)
 theorem contMDiff_Φc : ContMDiff 𝓘(ℝ, V × E3) (IN V) ∞ (Φc (V := V)) :=
   (contDiff_fst.contMDiff).prodMk (contMDiff_σ3.comp contDiff_snd.contMDiff)
 
-/-- **`Gw` is the pullback of [D]'s northern metric along `Φc`.** -/
+/-- **`Gw` is the pullback of [GG]'s northern metric along `Φc`.** -/
 theorem hpull_Φc (p : V × E3) (a b : TangentSpace 𝓘(ℝ, V × E3) p) :
     Gw δ w p a b = northMetric δ w (Φc p) (mfderiv 𝓘(ℝ, V × E3) (IN V) Φc p a)
       (mfderiv 𝓘(ℝ, V × E3) (IN V) Φc p b) := by
@@ -335,7 +335,7 @@ theorem mfderiv_Φc_centre (b : TangentSpace 𝓘(ℝ, V × E3) ((0 : V), z30)) 
   rfl
 
 /-- **Positive curvature upstairs at the centre.** If `r̃ ≡ r₀` near `0`, every plane at `(0, 1)`
-that is horizontal for the star action has sectional curvature `ψ(0) = δ⁻² > 0` for [D]'s
+that is horizontal for the star action has sectional curvature `ψ(0) = δ⁻² > 0` for [GG]'s
 northern metric. -/
 theorem north_centre_pos (hδ : 0 < δ) {rt : V → ℝ} (hrt : ContDiff ℝ ∞ rt)
     (hrt0 : ∀ Y, rt Y ≠ 0) {r0 : ℝ} (hr : ∀ᶠ Y in 𝓝 (0 : V), rt Y = r0) (q : V × S3)

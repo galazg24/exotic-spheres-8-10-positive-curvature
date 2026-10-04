@@ -1,8 +1,8 @@
 /-
 Copyright (c) 2026 Fernando Galaz-García. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Fernando Galaz-García (Department of Mathematical Sciences, Durham University),
-Claude Opus 5.5 (Anthropic), which wrote the Lean under Fernando Galaz-García's supervision
+Authors: Fernando Galaz-García
+Developed with extensive assistance from Claude (Anthropic), used through Claude Code.
 -/
 import ExoticSpheres8And10.Geometry.Pullback
 import RiemannianGeometry.SectionalCurvature
@@ -11,7 +11,7 @@ import ExoticSpheres8And10.Analysis.ParametricIntegral
 
 /-! # §4: the northern metric on `V × S³`, smooth at the centre
 
-[D]'s northern metric is `G_N = ds² + F(s)² h_{S^{n−1}} + r(s)² h_{S³}` with
+[GG]'s northern metric is `G_N = ds² + F(s)² h_{S^{n−1}} + r(s)² h_{S³}` with
 `F' = e^{−F²/(2δ²)}`. In the coordinate `Y ∈ V` with `|Y| = F(s)`, `Y/|Y| = x`, one has
 `ds = e^{F²/2δ²} dF`, so
 
@@ -100,7 +100,7 @@ theorem contMDiff_fQ : ContMDiff (IN V) 𝓘(ℝ, ℝ) ∞ (fQ (V := V)) := by
 theorem contMDiff_fU : ContMDiff (IN V) 𝓘(ℝ, Quaternion ℝ) ∞ (fU (V := V)) :=
   contMDiff_coe_sphere.comp contMDiff_snd
 
-/-- **[D]'s northern metric** `|dY|² + ψ(|Y|²)⟪Y,dY⟫² + r̃(Y)²|du|²` on `V × S³`. -/
+/-- **[GG]'s northern metric** `|dY|² + ψ(|Y|²)⟪Y,dY⟫² + r̃(Y)²|du|²` on `V × S³`. -/
 def northMetric (δ : ℝ) (rt : V → ℝ) :
     Π p : V × S3, TangentSpace (IN V) p →L[ℝ] TangentSpace (IN V) p →L[ℝ] ℝ :=
   pullTerm (I := IN V) (fun _ => 1) (ipL V) fY +

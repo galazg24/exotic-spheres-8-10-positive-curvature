@@ -1,8 +1,8 @@
 /-
 Copyright (c) 2026 Fernando Galaz-García. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Fernando Galaz-García (Department of Mathematical Sciences, Durham University),
-Claude Opus 5.5 (Anthropic), which wrote the Lean under Fernando Galaz-García's supervision
+Authors: Fernando Galaz-García
+Developed with extensive assistance from Claude (Anthropic), used through Claude Code.
 -/
 import ExoticSpheres8And10.PolarBundles.OrientationSphere
 import Mathlib.Geometry.Manifold.Instances.Sphere
@@ -10,7 +10,7 @@ import Mathlib.Analysis.InnerProductSpace.ProdL2
 
 /-! # A2 for `ρ₈`: `σ` and `σ̂` are smooth maps of the manifold `S⁷`
 
-[D] `lem:attaching`: "The map `σ(y) = ρ(θ(y)⁻¹) y` is a diffeomorphism of `S^{n−1}` with
+[GG] `lem:attaching`: "The map `σ(y) = ρ(θ(y)⁻¹) y` is a diffeomorphism of `S^{n−1}` with
 inverse `σ̂(y) = ρ(θ(y)) y`." `A3_Sphere` proves ambient smoothness and `σ(S⁷) ⊆ S⁷`. Here the
 statement is upgraded to Mathlib's manifold structure on the unit sphere of `ℝ⁸ = ℍ ⊕ ℍ`
 (`EuclideanSpace.instChartedSpaceSphere`, model `𝓡 7`): for any smooth unit-valued
@@ -75,7 +75,7 @@ theorem contMDiff_rho8_sphere (τ : S7 → ℍ[ℝ]) (hτ : ContMDiff (𝓡 7) �
   exact ContDiffAt.comp_contMDiffAt (g := fun p : ℍ[ℝ] × V8 => eV8.symm (rho8 p.1 (eV8 p.2)))
     (f := fun y : S7 => (τ y, (y : V8))) (contDiffAt_rho8V (n := ⊤) hne (y : V8)) hp
 
-/-- **[D] `lem:attaching`, smoothness of `σ` on `S⁷`:** `σ(y) = ρ₈(θ(y)⁻¹) y`. -/
+/-- **[GG] `lem:attaching`, smoothness of `σ` on `S⁷`:** `σ(y) = ρ₈(θ(y)⁻¹) y`. -/
 theorem contMDiff_sigma8_sphere (θ : S7 → ℍ[ℝ]) (hθ : ContMDiff (𝓡 7) 𝓘(ℝ, ℍ[ℝ]) ∞ θ)
     (hθn : ∀ y, ‖θ y‖ = 1) :
     ContMDiff (𝓡 7) (𝓡 7) ∞ (Set.codRestrict (fun y : S7 => eV8.symm (rho8 (θ y)⁻¹ (eV8 y))) S7
@@ -117,7 +117,7 @@ theorem rho8_inv_rho8 {q : ℍ[ℝ]} (hq : q ≠ 0) (z : ℍ[ℝ] × ℍ[ℝ]) :
 noncomputable def rho8S (q : ℍ[ℝ]) (hq : ‖q‖ = 1) (y : S7) : S7 :=
   ⟨eV8.symm (rho8 q (eV8 y)), rho8V_mem (τ := fun _ => q) (fun _ => hq) y⟩
 
-/-- `σ : S⁷ → S⁷`, `σ(y) = ρ₈(θ(y))⁻¹ y` ([D] `eq:sigma`). -/
+/-- `σ : S⁷ → S⁷`, `σ(y) = ρ₈(θ(y))⁻¹ y` ([GG] `eq:sigma`). -/
 noncomputable def sigmaS (θ : S7 → ℍ[ℝ]) (hθn : ∀ y, ‖θ y‖ = 1) (y : S7) : S7 :=
   rho8S (θ y)⁻¹ (by rw [norm_inv, hθn, inv_one]) y
 
@@ -131,7 +131,7 @@ def IsEquivariant8 (θ : S7 → ℍ[ℝ]) : Prop :=
 
 theorem ne_zero_of_norm_one' {q : ℍ[ℝ]} (h : ‖q‖ = 1) : q ≠ 0 := fun h0 => by simp [h0] at h
 
-/-- **[D] `lem:attaching`(2): `σ̂ ∘ σ = id`.** -/
+/-- **[GG] `lem:attaching`(2): `σ̂ ∘ σ = id`.** -/
 theorem sigmaHat_sigma (θ : S7 → ℍ[ℝ]) (hθn : ∀ y, ‖θ y‖ = 1) (hequiv : IsEquivariant8 θ)
     (y : S7) : sigmaHatS θ hθn (sigmaS θ hθn y) = y := by
   have hne := ne_zero_of_norm_one' (hθn y)
@@ -153,7 +153,7 @@ theorem sigma_sigmaHat (θ : S7 → ℍ[ℝ]) (hθn : ∀ y, ‖θ y‖ = 1) (he
   rw [hθσ, ContinuousLinearEquiv.apply_symm_apply, rho8_inv_rho8 hne,
     ContinuousLinearEquiv.symm_apply_apply]
 
-/-- **[D] `lem:attaching`(2) for `ρ₈`: `σ` is a diffeomorphism of `S⁷` with inverse `σ̂`**, for
+/-- **[GG] `lem:attaching`(2) for `ρ₈`: `σ` is a diffeomorphism of `S⁷` with inverse `σ̂`**, for
 any smooth, unit-valued, `ρ₈`-equivariant `θ`. -/
 noncomputable def sigmaDiffeo (θ : S7 → ℍ[ℝ]) (hθ : ContMDiff (𝓡 7) 𝓘(ℝ, ℍ[ℝ]) ∞ θ)
     (hθn : ∀ y, ‖θ y‖ = 1) (hequiv : IsEquivariant8 θ) :

@@ -1,8 +1,8 @@
 /-
 Copyright (c) 2026 Fernando Galaz-García. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Fernando Galaz-García (Department of Mathematical Sciences, Durham University),
-Claude Opus 5 (Anthropic), which wrote the Lean under Fernando Galaz-García's supervision
+Authors: Fernando Galaz-García
+Developed with extensive assistance from Claude (Anthropic), used through Claude Code.
 -/
 import RiemannianGeometry.CurvaturePointwise
 import Mathlib.Geometry.Manifold.VectorBundle.CovariantDerivative.Torsion
@@ -50,7 +50,7 @@ where `[IsManifold I ∞ M]` is assumed as usual, it costs nothing.
 
 One further generality point. `minSmoothness 𝕜 2 = 2` only over an `IsRCLikeNormedField`; over other
 fields it is `ω`. So the general statement carries `{n : ℕ∞}` with `hn : minSmoothness 𝕜 2 ≤ n`, the
-idiom already used in `Foundations.CurvaturePointwise`, and the literal `C²` version is the
+idiom already used in `RiemannianGeometry.CurvaturePointwise`, and the literal `C²` version is the
 `n = 2` corollary over `ℝ` and `ℂ`. Keeping torsion-freeness as `IsTorsionFreePointwise` rather than
 `hcov.torsion = 0` also keeps `CompleteSpace 𝕜` and `FiniteDimensional 𝕜 E` off the main theorem —
 `IsCovariantDerivativeOn.torsion` needs them merely to exist.

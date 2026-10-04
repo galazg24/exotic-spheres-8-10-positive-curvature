@@ -1,14 +1,14 @@
 /-
 Copyright (c) 2026 Fernando Galaz-García. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Fernando Galaz-García (Department of Mathematical Sciences, Durham University),
-Claude Opus 5.5 (Anthropic), which wrote the Lean under Fernando Galaz-García's supervision
+Authors: Fernando Galaz-García
+Developed with extensive assistance from Claude (Anthropic), used through Claude Code.
 -/
 import ExoticSpheres8And10.PolarBundles.StarQuotient
 
 /-! # §2: `lem:attaching` for general polar data
 
-[D] `lem:attaching`. For any polar data `D` (any `n ≥ 1`, any smooth orthogonal `ρ`
+[GG] `lem:attaching`. For any polar data `D` (any `n ≥ 1`, any smooth orthogonal `ρ`
 fixing `e`, any smooth `θ` with `eq:equiv`):
 
 * `t2_polarBundle`, `t2_quotSpace`: `P_θ` and `P_θ/S³_⋆` are Hausdorff.
@@ -20,7 +20,7 @@ fixing `e`, any smooth `θ` with `eq:equiv`):
   `polarT_κS`, `polarX_κS`: in polar coordinates the transition of the quotient is
   `(t, y) ↦ (π − t, σ(y))`. It is independent of `t` in the angular part and reflects the radial
   coordinate, so on a collar of `t = a` it is constant in the collar direction with angular
-  part `σ` ([D]'s proof of (3)).
+  part `σ` ([GG]'s proof of (3)).
 -/
 
 namespace ExoticSpheres8And10
@@ -131,7 +131,7 @@ theorem orbitSpaceHomeo_mk (p : PolarBundle D) :
 
 /-! ## (2): the attaching map `σ` -/
 
-/-- `σ(y) = ρ(θ(y))⁻¹ y` ([D] `eq:sigma`). -/
+/-- `σ(y) = ρ(θ(y))⁻¹ y` ([GG] `eq:sigma`). -/
 def sigmaV (y : SV) : SV := D.ρV (D.θ y)⁻¹ y
 
 /-- `σ̂(y) = ρ(θ(y)) y`. -/
@@ -166,7 +166,7 @@ theorem contMDiff_sigma_gen (g : SV → S3) (hg : ContMDiff (𝓡 m) (𝓡 3) �
   exact (Vs e).orthogonalProjectionOnto.contDiff.contMDiff.comp
     ((D.ρ_smooth.comp hg).clm_apply (contMDiff_coeSV (e := e) (m := m)))
 
-/-- **[D] `lem:attaching` (2): `σ` is a diffeomorphism of `S(V)` with inverse `σ̂`**, for
+/-- **[GG] `lem:attaching` (2): `σ` is a diffeomorphism of `S(V)` with inverse `σ̂`**, for
 general polar data (in particular for `ρ₁₀` as well as `ρ₈`). -/
 def sigmaDiffeoV : Diffeomorph (𝓡 m) (𝓡 m) SV SV ∞ where
   toFun := D.sigmaV
@@ -188,7 +188,7 @@ theorem xS_κS (z : UN e) (hz : ζ0 (z, (1 : S3)) ≠ e) (h') :
     rw [D.xS_ρU_RU]; rfl
   exact key _ h1 h'
 
-/-- **The boundary markings** ([D] `lem:attaching` (2)): if `p = [(ζ, u_N)]_N = [(Rζ, u_S)]_S`,
+/-- **The boundary markings** ([GG] `lem:attaching` (2)): if `p = [(ζ, u_N)]_N = [(Rζ, u_S)]_S`,
 then `y_S = σ(y_N)` for `y_α = ρ(u_α)⁻¹ x`. -/
 theorem markings (a : M0 e) (ha : ζ0 a ≠ e) :
     D.xS (D.Ψ (D.κP a), 1) (by rw [← D.κS_Ψ a ha]; exact (D.κS.map_source (D.Ψ_mem ha) : _)) =
@@ -329,7 +329,7 @@ theorem diskMapN_injective {a : ℝ} (haπ : a < π) : Injective (D.diskMapN ha�
 theorem diskMapS_injective {a : ℝ} (ha0 : 0 < a) : Injective (D.diskMapS ha0) :=
   fun Y Y' h => Subtype.ext (D.diskPt_injective _ _ _ _ (ι₂_injective D.κS h))
 
-/-- **[D] `lem:attaching` (1), northern disk**: `D_N = P_N/S³_⋆` is homeomorphic to the closed
+/-- **[GG] `lem:attaching` (1), northern disk**: `D_N = P_N/S³_⋆` is homeomorphic to the closed
 disk of radius `a` in `V` (via `ζ_N = t x`, i.e. `Ψ_N` followed by geodesic polar coordinates). -/
 def DNHomeo {a : ℝ} (haπ : a < π) : Disk e a ≃ₜ D.DN a := by
   haveI : FiniteDimensional ℝ W := FiniteDimensional.of_fact_finrank_eq_succ (m + 1)
@@ -342,7 +342,7 @@ def DNHomeo {a : ℝ} (haπ : a < π) : Disk e a ≃ₜ D.DN a := by
     (((continuous_ι₁ D.κS).comp (D.continuous_diskPt_comp haπ)).subtype_mk
       fun Y => (Set.ext_iff.1 (D.DN_eq haπ) _).2 ⟨Y, rfl⟩)
 
-/-- **[D] `lem:attaching` (1), southern disk**: `D_S` is homeomorphic to the closed disk of radius
+/-- **[GG] `lem:attaching` (1), southern disk**: `D_S` is homeomorphic to the closed disk of radius
 `π − a` in `V` (via `ζ_S = (π − t)x`). -/
 def DSHomeo {a : ℝ} (ha0 : 0 < a) : Disk e (π - a) ≃ₜ D.DS a := by
   haveI : FiniteDimensional ℝ W := FiniteDimensional.of_fact_finrank_eq_succ (m + 1)
@@ -358,7 +358,7 @@ def DSHomeo {a : ℝ} (ha0 : 0 < a) : Disk e (π - a) ≃ₜ D.DS a := by
         Continuous fun Y : Disk e (π - a) => D.diskPt Y (Disk_inner Y) (by linarith [(Disk_norm Y)]))).subtype_mk
       fun Y => (Set.ext_iff.1 (D.DS_eq ha0) _).2 ⟨Y, rfl⟩)
 
-/-- **The slice meets every orbit exactly once** ([D] `lem:attaching` (1), proof). -/
+/-- **The slice meets every orbit exactly once** ([GG] `lem:attaching` (1), proof). -/
 theorem slice_unique (a : M0 e) : ∃! z : UN e, ∃ q : S3, D.starM q a = (z, 1) := by
   refine ⟨D.Ψ a, ⟨a.2⁻¹, Prod.ext rfl (inv_mul_cancel _)⟩, ?_⟩
   rintro z ⟨q, hq⟩
@@ -380,7 +380,7 @@ def angS (Y : W) (hY : ⟪Y, e⟫ = 0) (hY0 : Y ≠ 0) : SV :=
     rw [norm_smul, norm_inv, norm_norm, inv_mul_cancel₀ (norm_ne_zero_iff.2 hY0)]⟩
 
 /-- **The boundary identification** of `𝔻_N ∪_σ 𝔻_S`: `Y = a y_N ∈ ∂𝔻_N` is glued to
-`(π − a) σ(y_N) ∈ ∂𝔻_S` ([D] `eq:sigma`, in the disk coordinates `ζ_N = t x`,
+`(π − a) σ(y_N) ∈ ∂𝔻_S` ([GG] `eq:sigma`, in the disk coordinates `ζ_N = t x`,
 `ζ_S = (π − t)x`). -/
 def DiskRel {a : ℝ} (ha0 : 0 < a) :
     Disk e a ⊕ Disk e (π - a) → Disk e a ⊕ Disk e (π - a) → Prop
@@ -534,7 +534,7 @@ theorem diskGlueMap_surjective {a : ℝ} (ha0 : 0 < a) (haπ : a < π) :
       show ι₁ D.κS _ = ι₂ D.κS z
       rw [D.diskPt_diskN, ← hκw, ι₂_apply (show w ∈ D.κS.source from hw)]
 
-/-- **[D] `lem:attaching` (3)**: `P_θ/S³_⋆ ≅ 𝔻_N ∪_σ 𝔻_S` (as topological spaces; the quotient
+/-- **[GG] `lem:attaching` (3)**: `P_θ/S³_⋆ ≅ 𝔻_N ∪_σ 𝔻_S` (as topological spaces; the quotient
 manifold `QuotSpace D` carries the smooth structure of the collar gluing, `polarT_κS`,
 `polarX_κS`). -/
 def diskGluingHomeo {a : ℝ} (ha0 : 0 < a) (haπ : a < π) : D.DiskGluing ha0 ≃ₜ QuotSpace D := by
@@ -550,7 +550,7 @@ def diskGluingHomeo {a : ℝ} (ha0 : 0 < a) (haπ : a < π) : D.DiskGluing ha0 �
         exact continuous_expN.comp continuous_subtype_val :
           Continuous fun Y : Disk e (π - a) => D.diskPt Y (Disk_inner Y) (by linarith [(Disk_norm Y)])))))
 
-/-- **[D] `lem:attaching` (3), orbit-space form**: the topological star quotient of `P_θ` is
+/-- **[GG] `lem:attaching` (3), orbit-space form**: the topological star quotient of `P_θ` is
 homeomorphic to `𝔻_N ∪_σ 𝔻_S`. -/
 def orbitSpaceDiskGluing {a : ℝ} (ha0 : 0 < a) (haπ : a < π) :
     D.OrbitSpace ≃ₜ D.DiskGluing ha0 :=

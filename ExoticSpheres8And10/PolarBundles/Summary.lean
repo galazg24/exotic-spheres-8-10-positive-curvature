@@ -1,8 +1,8 @@
 /-
 Copyright (c) 2026 Fernando Galaz-García. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Fernando Galaz-García (Department of Mathematical Sciences, Durham University),
-Claude Opus 5.5 (Anthropic), which wrote the Lean under Fernando Galaz-García's supervision
+Authors: Fernando Galaz-García
+Developed with extensive assistance from Claude (Anthropic), used through Claude Code.
 -/
 import ExoticSpheres8And10.PolarBundles.Attaching
 import ExoticSpheres8And10.ActionField.Bound
@@ -14,7 +14,7 @@ import ExoticSpheres8And10.ActionField.Bound
   Lie-algebraic value of the sectional curvature of the bi-invariant metric; the formula
   `K = ¼‖[u,v]‖²` itself is standard and imported.
 * `polarBundle_isStarBundle`: `P_θ` with the star action and the principal action satisfies every
-  clause of [D] `def:starbundle` (3) and the special `S³`-`S³` bundle definition, as proved in
+  clause of [GG] `def:starbundle` (3) and the special `S³`-`S³` bundle definition, as proved in
   `S2_PolarBundle`.
 * `trivialPolarData`: the hypotheses of `PolarData` are satisfiable in every dimension `n = m + 1`
   (trivial representation, `θ ≡ 1`), and all constructions are instantiated there.
@@ -32,7 +32,7 @@ noncomputable section
 
 local notation "S3" => sphere (0 : ℍ[ℝ]) 1
 
-/-- **[D] §2, conventions**: for an orthonormal pair `u, v` in `Im ℍ` (inner product `Q`),
+/-- **[GG] §2, conventions**: for an orthonormal pair `u, v` in `Im ℍ` (inner product `Q`),
 `[u, v] = 2 u × v` and `¼‖[u, v]‖² = 1`. -/
 theorem bracket_orthonormal (u v : ℍ[ℝ]) (hu : u.re = 0) (hv : v.re = 0) (hu1 : ‖u‖ = 1)
     (hv1 : ‖v‖ = 1) (huv : ⟪u, v⟫ = 0) :
@@ -49,7 +49,7 @@ section Summary
 variable {m : ℕ} {W : Type*} [NormedAddCommGroup W] [InnerProductSpace ℝ W]
   [Fact (finrank ℝ W = (m + 1) + 1)] {e : W} [Fact (finrank ℝ (Vs e) = m + 1)]
 
-/-- **`P_θ` is a star bundle** ([D] `def:starbundle` (3), special `S³`-`S³` bundle): a smooth
+/-- **`P_θ` is a star bundle** ([GG] `def:starbundle` (3), special `S³`-`S³` bundle): a smooth
 Hausdorff manifold with a smooth free right `S³`-action, transitive on the fibres of a smooth
 projection to `S^n`, with a smooth free left `S³`-action commuting with it and covering `ρ`, and
 trivialised over `U_N` and `U_S` by the two product charts. -/

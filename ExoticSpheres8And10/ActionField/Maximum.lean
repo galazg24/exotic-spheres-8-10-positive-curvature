@@ -1,15 +1,15 @@
 /-
 Copyright (c) 2026 Fernando Galaz-García. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Fernando Galaz-García (Department of Mathematical Sciences, Durham University),
-Claude Opus 5.5 (Anthropic), which wrote the Lean under Fernando Galaz-García's supervision
+Authors: Fernando Galaz-García
+Developed with extensive assistance from Claude (Anthropic), used through Claude Code.
 -/
 import ExoticSpheres8And10.ActionField.Bound
 import ExoticSpheres8And10.PolarBundles.OrientationDerivative
 
 /-! # A1: the maximum `‖K_y‖ = 2` is attained only at non-free points
 
-[D] `lem:K`: "The value 4 is attained, and the maximum is not attained on the free stratum
+[GG] `lem:K`: "The value 4 is attained, and the maximum is not attained on the free stratum
 alone." The proof gives the equality cases: in dimension 8 equality requires `x = 0`,
 `Re w = 0`; in dimension 10, `|x| = 1`. Here the converse direction is proved: **every** point
 `y ∈ S^{n−1}` at which `‖K_y ξ‖² = 4‖ξ‖²` for some `ξ ≠ 0` has non-trivial isotropy (it is fixed
@@ -84,7 +84,7 @@ theorem maximizer_not_free_dim10 (ξ p w x : ℍ[ℝ]) (hξ0 : ξ ≠ 0)
   refine ⟨x, hx1, fun h1 => by simp [h1] at hre, ?_⟩
   simp only [rho10, hw, mul_zero, mul_inv_cancel_right₀ hx0]
 
-/-- Non-vacuity: the maximiser `y = (0, i)`, `ξ = j` of [D] satisfies the hypotheses. -/
+/-- Non-vacuity: the maximiser `y = (0, i)`, `ξ = j` of [GG] satisfies the hypotheses. -/
 example : ∃ q : ℍ[ℝ], ‖q‖ = 1 ∧ q ≠ 1 ∧ rho8 q (0, qmk 0 1 0 0) = (0, qmk 0 1 0 0) :=
   maximizer_not_free_dim8 (qmk 0 0 1 0) 0 (qmk 0 1 0 0)
     (fun h => by simpa using congrArg (fun q : ℍ[ℝ] => q.imJ) h)
