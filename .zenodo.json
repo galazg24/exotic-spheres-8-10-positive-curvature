@@ -1,0 +1,15 @@
+{
+  "title": "Positive sectional curvature on exotic spheres in dimensions 8 and 10: a Lean formalisation",
+  "upload_type": "software",
+  "description": "<p>A Lean 4 and Mathlib formalisation of the new arguments of F. Galaz-García, <i>Positive sectional curvature on the exotic 8-sphere and order-three homotopy 10-spheres</i> (2026). Every step is checked by Lean's kernel, except five cited published results (Reiser–Wraith, Sperança, Kervaire–Milnor, Hitchin, orientation reversal in Θ₁₀), which enter as explicit hypotheses. The Lean code was written by Claude (Anthropic) under the direction and supervision of the author.</p>",
+  "creators": [
+    {
+      "name": "Galaz-García, Fernando",
+      "affiliation": "Department of Mathematical Sciences, Durham University"
+    }
+  ],
+  "license": "Apache-2.0",
+  "keywords": ["Lean 4", "Mathlib", "formal verification", "exotic spheres", "positive sectional curvature", "Riemannian geometry"],
+  "related_identifiers": [],
+  "language": "eng"
+}

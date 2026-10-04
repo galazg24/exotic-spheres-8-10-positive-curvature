@@ -1,0 +1,28 @@
+cff-version: 1.2.0
+message: "If you use this formalisation, please cite it as below, together with the accompanying paper."
+title: "Positive sectional curvature on exotic spheres in dimensions 8 and 10: a Lean formalisation"
+type: software
+version: "1.0.0-rc1"
+date-released: "2026-10-03"
+license: Apache-2.0
+repository-code: "https://github.com/galazg24/exotic-spheres-8-10-positive-curvature"
+authors:
+  - family-names: "Galaz-García"
+    given-names: "Fernando"
+    affiliation: "Department of Mathematical Sciences, Durham University"
+    # orcid: "https://orcid.org/XXXX-XXXX-XXXX-XXXX"
+keywords:
+  - Lean 4
+  - Mathlib
+  - formal verification
+  - exotic spheres
+  - positive sectional curvature
+  - Riemannian geometry
+preferred-citation:
+  type: article
+  title: "Positive sectional curvature on the exotic 8-sphere and order-three homotopy 10-spheres"
+  authors:
+    - family-names: "Galaz-García"
+      given-names: "Fernando"
+  year: 2026
+  # url: "https://arxiv.org/abs/XXXX.XXXXX"

@@ -1,0 +1,16 @@
+Positive sectional curvature on exotic spheres in dimensions 8 and 10: a Lean formalisation
+Copyright (c) 2026 Fernando Galaz-García
+
+This product is licensed under the Apache License, Version 2.0 (see LICENSE).
+
+The library `RiemannianGeometry` (directory RiemannianGeometry/) originates in a separate
+formalisation project by the same author: the "Foundations" layer of a Lean formalisation
+related to the work of P. Petersen and F. Wilhelm on exotic spheres, at commit ddc9fb9. It is
+included here under the same licence. Changes made for this release:
+  * module and namespace names (formerly `PetersenWilhelm.Foundations`, now `RiemannianGeometry`);
+  * comments and docstrings: notes about that project's internal development process were
+    removed.
+No definition, statement or proof was changed.
+
+The Lean code in both libraries was written by Claude (Anthropic) under the direction and
+supervision of Fernando Galaz-García.
