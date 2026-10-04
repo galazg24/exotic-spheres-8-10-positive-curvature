@@ -20,11 +20,20 @@ Module names are relative to `ExoticSpheres8And10`. Declaration names are in the
 ### Theorems A and B (`Main.TheoremsAB`)
 
 `theoremA` (dimension 8, representation `rep8 = ρ₈`) and `theoremB` (dimension 10,
-`rep10 = ρ₁₀`) have the same form. For a smooth manifold `E` and `B : StarBundle rep8 E`:
+`rep10 = ρ₁₀`) have the same form. Take a smooth manifold `E`, `B : StarBundle rep8 E`, and a
+smooth quotient `p : E → Q` of `E` by the star action (`IsSmoothStarQuotient`; this is the smooth
+manifold `E/S³_⋆`). If RW holds for the polar models (`∀ D, D.ρ = ρ₈ → RWGluing (QuotSpace D)`),
+then `HasPosCurvMetric Q`.
 
-1. **Polar normal form.** There are polar data `D` with `D.ρ = ρ₈`, and a homeomorphism
-   `E/S³_⋆ ≃ₜ QuotSpace D`.
-2. **Positive curvature.** `RWGluing (QuotSpace D) → HasPosCurvMetric (QuotSpace D)`.
+The proof has three steps:
+1. **The polar model is `E/S³_⋆`** (`polarModelA`). The polar datum `D` of `prop:polar` has
+   `D.ρ = ρ₈`, and `starQuotMap : E → QuotSpace D` is a smooth star quotient
+   (`isSmoothStarQuotient_starQuotMap`).
+2. **Positive curvature on the polar model.** `RWGluing (QuotSpace D) → HasPosCurvMetric
+   (QuotSpace D)` (`hly_general`, through `lem:K`).
+3. **Transport.** Any two smooth star quotients are diffeomorphic
+   (`IsSmoothStarQuotient.diffeomorph`), and a metric of positive sectional curvature pulls back
+   along a diffeomorphism (`HasPosCurvMetric.of_diffeomorph`).
 
 How to read the objects in this statement:
 - **`StarBundle ρ E`** is [GG]'s special `S³`-`S³` bundle (`def:starbundle`). It consists of a
@@ -39,7 +48,15 @@ How to read the objects in this statement:
   - `prop_polar` (`StarBundles.Equivariant`) gives a diffeomorphism `P_θ ≅ E` that is
     equivariant for both actions. So the map `E → QuotSpace D` has the same universal property
     (`contMDiff_iff_comp_starQuotMap`), and `QuotSpace D` is `E/S³_⋆` *as a smooth manifold*.
-    The homeomorphism in the statement is the underlying map.
+    The statements record this smooth identification itself, not only the underlying
+    homeomorphism. A homeomorphism would not determine the smooth structure, since exotic
+    spheres are homeomorphic to the standard sphere.
+- **`IsSmoothStarQuotient B p`** (`StarBundles.SmoothQuotient`): `p : E → Q` is smooth and
+  surjective onto an `n`-manifold (`n = 8, 10`), its fibres are the star orbits, and `f : Q → N` is smooth iff
+  `f ∘ p` is. The quotient manifold `E/S³_⋆` of the free smooth action satisfies this: its
+  projection is a surjective submersion (Lee, *Introduction to Smooth Manifolds*, 2nd ed.,
+  Thm 21.10), and smoothness descends along surjective submersions (ibid., Thm 4.29). Any two
+  smooth star quotients are diffeomorphic, so the notion picks out `E/S³_⋆` up to diffeomorphism.
 - **`HasPosCurvMetric I M`** means: there is a smooth (`C^∞`) Riemannian metric on `M`
   (symmetric, positive definite, a smooth section) whose sectional curvature is positive on
   every 2-plane. Sectional curvature is `sectionalCurvatureAt` of `RiemannianGeometry`, which is
@@ -68,7 +85,10 @@ The following are **proved**, not assumed:
 - `sec > 0 ⇒ scal > 0` (`HasPosCurvMetric.hasPosScalMetric`, `Main.ScalarCurvature`);
 - the round sphere has `sec > 0` (`hasPosCurvMetric_sphere`, `Main.RoundSphere`).
 
-`SECc_of_theoremA` and `SECc_of_theoremB` connect Corollary C to Theorems A and B.
+`SECc_of_theoremA` and `SECc_of_theoremB` connect Corollary C to Theorems A and B. Their
+Sperança hypothesis is that **some** smooth star quotient `p : E → Q` has `Rep Q g`, which is
+[Sp, Theorem 1]: the quotient manifold `E/S³_⋆` is diffeomorphic to the exotic sphere. Theorems A
+and B put the metric on that `Q` itself, so `Rep` is never transferred between manifolds.
 
 ## 2. Item by item
 
@@ -97,7 +117,9 @@ The following are **proved**, not assumed:
 | `rem:general_bound` | `remark_general_bound_RW` (`Curvature.DHZ`); [DHZ] Prop. 5.1 as `dhz_prop51` | K\* (RW) |
 | `eq:rho8`, `eq:rho10`, `e₈`, `e₁₀` as star representations | `rep8`, `rep10` (`Main.Representations`) | K |
 | `E¹¹`, `E¹³` are star bundles ([Sp]) | hypothesis `B : StarBundle rep8 E` (resp. `rep10`) | I |
-| `thm:speranca` | (outside the Lean statements) | I |
+| `thm:speranca` ([Sp, Theorem 1]) | hypothesis of `SECc_of_theoremA`/`B`: some smooth star quotient `p : E → Q` has `Rep Q g` | I |
+| `prop:polar`, "consequently `E/S³_⋆ ≅ P_θ/S³_⋆`", as smooth manifolds | `polarModelA`, `polarModelB`, `isSmoothStarQuotient_starQuotMap`, `IsSmoothStarQuotient.diffeomorph` (`StarBundles.SmoothQuotient`) | K |
+| Proof of Theorems A and B: the metric on `E/S³_⋆` | `HasPosCurvMetric.of_diffeomorph` (`Geometry.DiffeoTransport`) | K |
 | Theorems A and B | `theoremA`, `theoremB` | K\* (RW, [Sp]) |
 | Theorem B: reversing orientation gives the other generator | hypothesis `hneg` of `corollaryC_dim10_geom` | I |
 | Corollary C | `corollaryC_dim10_geom`, `corollaryC_dim8_geom` | B over [KM], [Hi], orientation, [Sp] (I); `sec ⇒ scal` and the round sphere: K |
@@ -106,8 +128,8 @@ The following are **proved**, not assumed:
 
 | Input | Lean hypothesis | Used by |
 |---|---|---|
-| [RW] Theorem A(i), in the form of `prop:gluing` | `hRW : RWGluing … (QuotSpace D)` | `hly_general`, `theoremA`, `theoremB`, `remark_general_bound_RW` |
-| [Sp]: `E¹¹` (resp. `E¹³`) is a star bundle for `ρ₈` (resp. `ρ₁₀`) whose star quotient is the exotic sphere | `B : StarBundle rep8 E` (resp. `rep10`); `SECc_of_theoremA/B` take "the quotient represents the generator" as a hypothesis | Theorems A, B; Corollary C |
+| [RW] Theorem A(i), in the form of `prop:gluing` | `hRW : RWGluing … (QuotSpace D)`; in `theoremA`/`B` for every polar model `D` with `D.ρ = ρ` | `hly_general`, `theoremA`, `theoremB`, `remark_general_bound_RW` |
+| [Sp, Theorem 1]: `E¹¹` (resp. `E¹³`) is a star bundle for `ρ₈` (resp. `ρ₁₀`) whose quotient manifold `E/S³_⋆` is diffeomorphic to the exotic 8-sphere (resp. a generator of the order-three subgroup of `Θ₁₀`) | `B : StarBundle rep8 E` (resp. `rep10`); in `SECc_of_theoremA`/`B`, `∃ Q (p : E → Q), IsSmoothStarQuotient B p ∧ Rep Q g` | Theorems A, B; Corollary C |
 | [KM]: `Θ₈ ≅ ℤ/2`, `Θ₁₀ ≅ ℤ/6`; the standard sphere represents `0` | `eΘ : Θ ≃+ ZMod 2` (resp. `ZMod 6`), `hround : Rep (Sph n) 0` | Corollary C |
 | [Hi]: `α` is nonzero and vanishes under positive scalar curvature | `hα : α ≠ 0`, `hHitchin : ∀ x, PSCc Rep x → α x = 0` | Corollary C (dimension 10) |
 | Orientation reversal negates the class | `hneg : Rep M x → Rep M (−x)` | Corollary C (dimension 10) |
@@ -206,8 +228,9 @@ hypotheses are the data of the statement: the manifold, the bundle, the represen
 ## 5. Non-vacuity
 
 Every main theorem is applied to a concrete instance, so that its hypotheses are satisfiable:
-- `theoremA (prodBundle rep8)` and `theoremB (prodBundle rep10)`: the product star bundles
-  `Sⁿ × S³` for the actual representations `ρ₈`, `ρ₁₀`;
+- `theoremA` and `theoremB` for the product star bundles `Sⁿ × S³` (`prodBundle rep8`,
+  `prodBundle rep10`) of the actual representations `ρ₈`, `ρ₁₀`, with their polar models as
+  smooth star quotients (`isSmoothStarQuotient_starQuotMap`);
 - `prop_polar_trivBundle`;
 - `corollaryC_dim10_geom_satisfiable`;
 - the two models of `hly_prop31_global_intrinsic`;
