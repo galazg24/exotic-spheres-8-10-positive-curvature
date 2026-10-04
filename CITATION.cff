@@ -10,7 +10,7 @@ authors:
   - family-names: "Galaz-García"
     given-names: "Fernando"
     affiliation: "Department of Mathematical Sciences, Durham University"
-    # orcid: "https://orcid.org/XXXX-XXXX-XXXX-XXXX"
+    orcid: "https://orcid.org/0000-0003-3428-5190"
 keywords:
   - Lean 4
   - Mathlib
@@ -24,5 +24,6 @@ preferred-citation:
   authors:
     - family-names: "Galaz-García"
       given-names: "Fernando"
+      orcid: "https://orcid.org/0000-0003-3428-5190"
   year: 2026
   # url: "https://arxiv.org/abs/XXXX.XXXXX"

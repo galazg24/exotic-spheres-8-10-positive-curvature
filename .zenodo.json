@@ -5,11 +5,19 @@
   "creators": [
     {
       "name": "Galaz-García, Fernando",
-      "affiliation": "Department of Mathematical Sciences, Durham University"
+      "affiliation": "Department of Mathematical Sciences, Durham University",
+      "orcid": "0000-0003-3428-5190"
     }
   ],
   "license": "Apache-2.0",
-  "keywords": ["Lean 4", "Mathlib", "formal verification", "exotic spheres", "positive sectional curvature", "Riemannian geometry"],
+  "keywords": [
+    "Lean 4",
+    "Mathlib",
+    "formal verification",
+    "exotic spheres",
+    "positive sectional curvature",
+    "Riemannian geometry"
+  ],
   "related_identifiers": [],
   "language": "eng"
 }
