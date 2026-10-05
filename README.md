@@ -19,7 +19,7 @@ from [Lee], which are not formalised either.
   submersions, O'Neill's formula).
 - Toolchain: Lean `v4.33.1`, Mathlib `v4.33.1`. Both are pinned in `lean-toolchain` and
   `lake-manifest.json`.
-- Licence: Apache 2.0. Citation: see `CITATION.cff` and the Zenodo DOI (to be added at release).
+- Licence: Apache 2.0. Citation: see `CITATION.cff`.
 
 ## Main results
 
@@ -146,7 +146,7 @@ ExoticSpheres8And10/
                    manifolds with boundary (Boundary/)
   Analysis/        parametric integrals, ODEs with parameters, Haar measure on S³
 RiemannianGeometry/  Levi-Civita connection, curvature, sectional curvature, O'Neill's formula
-audit/               axiom audit
+audit/               axiom audit; sanitised cross-vendor audit reports
 scripts/             check scripts
 docs/                correspondence with [GG], formalisation targets, project dashboard
 ```
@@ -158,8 +158,8 @@ docs/                correspondence with [GG], formalisation targets, project da
 - `docs/targets.md`: the formalisation targets A1–A9, B1–B3, D1–D2, referred to by these
   labels in docstrings.
 - `docs/dashboard.html`: an interactive dashboard. It shows the 3D dependency graph of modules
-  and declarations, the dependency cones of the main theorems, module statistics, and the
-  compute history of the development. Download it and open it in a browser.
+  and declarations, the dependency cones of the main theorems, and module statistics. Download it
+  and open it in a browser.
 
 ## How this formalisation was produced
 
@@ -173,14 +173,24 @@ direction.
 Every accepted proof is checked by Lean's kernel. The trusted computing base is Lean's kernel.
 Mathlib supplies definitions and previously formalised results, all checked by the kernel. The
 only mathematical inputs not formalised in this repository are the explicit published
-hypotheses listed above. An independent cross-vendor audit of the statements will precede the
-v1.0.0 release.
+hypotheses listed above.
 
 Development and large-scale checking ran on Tláloc, a private research cluster of desktop
-workstations, allowing multiple builds and audits to run in parallel; the dashboard's Compute
-tab records this history. Reproducing the formalisation requires none of this infrastructure:
-`scripts/check.sh` runs on a single ordinary machine, and the CI workflow runs it on a standard
-GitHub runner.
+workstations, allowing multiple builds and audits to run in parallel. Reproducing the
+formalisation requires none of this infrastructure: `scripts/check.sh` runs on a single ordinary
+machine, and the CI workflow runs it on a standard GitHub runner.
+
+## Independent cross-vendor audit
+
+The formalisation was independently audited using OpenAI Codex after the
+Claude-assisted candidate had been frozen. The first audit led to revisions of
+the formalisation, after which a second independent audit of the revised
+candidate reported no remaining findings. It independently verified 785 audited
+declarations with no nonstandard axioms.
+
+The sanitised audit reports and reproducibility summaries are preserved under
+`audit/cross-vendor-v1.0.0-rc2/` and
+`audit/cross-vendor-v1.0.0-rc3/`.
 
 ## References
 
@@ -205,4 +215,4 @@ GitHub runner.
 ## Licence and citation
 
 Apache License 2.0; see `LICENSE` and `NOTICE`. If you use this formalisation, please cite [GG]
-and the Zenodo record of this repository (`CITATION.cff`).
+and this formalisation (see `CITATION.cff`).

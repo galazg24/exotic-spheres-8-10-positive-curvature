@@ -1,6 +1,21 @@
 # Changelog
 
-## Unreleased (v1.0.0-rc3 candidate)
+## 1.0.0 — 2026-10-05
+
+First scholarly release, accompanying [GG] (arXiv:2609.38126).
+
+- Completed formalisation of the new arguments in [GG]; the five cited published input categories
+  enter as explicit hypotheses.
+- Revisions following the first independent cross-vendor audit (of `v1.0.0-rc2-audit-source`),
+  made in `v1.0.0-rc3-audit-source`.
+- A second independent audit of the revised candidate reported no remaining findings.
+- Axiom audit: 785 audited declarations, standard axioms only (no nonstandard axioms).
+- The sanitised cross-vendor audit reports are included under `audit/cross-vendor-v1.0.0-rc2/` and
+  `audit/cross-vendor-v1.0.0-rc3/`.
+- Citation metadata: version `1.0.0`, release date 2026-10-05.
+- No definition, statement or proof changed from `v1.0.0-rc3-audit-source`.
+
+## v1.0.0-rc3-audit-source (2026-10-05)
 
 Repair of the smooth identification of `E/S³_⋆`, after the independent audit of
 `v1.0.0-rc2-audit-source`.
