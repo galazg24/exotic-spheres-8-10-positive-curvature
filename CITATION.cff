@@ -1,16 +1,27 @@
 cff-version: 1.2.0
-message: "If you use this formalisation, please cite it as below, together with the accompanying paper."
-title: "Positive sectional curvature on exotic spheres in dimensions 8 and 10: a Lean formalisation"
+message: "If you use this formalisation, please cite it together with the accompanying paper."
+title: "Positive sectional curvature on the exotic 8-sphere and order-three homotopy 10-spheres: a Lean formalisation"
 type: software
 version: "1.0.0"
-date-released: "2026-10-05"
+date-released: "2026-10-07"
 license: Apache-2.0
 repository-code: "https://github.com/galazg24/exotic-spheres-8-10-positive-curvature"
+doi: "10.5281/zenodo.23205660"
+
 authors:
   - family-names: "Galaz-García"
     given-names: "Fernando"
     affiliation: "Durham University"
     orcid: "https://orcid.org/0000-0003-3428-5190"
+
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.23205660"
+    description: "Zenodo DOI for version 1.0.0."
+  - type: doi
+    value: "10.5281/zenodo.23205659"
+    description: "Zenodo concept DOI for all versions."
+
 keywords:
   - Lean 4
   - Mathlib
@@ -18,12 +29,13 @@ keywords:
   - exotic spheres
   - positive sectional curvature
   - Riemannian geometry
-preferred-citation:
-  type: article
-  title: "Positive sectional curvature on the exotic 8-sphere and order-three homotopy 10-spheres"
-  authors:
-    - family-names: "Galaz-García"
-      given-names: "Fernando"
-      orcid: "https://orcid.org/0000-0003-3428-5190"
-  year: 2026
-  url: "https://arxiv.org/abs/2609.38126"
+
+references:
+  - type: article
+    title: "Positive sectional curvature on the exotic 8-sphere and order-three homotopy 10-spheres"
+    authors:
+      - family-names: "Galaz-García"
+        given-names: "Fernando"
+        orcid: "https://orcid.org/0000-0003-3428-5190"
+    year: 2026
+    url: "https://arxiv.org/abs/2609.38126"
