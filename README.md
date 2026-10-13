@@ -1,4 +1,4 @@
-# Positive sectional curvature on exotic spheres in dimensions 8 and 10: a Lean formalisation
+# Positive sectional curvature on the exotic 8-sphere and order-three homotopy 10-spheres: a Lean formalisationn
 
 This repository contains a Lean 4 formalisation of the arguments in
 
